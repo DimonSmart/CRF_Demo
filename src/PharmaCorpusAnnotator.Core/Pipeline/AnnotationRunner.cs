@@ -91,7 +91,9 @@ public sealed class AnnotationRunner
         _logger.LogInformation("Resume:         {Resume}", options.Resume);
         _logger.LogInformation("Dry run:        {DryRun}", options.DryRun);
 
-        await foreach (var row in _csvReader.ReadAsync(csvOpts, cancellationToken))
+        var readOpts = csvOpts with { MaxRows = null };
+
+        await foreach (var row in _csvReader.ReadAsync(readOpts, cancellationToken))
         {
             var key = $"{row.SourceKey}:{row.RowNumber}";
 
@@ -101,6 +103,9 @@ public sealed class AnnotationRunner
                 _logger.LogDebug("Skipping already processed row {Row}", row.RowNumber);
                 continue;
             }
+
+            if (csvOpts.MaxRows.HasValue && processed >= csvOpts.MaxRows.Value)
+                break;
 
             var tokens = _tokenizer.Tokenize(row.Text);
             processed++;
