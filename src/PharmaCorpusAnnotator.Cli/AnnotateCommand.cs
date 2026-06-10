@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using PharmaCorpusAnnotator.Core.Csv;
 using PharmaCorpusAnnotator.Core.Llm;
 using PharmaCorpusAnnotator.Core.Models;
@@ -66,11 +67,8 @@ public static class AnnotateCommand
             b.SetMinimumLevel(logLevel)
                 .AddFilter("Microsoft.Agents.AI", LogLevel.Warning)
                 .AddFilter("Microsoft.Extensions.AI", LogLevel.Warning)
-                .AddSimpleConsole(o =>
-                {
-                    o.SingleLine = true;
-                    o.TimestampFormat = "HH:mm:ss ";
-                }));
+                .AddConsole(o => o.FormatterName = TimestampConsoleFormatter.FormatterName)
+                .AddConsoleFormatter<TimestampConsoleFormatter, ConsoleFormatterOptions>());
 
         var csvOpts = new CsvSourceOptions(
             InputPath: input,

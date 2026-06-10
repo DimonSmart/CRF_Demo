@@ -12,6 +12,7 @@ public sealed class AnnotationRunner
     private readonly CsvPharmaSourceReader _csvReader;
     private readonly PharmaTokenizer _tokenizer;
     private readonly IPharmaAnnotationModelClient _modelClient;
+    private readonly ILoggerFactory _loggerFactory;
     private readonly ILogger<AnnotationRunner> _logger;
 
     public AnnotationRunner(
@@ -23,6 +24,7 @@ public sealed class AnnotationRunner
         _csvReader = csvReader;
         _tokenizer = tokenizer;
         _modelClient = modelClient;
+        _loggerFactory = loggerFactory;
         _logger = loggerFactory.CreateLogger<AnnotationRunner>();
     }
 
@@ -58,7 +60,7 @@ public sealed class AnnotationRunner
             }
         }
 
-        using var corpusWriter = new PharmaCorpusWriter(options.OutputPath, existingDoc, CreateLoggerFactory());
+        using var corpusWriter = new PharmaCorpusWriter(options.OutputPath, existingDoc, _loggerFactory);
         using var failedWriter = new FailedRecordWriter(options.FailedOutputPath);
 
         var sourceHeader = new PharmaCorpusSourceHeader(
@@ -178,6 +180,4 @@ public sealed class AnnotationRunner
             sw.Elapsed, processed, success, failed, skipped);
     }
 
-    private static ILoggerFactory CreateLoggerFactory() =>
-        LoggerFactory.Create(b => b.AddConsole());
 }
