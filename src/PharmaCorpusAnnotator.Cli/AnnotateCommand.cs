@@ -56,9 +56,17 @@ public static class AnnotateCommand
         bool resume = !parsed.ContainsKey("--no-resume");
         bool verbose = parsed.ContainsKey("--verbose");
         bool dryRun = parsed.ContainsKey("--dry-run");
+        var schema = parsed.GetValueOrDefault("--schema", "simple")!;
+        if (!schema.Equals("simple", StringComparison.OrdinalIgnoreCase) &&
+            !schema.Equals("full", StringComparison.OrdinalIgnoreCase))
+        {
+            Console.Error.WriteLine("Error: --schema must be 'simple' or 'full'.");
+            return 1;
+        }
 
         var failedOutput = parsed.GetValueOrDefault("--failed-output")
             ?? DeriveFailedPath(output);
+        var attemptsOutput = parsed.GetValueOrDefault("--attempts-output");
 
         var logLevel = verbose ? LogLevel.Debug : LogLevel.Information;
         using var loggerFactory = LoggerFactory.Create(b =>
@@ -78,13 +86,14 @@ public static class AnnotateCommand
             CsvOptions: csvOpts,
             OutputPath: output,
             FailedOutputPath: failedOutput,
+            Schema: schema,
             Resume: resume,
             DryRun: dryRun,
             Verbose: verbose);
 
         if (!dryRun)
         {
-            var llmOpts = LlmOptionsFactory.FromEnvironment();
+            var llmOpts = LlmOptionsFactory.FromEnvironment(attemptsOutput);
             loggerFactory.CreateLogger("Config").LogInformation(
                 "LLM: {Model} @ {Endpoint}", llmOpts.ModelId, llmOpts.BaseEndpoint);
 

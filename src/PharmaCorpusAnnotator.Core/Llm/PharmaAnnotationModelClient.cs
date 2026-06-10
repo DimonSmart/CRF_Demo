@@ -3,6 +3,7 @@ using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Logging;
 using PharmaCorpusAnnotator.Core.Interfaces;
+using PharmaCorpusAnnotator.Core.Mapping;
 using PharmaCorpusAnnotator.Core.Models;
 using PharmaCorpusAnnotator.Core.Validation;
 
@@ -12,21 +13,30 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
 {
     private readonly ChatClientAgent _agent;
     private readonly PharmaAnnotationPromptBuilder _promptBuilder;
+    private readonly PharmaSpanAnnotationValidator _spanValidator;
+    private readonly SpanAnnotationMapper _spanMapper;
     private readonly PharmaAnnotationValidator _validator;
     private readonly int _retryCount;
+    private readonly string? _attemptsOutputPath;
     private readonly ILogger<PharmaAnnotationModelClient> _logger;
 
     public PharmaAnnotationModelClient(
         ChatClientAgent agent,
         PharmaAnnotationPromptBuilder promptBuilder,
+        PharmaSpanAnnotationValidator spanValidator,
+        SpanAnnotationMapper spanMapper,
         PharmaAnnotationValidator validator,
         int retryCount,
+        string? attemptsOutputPath,
         ILoggerFactory loggerFactory)
     {
         _agent = agent;
         _promptBuilder = promptBuilder;
+        _spanValidator = spanValidator;
+        _spanMapper = spanMapper;
         _validator = validator;
         _retryCount = retryCount;
+        _attemptsOutputPath = attemptsOutputPath;
         _logger = loggerFactory.CreateLogger<PharmaAnnotationModelClient>();
     }
 
@@ -40,35 +50,55 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
             new(ChatRole.User, _promptBuilder.BuildUserPrompt(request)),
         };
 
-        string lastError = "";
+        IReadOnlyList<string> lastErrors = [];
 
         for (int attempt = 0; attempt < _retryCount; attempt++)
         {
             if (attempt > 0)
             {
                 messages.Add(new ChatMessage(ChatRole.User,
-                    $"The previous response was invalid for PharmaAnnotationResponse.\n" +
-                    $"Previous error: {lastError}\n" +
-                    $"Return exactly one structured response that matches the requested schema and fixes the contract error."));
+                    "Previous response was invalid:\n" +
+                    string.Join("\n", lastErrors.Select(e => $"- {e}")) +
+                    "\n\nReturn corrected span JSON only.\n" +
+                    "Do not return tokens.\n" +
+                    "Do not return BIO labels."));
             }
 
             try
             {
-                var agentResponse = await _agent.RunAsync<PharmaAnnotationResponse>(
+                var agentResponse = await _agent.RunAsync<PharmaSpanAnnotationResponse>(
                     messages,
                     session: null,
                     serializerOptions: JsonSerializerOptions.Web,
                     options: null,
                     cancellationToken);
-                var response = agentResponse.Result;
+                var spanResponse = agentResponse.Result;
+                var spanValidation = _spanValidator.Validate(request, spanResponse);
+
+                if (!spanValidation.IsValid)
+                {
+                    lastErrors = spanValidation.Errors;
+                    await WriteAttemptAsync(request, attempt + 1, false, lastErrors, null, cancellationToken);
+
+                    _logger.LogWarning("Attempt {Attempt}/{Max} span validation failed for {Key}:{Row}: {Error}",
+                        attempt + 1, _retryCount, request.SourceKey, request.RowNumber, string.Join("; ", lastErrors));
+                    continue;
+                }
+
+                var response = _spanMapper.Map(request, spanResponse);
                 var validation = _validator.Validate(request, response);
 
                 if (validation.IsValid)
+                {
+                    await WriteAttemptAsync(request, attempt + 1, true, [], null, cancellationToken);
                     return response;
+                }
 
-                lastError = string.Join("; ", validation.Errors);
-                _logger.LogWarning("Attempt {Attempt}/{Max} validation failed for {Key}:{Row}: {Error}",
-                    attempt + 1, _retryCount, request.SourceKey, request.RowNumber, lastError);
+                lastErrors = validation.Errors;
+                await WriteAttemptAsync(request, attempt + 1, false, lastErrors, null, cancellationToken);
+
+                _logger.LogWarning("Attempt {Attempt}/{Max} final validation failed for {Key}:{Row}: {Error}",
+                    attempt + 1, _retryCount, request.SourceKey, request.RowNumber, string.Join("; ", lastErrors));
             }
             catch (OperationCanceledException)
             {
@@ -76,7 +106,8 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
             }
             catch (Exception ex)
             {
-                lastError = ex.Message;
+                lastErrors = [ex.Message];
+                await WriteAttemptAsync(request, attempt + 1, false, [], ex.Message, cancellationToken);
                 _logger.LogWarning(ex, "Attempt {Attempt}/{Max} call failed for {Key}:{Row}",
                     attempt + 1, _retryCount, request.SourceKey, request.RowNumber);
             }
@@ -86,7 +117,35 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
             request.SourceKey,
             request.RowNumber,
             request.Text,
-            lastError,
+            string.Join("; ", lastErrors),
             _retryCount);
+    }
+
+    private async Task WriteAttemptAsync(
+        PharmaAnnotationModelRequest request,
+        int attempt,
+        bool success,
+        IReadOnlyList<string> validationErrors,
+        string? exception,
+        CancellationToken cancellationToken)
+    {
+        if (string.IsNullOrWhiteSpace(_attemptsOutputPath))
+            return;
+
+        var directory = Path.GetDirectoryName(_attemptsOutputPath);
+        if (!string.IsNullOrWhiteSpace(directory))
+            Directory.CreateDirectory(directory);
+
+        var line = JsonSerializer.Serialize(new
+        {
+            request.SourceKey,
+            request.RowNumber,
+            Attempt = attempt,
+            Success = success,
+            ValidationErrors = validationErrors,
+            Exception = exception,
+        }, JsonSerializerOptions.Web);
+
+        await File.AppendAllTextAsync(_attemptsOutputPath, line + Environment.NewLine, cancellationToken);
     }
 }

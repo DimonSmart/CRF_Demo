@@ -86,6 +86,7 @@ public sealed class AnnotationRunner
         _logger.LogInformation("Text column:    {Col}", csvOpts.TextColumn);
         _logger.LogInformation("Context cols:   {Cols}", string.Join(", ", csvOpts.ContextColumns));
         _logger.LogInformation("Max rows:       {Max}", csvOpts.MaxRows?.ToString() ?? "all");
+        _logger.LogInformation("Schema:         {Schema}", options.Schema);
         _logger.LogInformation("Resume:         {Resume}", options.Resume);
         _logger.LogInformation("Dry run:        {DryRun}", options.DryRun);
 
@@ -127,7 +128,7 @@ public sealed class AnnotationRunner
                 Text: row.Text,
                 Tokens: tokens,
                 Context: row.Context,
-                AllowedLabels: LabelSchema.AllLabels);
+                AllowedLabels: LabelSchema.GetLabels(options.Schema));
 
             try
             {

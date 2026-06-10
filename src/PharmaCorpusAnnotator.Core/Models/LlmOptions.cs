@@ -8,4 +8,5 @@ public sealed record LlmOptions(
     string? Username,
     string? Password,
     int RetryCount,
-    TimeSpan Timeout);
+    TimeSpan Timeout,
+    string? AttemptsOutputPath);

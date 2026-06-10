@@ -4,7 +4,7 @@ namespace PharmaCorpusAnnotator.Cli;
 
 public static class LlmOptionsFactory
 {
-    public static LlmOptions FromEnvironment()
+    public static LlmOptions FromEnvironment(string? attemptsOutputPath = null)
     {
         var model = Env("LLM_MODEL", "qwen3:14b")!;
         var baseUrlRaw = Env("LLM_BASE_URL", "http://localhost:11434")!;
@@ -25,7 +25,8 @@ public static class LlmOptionsFactory
             Username: username,
             Password: password,
             RetryCount: retryCount,
-            Timeout: TimeSpan.FromMinutes(timeoutMin));
+            Timeout: TimeSpan.FromMinutes(timeoutMin),
+            AttemptsOutputPath: attemptsOutputPath);
     }
 
     private static string? Env(string name, string? fallback) =>

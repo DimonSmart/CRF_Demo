@@ -2,7 +2,7 @@
 
 Creates a token-level annotated corpus from Spanish pharmaceutical CSV files.
 
-It uses an OpenAI-compatible LLM endpoint (for example Ollama) through Microsoft Agentic Framework typed responses. The LLM receives pre-tokenized input and returns typed `PharmaAnnotationResponse` objects via `ChatClientAgent.RunAsync<TResponse>()` — no manual JSON parsing of model text in the LLM path.
+It uses an OpenAI-compatible LLM endpoint (for example Ollama) through Microsoft Agentic Framework typed responses. The LLM receives pre-tokenized input and returns typed span annotations; the app converts those spans into BIO labels and the final `PharmaAnnotationResponse` used by the corpus pipeline.
 
 The output is a source-blocked JSON corpus:
 - source metadata is written once per source block
@@ -119,6 +119,8 @@ dotnet run --project src/PharmaCorpusAnnotator.Cli -- annotate `
 | `--skip` | `0` | Rows to skip before processing |
 | `--resume` / `--no-resume` | resume on | Skip rows already in output |
 | `--failed-output` | `*.failed.jsonl` | Path for failed records |
+| `--attempts-output` | — | Path for LLM attempt diagnostics JSONL |
+| `--schema` | `simple` | Label schema: `simple` or `full` |
 | `--verbose` | off | Verbose diagnostics |
 | `--dry-run` | off | Tokenize without LLM calls |
 

@@ -3,6 +3,7 @@ using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Logging;
 using OpenAI;
 using PharmaCorpusAnnotator.Core.Interfaces;
+using PharmaCorpusAnnotator.Core.Mapping;
 using PharmaCorpusAnnotator.Core.Models;
 using PharmaCorpusAnnotator.Core.Validation;
 using System.ClientModel;
@@ -25,13 +26,18 @@ public static class PharmaModelClientFactory
         };
         var agent = new ChatClientAgent(chatClient, agentOptions, loggerFactory);
         var promptBuilder = new PharmaAnnotationPromptBuilder();
+        var spanValidator = new PharmaSpanAnnotationValidator();
+        var spanMapper = new SpanAnnotationMapper();
         var validator = new PharmaAnnotationValidator();
 
         return new PharmaAnnotationModelClient(
             agent,
             promptBuilder,
+            spanValidator,
+            spanMapper,
             validator,
             options.RetryCount,
+            options.AttemptsOutputPath,
             loggerFactory);
     }
 
