@@ -15,13 +15,7 @@ public sealed class PharmaAnnotationPromptBuilder
     {
         var payload = new
         {
-            task = "annotate_pharma_product_line",
-            language = request.Language,
-            sourceKey = request.SourceKey,
-            rowNumber = request.RowNumber,
-            text = request.Text,
-            tokens = request.Tokens.Select(t => new { index = t.Index, text = t.Text }),
-            context = request.Context,
+            tokens = request.Tokens.Select(t => t.Text),
             allowedLabels = request.AllowedLabels,
         };
         return JsonSerializer.Serialize(payload, SerOpts);

@@ -2,42 +2,28 @@ namespace PharmaCorpusAnnotator.Core.Models;
 
 public static class LabelSchema
 {
-    public static readonly IReadOnlyList<string> SimpleEntityTypes =
+    public const string ActiveIngredient = "AI";
+    public const string Strength = "ST";
+    public const string DoseForm = "DF";
+    public const string Route = "RO";
+    public const string PackageVolume = "PV";
+    public const string PackageQuantity = "PQ";
+    public const string PackageUnit = "PU";
+    public const string RegulatoryMarker = "RM";
+
+    public static readonly IReadOnlyList<string> EntityTypes =
     [
-        "ACTIVE_INGREDIENT",
-        "STRENGTH",
-        "DOSE_FORM",
-        "ROUTE",
-        "PACKAGE_QUANTITY",
-        "PACKAGE_UNIT",
-        "PACKAGE_VOLUME",
-        "REGULATORY_MARKER",
+        ActiveIngredient,
+        Strength,
+        DoseForm,
+        Route,
+        PackageVolume,
+        PackageQuantity,
+        PackageUnit,
+        RegulatoryMarker,
     ];
 
-    public static readonly IReadOnlyList<string> AllLabels = BuildBioLabels(SimpleEntityTypes);
-
-    public static readonly IReadOnlyList<string> FullLabels =
-    [
-        "O",
-        "B-PRODUCT_NAME", "I-PRODUCT_NAME",
-        "B-BRAND", "I-BRAND",
-        "B-GENERIC_NAME", "I-GENERIC_NAME",
-        "B-MANUFACTURER", "I-MANUFACTURER",
-        "B-ACTIVE_INGREDIENT", "I-ACTIVE_INGREDIENT",
-        "B-STRENGTH", "I-STRENGTH",
-        "B-DOSE_FORM", "I-DOSE_FORM",
-        "B-ROUTE", "I-ROUTE",
-        "B-PACKAGE_QUANTITY", "I-PACKAGE_QUANTITY",
-        "B-PACKAGE_UNIT", "I-PACKAGE_UNIT",
-        "B-PACKAGE_VOLUME", "I-PACKAGE_VOLUME",
-        "B-PRICE", "I-PRICE",
-        "B-REGULATORY_MARKER", "I-REGULATORY_MARKER",
-    ];
-
-    public static IReadOnlyList<string> GetLabels(string schema) =>
-        schema.Equals("full", StringComparison.OrdinalIgnoreCase)
-            ? FullLabels
-            : AllLabels;
+    public static readonly IReadOnlyList<string> AllLabels = BuildBioLabels(EntityTypes);
 
     private static IReadOnlyList<string> BuildBioLabels(IReadOnlyList<string> entityTypes)
     {

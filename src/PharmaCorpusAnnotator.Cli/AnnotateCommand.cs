@@ -56,13 +56,6 @@ public static class AnnotateCommand
         bool resume = !parsed.ContainsKey("--no-resume");
         bool verbose = parsed.ContainsKey("--verbose");
         bool dryRun = parsed.ContainsKey("--dry-run");
-        var schema = parsed.GetValueOrDefault("--schema", "simple")!;
-        if (!schema.Equals("simple", StringComparison.OrdinalIgnoreCase) &&
-            !schema.Equals("full", StringComparison.OrdinalIgnoreCase))
-        {
-            Console.Error.WriteLine("Error: --schema must be 'simple' or 'full'.");
-            return 1;
-        }
 
         var failedOutput = parsed.GetValueOrDefault("--failed-output")
             ?? DeriveFailedPath(output);
@@ -70,7 +63,14 @@ public static class AnnotateCommand
 
         var logLevel = verbose ? LogLevel.Debug : LogLevel.Information;
         using var loggerFactory = LoggerFactory.Create(b =>
-            b.AddConsole().SetMinimumLevel(logLevel));
+            b.SetMinimumLevel(logLevel)
+                .AddFilter("Microsoft.Agents.AI", LogLevel.Warning)
+                .AddFilter("Microsoft.Extensions.AI", LogLevel.Warning)
+                .AddSimpleConsole(o =>
+                {
+                    o.SingleLine = true;
+                    o.TimestampFormat = "HH:mm:ss ";
+                }));
 
         var csvOpts = new CsvSourceOptions(
             InputPath: input,
@@ -86,7 +86,6 @@ public static class AnnotateCommand
             CsvOptions: csvOpts,
             OutputPath: output,
             FailedOutputPath: failedOutput,
-            Schema: schema,
             Resume: resume,
             DryRun: dryRun,
             Verbose: verbose);

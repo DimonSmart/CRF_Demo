@@ -24,7 +24,6 @@ public static class CliHelp
               --no-resume               Disable resume
               --failed-output <path>    Path to failed records JSONL
               --attempts-output <path>  Path to LLM attempt diagnostics JSONL
-              --schema <simple|full>    Label schema (default: simple)
               --verbose                 Verbose diagnostics
               --dry-run                 Tokenize without calling LLM
 

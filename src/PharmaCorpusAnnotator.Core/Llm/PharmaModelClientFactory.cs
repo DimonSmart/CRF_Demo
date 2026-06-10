@@ -26,15 +26,15 @@ public static class PharmaModelClientFactory
         };
         var agent = new ChatClientAgent(chatClient, agentOptions, loggerFactory);
         var promptBuilder = new PharmaAnnotationPromptBuilder();
-        var spanValidator = new PharmaSpanAnnotationValidator();
-        var spanMapper = new SpanAnnotationMapper();
+        var labelValidator = new PharmaLabelAnnotationValidator();
+        var labelMapper = new LabelAnnotationMapper();
         var validator = new PharmaAnnotationValidator();
 
         return new PharmaAnnotationModelClient(
             agent,
             promptBuilder,
-            spanValidator,
-            spanMapper,
+            labelValidator,
+            labelMapper,
             validator,
             options.RetryCount,
             options.AttemptsOutputPath,

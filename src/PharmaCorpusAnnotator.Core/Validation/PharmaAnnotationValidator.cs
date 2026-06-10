@@ -4,12 +4,6 @@ namespace PharmaCorpusAnnotator.Core.Validation;
 
 public sealed class PharmaAnnotationValidator
 {
-    private static readonly HashSet<string> PriceContextColumns = new(StringComparer.OrdinalIgnoreCase)
-    {
-        "Precio de venta al público con IVA",
-        "Precio de referencia",
-    };
-
     public AgenticModelValidationResult Validate(
         PharmaAnnotationModelRequest request,
         PharmaAnnotationResponse? response)
@@ -54,7 +48,6 @@ public sealed class PharmaAnnotationValidator
             if (rt.Confidence.HasValue && (rt.Confidence < 0 || rt.Confidence > 1))
                 errors.Add($"tokens[{i}].confidence {rt.Confidence} is out of range [0,1].");
 
-            // BIO validation
             if (rt.Label.StartsWith("I-", StringComparison.Ordinal))
             {
                 string iType = rt.Label[2..];
@@ -72,18 +65,9 @@ public sealed class PharmaAnnotationValidator
                 }
             }
 
-            // Cross-entity BIO violation: I-STRENGTH after B-PRODUCT_NAME
-            if (rt.Label == "I-STRENGTH" && previousLabel == "B-PRODUCT_NAME")
-                errors.Add($"tokens[{i}] uses I-STRENGTH after B-PRODUCT_NAME.");
-
-            // I-DOSE_FORM after B-STRENGTH is invalid
-            if (rt.Label == "I-DOSE_FORM" && previousLabel == "B-STRENGTH")
-                errors.Add($"tokens[{i}] uses I-DOSE_FORM after B-STRENGTH.");
-
             previousLabel = rt.Label;
         }
 
-        // Normalized validation
         if (response.Normalized is null)
         {
             errors.Add("response.normalized is null.");
@@ -92,23 +76,8 @@ public sealed class PharmaAnnotationValidator
         {
             if (response.Normalized.ActiveIngredients is null)
                 errors.Add("response.normalized.activeIngredients is null.");
-
-            // Price hallucination check
-            if (response.Normalized.Price.HasValue)
-            {
-                bool priceInText = response.Tokens
-                    .Any(t => t.Label == "B-PRICE" || t.Label == "I-PRICE");
-                bool priceInContext = request.Context.Keys
-                    .Any(k => PriceContextColumns.Contains(k) &&
-                              !string.IsNullOrWhiteSpace(request.Context[k]));
-
-                if (!priceInText && !priceInContext)
-                    errors.Add(
-                        "normalized.price is set, but no price is present in source text or context.");
-            }
         }
 
-        // Quality validation
         if (response.Quality is null)
         {
             errors.Add("response.quality is null.");
@@ -123,41 +92,6 @@ public sealed class PharmaAnnotationValidator
             {
                 errors.Add(
                     $"response.quality.confidence {response.Quality.Confidence} is out of range [0,1].");
-            }
-        }
-
-        // Active ingredient from context warning check
-        if (response.Normalized?.ActiveIngredients?.Count > 0 && response.Tokens is not null)
-        {
-            bool hasActiveIngredientToken = response.Tokens
-                .Any(t => t.Label == "B-ACTIVE_INGREDIENT" || t.Label == "I-ACTIVE_INGREDIENT");
-
-            if (!hasActiveIngredientToken)
-            {
-                const string expectedWarning = "Active ingredient was taken from context, not from product text.";
-                if (response.Quality?.Warnings?.All(w =>
-                        !w.Contains("active ingredient", StringComparison.OrdinalIgnoreCase)) == true)
-                {
-                    errors.Add(
-                        $"Active ingredient is set but no token is labeled ACTIVE_INGREDIENT and warning is missing: '{expectedWarning}'");
-                }
-            }
-        }
-
-        // Manufacturer from context warning check
-        if (response.Normalized?.Manufacturer is not null && response.Tokens is not null)
-        {
-            bool hasManufacturerToken = response.Tokens
-                .Any(t => t.Label == "B-MANUFACTURER" || t.Label == "I-MANUFACTURER");
-
-            if (!hasManufacturerToken)
-            {
-                if (response.Quality?.Warnings?.All(w =>
-                        !w.Contains("manufacturer", StringComparison.OrdinalIgnoreCase)) == true)
-                {
-                    errors.Add(
-                        "Manufacturer is set but no token is labeled MANUFACTURER and warning is missing: 'Manufacturer was taken from context, not from product text.'");
-                }
             }
         }
 

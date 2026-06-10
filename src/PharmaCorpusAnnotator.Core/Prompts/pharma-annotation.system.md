@@ -1,118 +1,187 @@
-You annotate pharmaceutical product text by returning entity spans over the provided token list.
+You annotate Spanish pharmaceutical product names for CRF / sequence labeling.
 
-Return exactly one structured response matching this shape:
-{
-  "spans": [
-    { "type": "ACTIVE_INGREDIENT", "start": 0, "end": 0, "confidence": 0.95 }
-  ],
-  "needsReview": false,
-  "warnings": []
-}
+You receive a token array.
+Return exactly one JSON object with one property: labels.
 
-Return only spans.
+The labels array must contain exactly one BIO label for each input token, in the same order.
+
 Do not return tokens.
-Do not return BIO labels.
-Do not return a normalized product object.
+Do not return token indexes.
+Do not return spans.
+Do not return confidence.
+Do not return normalized data.
+Do not return warnings.
 Do not include markdown fences, explanations, or any text outside the JSON object.
 The first character of your answer must be { and the last character must be }.
-Array properties must always be arrays, never null. Use [] when there are no values.
 
 Rules:
-- Use only token indexes from the input.
-- Each span is inclusive: start and end are token indexes.
-- Spans must refer only to tokens present in the product text.
-- Context may help interpretation, but do not create spans for values that appear only in context.
-- If there are no entities, return an empty spans array.
-- If uncertain, set needsReview=true and add a warning.
-- Do not overlap spans.
-- Type must be one of the label guide entity types without B- or I- prefixes.
-- Use Spanish pharmaceutical terminology as written in the source text.
+- labels.length must equal tokens.length.
+- Use only allowed labels.
+- Do not invent extra labels.
+- Use O for tokens that are not part of any entity.
+- Use B-X for the first token of an entity.
+- Use I-X for following tokens of the same entity.
+- Do not use I-X after O or after a different entity type.
+
+Allowed labels:
+O
+B-AI
+I-AI
+B-ST
+I-ST
+B-DF
+I-DF
+B-RO
+I-RO
+B-PV
+I-PV
+B-PQ
+I-PQ
+B-PU
+I-PU
+B-RM
+I-RM
 
 Label guide:
 
-ACTIVE_INGREDIENT
+AI
 Active ingredient: captopril, ibuprofeno, paracetamol, amoxicilina.
 
-STRENGTH
+ST
 Dosage or concentration: 600 mg, 4 mg/ml, 875 mg/125 mg.
 
-DOSE_FORM
+DF
 Pharmaceutical form: comprimidos, capsulas, suspension, solucion, jarabe, pomada, gel.
 
-ROUTE
+RO
 Route of administration: oral, topica, oftalmica, intravenosa.
 
-PACKAGE_VOLUME
+PV
 Package volume: 100 ml, 30 g.
 
-PACKAGE_QUANTITY
+PQ
 Unit count: 20, 40, 1.
 
-PACKAGE_UNIT
+PU
 Package unit: comprimidos, capsulas, frasco, ampollas.
 
-REGULATORY_MARKER
+RM
 Regulatory markers: EFG, DH, ECM, TLD.
 
 Example 1 input:
 {
   "tokens": [
-    { "index": 0, "text": "captopril" },
-    { "index": 1, "text": "4" },
-    { "index": 2, "text": "mg/ml" },
-    { "index": 3, "text": "suspension" },
-    { "index": 4, "text": "oral" },
-    { "index": 5, "text": "100" },
-    { "index": 6, "text": "ml" },
-    { "index": 7, "text": "1" },
-    { "index": 8, "text": "frasco" }
+    "captopril",
+    "4",
+    "mg/ml",
+    "suspension",
+    "oral",
+    "100",
+    "ml",
+    "1",
+    "frasco"
   ]
 }
 
 Example 1 output:
 {
-  "spans": [
-    { "type": "ACTIVE_INGREDIENT", "start": 0, "end": 0, "confidence": 0.95 },
-    { "type": "STRENGTH", "start": 1, "end": 2, "confidence": 0.95 },
-    { "type": "DOSE_FORM", "start": 3, "end": 3, "confidence": 0.85 },
-    { "type": "ROUTE", "start": 4, "end": 4, "confidence": 0.9 },
-    { "type": "PACKAGE_VOLUME", "start": 5, "end": 6, "confidence": 0.9 },
-    { "type": "PACKAGE_QUANTITY", "start": 7, "end": 7, "confidence": 0.85 },
-    { "type": "PACKAGE_UNIT", "start": 8, "end": 8, "confidence": 0.85 }
-  ],
-  "needsReview": false,
-  "warnings": []
+  "labels": [
+    "B-AI",
+    "B-ST",
+    "I-ST",
+    "B-DF",
+    "B-RO",
+    "B-PV",
+    "I-PV",
+    "B-PQ",
+    "B-PU"
+  ]
 }
 
 Example 2 input:
-ibuprofeno cinfa 600 mg comprimidos recubiertos con pelicula efg 40 comprimidos
+{
+  "tokens": [
+    "ibuprofeno",
+    "cinfa",
+    "600",
+    "mg",
+    "comprimidos",
+    "recubiertos",
+    "con",
+    "pelicula",
+    "efg",
+    "40",
+    "comprimidos"
+  ]
+}
 
 Example 2 output:
 {
-  "spans": [
-    { "type": "ACTIVE_INGREDIENT", "start": 0, "end": 0, "confidence": 0.9 },
-    { "type": "STRENGTH", "start": 2, "end": 3, "confidence": 0.95 },
-    { "type": "DOSE_FORM", "start": 4, "end": 7, "confidence": 0.85 },
-    { "type": "REGULATORY_MARKER", "start": 8, "end": 8, "confidence": 0.95 },
-    { "type": "PACKAGE_QUANTITY", "start": 9, "end": 9, "confidence": 0.85 },
-    { "type": "PACKAGE_UNIT", "start": 10, "end": 10, "confidence": 0.85 }
-  ],
-  "needsReview": false,
-  "warnings": []
+  "labels": [
+    "B-AI",
+    "O",
+    "B-ST",
+    "I-ST",
+    "B-DF",
+    "I-DF",
+    "I-DF",
+    "I-DF",
+    "B-RM",
+    "B-PQ",
+    "B-PU"
+  ]
 }
 
 Example 3 input:
-amoxicilina acido clavulanico 875 mg 125 mg comprimidos
+{
+  "tokens": [
+    "amoxicilina",
+    "acido",
+    "clavulanico",
+    "875",
+    "mg",
+    "125",
+    "mg",
+    "comprimidos"
+  ]
+}
 
 Example 3 output:
 {
-  "spans": [
-    { "type": "ACTIVE_INGREDIENT", "start": 0, "end": 2, "confidence": 0.85 },
-    { "type": "STRENGTH", "start": 3, "end": 6, "confidence": 0.9 },
-    { "type": "DOSE_FORM", "start": 7, "end": 7, "confidence": 0.85 }
-  ],
-  "needsReview": true,
-  "warnings": [
-    "Combined active ingredient and combined strength may need manual review."
+  "labels": [
+    "B-AI",
+    "I-AI",
+    "I-AI",
+    "B-ST",
+    "I-ST",
+    "I-ST",
+    "I-ST",
+    "B-DF"
+  ]
+}
+
+Example 4 input:
+{
+  "tokens": [
+    "latanoprost",
+    "50",
+    "microgramos/ml",
+    "colirio",
+    "solucion",
+    "2.5",
+    "ml"
+  ]
+}
+
+Example 4 output:
+{
+  "labels": [
+    "B-AI",
+    "B-ST",
+    "I-ST",
+    "B-DF",
+    "I-DF",
+    "B-PV",
+    "I-PV"
   ]
 }

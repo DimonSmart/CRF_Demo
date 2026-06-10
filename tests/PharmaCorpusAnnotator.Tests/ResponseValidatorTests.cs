@@ -124,32 +124,10 @@ public class ResponseValidatorTests
     }
 
     [Fact]
-    public void PriceHallucination_WhenNoPriceInTextOrContext_IsInvalid()
-    {
-        var req = MakeRequest(context: new Dictionary<string, string>());
-        var res = MakeResponse(price: 2.95m);
-        var result = _sut.Validate(req, res);
-        result.IsValid.Should().BeFalse();
-        result.Errors.Should().Contain(e => e.Contains("price"));
-    }
-
-    [Fact]
-    public void Price_AllowedWhenContextHasPrecioVenta()
-    {
-        var ctx = new Dictionary<string, string>
-        {
-            ["Precio de venta al público con IVA"] = "2,95"
-        };
-        var req = MakeRequest(context: ctx);
-        var res = MakeResponse(price: 2.95m);
-        _sut.Validate(req, res).IsValid.Should().BeTrue();
-    }
-
-    [Fact]
     public void ValidResponse_PassesAllChecks()
     {
         var req = MakeRequest(3);
-        var res = MakeResponse(3, ["B-ACTIVE_INGREDIENT", "B-STRENGTH", "O"]);
+        var res = MakeResponse(3, ["B-AI", "B-ST", "O"]);
         _sut.Validate(req, res).IsValid.Should().BeTrue();
     }
 }

@@ -2,7 +2,7 @@
 
 Creates a token-level annotated corpus from Spanish pharmaceutical CSV files.
 
-It uses an OpenAI-compatible LLM endpoint (for example Ollama) through Microsoft Agentic Framework typed responses. The LLM receives pre-tokenized input and returns typed span annotations; the app converts those spans into BIO labels and the final `PharmaAnnotationResponse` used by the corpus pipeline.
+It uses an OpenAI-compatible LLM endpoint (for example Ollama) through Microsoft Agentic Framework typed responses. The LLM receives pre-tokenized input and returns a BIO label array; the app validates the labels and builds the final `PharmaAnnotationResponse` used by the corpus pipeline.
 
 The output is a source-blocked JSON corpus:
 - source metadata is written once per source block
@@ -26,7 +26,7 @@ Prepares a test corpus for CRF / sequence labeling on pharmaceutical product nam
 {
   "schemaVersion": "1.0",
   "createdAt": "2026-06-10T12:00:00Z",
-  "annotationSchema": { "language": "es", "labels": ["O", "B-PRODUCT_NAME", ...] },
+  "annotationSchema": { "language": "es", "labels": ["O", "B-AI", "I-AI", ...] },
   "sources": [
     {
       "source": {
@@ -120,7 +120,6 @@ dotnet run --project src/PharmaCorpusAnnotator.Cli -- annotate `
 | `--resume` / `--no-resume` | resume on | Skip rows already in output |
 | `--failed-output` | `*.failed.jsonl` | Path for failed records |
 | `--attempts-output` | — | Path for LLM attempt diagnostics JSONL |
-| `--schema` | `simple` | Label schema: `simple` or `full` |
 | `--verbose` | off | Verbose diagnostics |
 | `--dry-run` | off | Tokenize without LLM calls |
 
@@ -158,10 +157,10 @@ dotnet test --filter "FullyQualifiedName~LlmIntegrationTests" -- xUnit.Explicit=
 
 The JSON corpus is designed to be easily converted to CoNLL/BIO format:
 ```
-captopril  B-ACTIVE_INGREDIENT
-4          B-STRENGTH
-mg/ml      I-STRENGTH
-suspension B-DOSE_FORM
+captopril  B-AI
+4          B-ST
+mg/ml      I-ST
+suspension B-DF
 ...
 ```
 

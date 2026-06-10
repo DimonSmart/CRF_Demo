@@ -13,8 +13,8 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
 {
     private readonly ChatClientAgent _agent;
     private readonly PharmaAnnotationPromptBuilder _promptBuilder;
-    private readonly PharmaSpanAnnotationValidator _spanValidator;
-    private readonly SpanAnnotationMapper _spanMapper;
+    private readonly PharmaLabelAnnotationValidator _labelValidator;
+    private readonly LabelAnnotationMapper _labelMapper;
     private readonly PharmaAnnotationValidator _validator;
     private readonly int _retryCount;
     private readonly string? _attemptsOutputPath;
@@ -23,8 +23,8 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
     public PharmaAnnotationModelClient(
         ChatClientAgent agent,
         PharmaAnnotationPromptBuilder promptBuilder,
-        PharmaSpanAnnotationValidator spanValidator,
-        SpanAnnotationMapper spanMapper,
+        PharmaLabelAnnotationValidator labelValidator,
+        LabelAnnotationMapper labelMapper,
         PharmaAnnotationValidator validator,
         int retryCount,
         string? attemptsOutputPath,
@@ -32,8 +32,8 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
     {
         _agent = agent;
         _promptBuilder = promptBuilder;
-        _spanValidator = spanValidator;
-        _spanMapper = spanMapper;
+        _labelValidator = labelValidator;
+        _labelMapper = labelMapper;
         _validator = validator;
         _retryCount = retryCount;
         _attemptsOutputPath = attemptsOutputPath;
@@ -59,43 +59,52 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
                 messages.Add(new ChatMessage(ChatRole.User,
                     "Previous response was invalid:\n" +
                     string.Join("\n", lastErrors.Select(e => $"- {e}")) +
-                    "\n\nReturn corrected span JSON only.\n" +
+                    "\n\nReturn corrected JSON object:\n" +
+                    "{ \"labels\": [...] }\n\n" +
+                    $"Rules:\n- labels.length must be exactly {request.Tokens.Count}.\n" +
+                    "- Use only allowed labels.\n" +
                     "Do not return tokens.\n" +
-                    "Do not return BIO labels."));
+                    "Do not return confidence."));
             }
+
+            string? rawResponse = null;
 
             try
             {
-                var agentResponse = await _agent.RunAsync<PharmaSpanAnnotationResponse>(
+                var agentResponse = await _agent.RunAsync<PharmaLabelAnnotationResponse>(
                     messages,
                     session: null,
                     serializerOptions: JsonSerializerOptions.Web,
                     options: null,
                     cancellationToken);
-                var spanResponse = agentResponse.Result;
-                var spanValidation = _spanValidator.Validate(request, spanResponse);
 
-                if (!spanValidation.IsValid)
+                rawResponse = agentResponse.Text;
+                LogRawResponse(request, attempt + 1, rawResponse);
+
+                var labelResponse = agentResponse.Result;
+                var labelValidation = _labelValidator.Validate(request, labelResponse);
+
+                if (!labelValidation.IsValid)
                 {
-                    lastErrors = spanValidation.Errors;
-                    await WriteAttemptAsync(request, attempt + 1, false, lastErrors, null, cancellationToken);
+                    lastErrors = labelValidation.Errors;
+                    await WriteAttemptAsync(request, attempt + 1, false, lastErrors, null, rawResponse, cancellationToken);
 
-                    _logger.LogWarning("Attempt {Attempt}/{Max} span validation failed for {Key}:{Row}: {Error}",
+                    _logger.LogWarning("Attempt {Attempt}/{Max} label validation failed for {Key}:{Row}: {Error}",
                         attempt + 1, _retryCount, request.SourceKey, request.RowNumber, string.Join("; ", lastErrors));
                     continue;
                 }
 
-                var response = _spanMapper.Map(request, spanResponse);
+                var response = _labelMapper.Map(request, labelResponse);
                 var validation = _validator.Validate(request, response);
 
                 if (validation.IsValid)
                 {
-                    await WriteAttemptAsync(request, attempt + 1, true, [], null, cancellationToken);
+                    await WriteAttemptAsync(request, attempt + 1, true, [], null, rawResponse, cancellationToken);
                     return response;
                 }
 
                 lastErrors = validation.Errors;
-                await WriteAttemptAsync(request, attempt + 1, false, lastErrors, null, cancellationToken);
+                await WriteAttemptAsync(request, attempt + 1, false, lastErrors, null, rawResponse, cancellationToken);
 
                 _logger.LogWarning("Attempt {Attempt}/{Max} final validation failed for {Key}:{Row}: {Error}",
                     attempt + 1, _retryCount, request.SourceKey, request.RowNumber, string.Join("; ", lastErrors));
@@ -107,9 +116,9 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
             catch (Exception ex)
             {
                 lastErrors = [ex.Message];
-                await WriteAttemptAsync(request, attempt + 1, false, [], ex.Message, cancellationToken);
-                _logger.LogWarning(ex, "Attempt {Attempt}/{Max} call failed for {Key}:{Row}",
-                    attempt + 1, _retryCount, request.SourceKey, request.RowNumber);
+                await WriteAttemptAsync(request, attempt + 1, false, [], ex.Message, rawResponse, cancellationToken);
+                _logger.LogWarning("Attempt {Attempt}/{Max} call failed for {Key}:{Row}: {Error}",
+                    attempt + 1, _retryCount, request.SourceKey, request.RowNumber, ex.Message);
             }
         }
 
@@ -127,6 +136,7 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
         bool success,
         IReadOnlyList<string> validationErrors,
         string? exception,
+        string? rawResponse,
         CancellationToken cancellationToken)
     {
         if (string.IsNullOrWhiteSpace(_attemptsOutputPath))
@@ -144,8 +154,27 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
             Success = success,
             ValidationErrors = validationErrors,
             Exception = exception,
+            RawResponse = rawResponse,
         }, JsonSerializerOptions.Web);
 
         await File.AppendAllTextAsync(_attemptsOutputPath, line + Environment.NewLine, cancellationToken);
+    }
+
+    private void LogRawResponse(PharmaAnnotationModelRequest request, int attempt, string rawResponse)
+    {
+        if (string.IsNullOrWhiteSpace(rawResponse))
+        {
+            _logger.LogWarning("LLM response JSON for {Key}:{Row} attempt {Attempt}/{Max}: <empty>",
+                request.SourceKey, request.RowNumber, attempt, _retryCount);
+            return;
+        }
+
+        _logger.LogInformation("LLM response JSON for {Key}:{Row} attempt {Attempt}/{Max}:{NewLine}{Json}",
+            request.SourceKey,
+            request.RowNumber,
+            attempt,
+            _retryCount,
+            Environment.NewLine,
+            rawResponse);
     }
 }

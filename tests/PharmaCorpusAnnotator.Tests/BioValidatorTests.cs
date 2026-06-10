@@ -35,7 +35,7 @@ public class BioValidatorTests
     public void BStrength_IStrength_IsValid()
     {
         var req = MakeRequest(2);
-        var res = MakeResponse("B-STRENGTH", "I-STRENGTH");
+        var res = MakeResponse("B-ST", "I-ST");
         _sut.Validate(req, res).IsValid.Should().BeTrue();
     }
 
@@ -43,27 +43,27 @@ public class BioValidatorTests
     public void IStrength_AsFirstToken_IsInvalid()
     {
         var req = MakeRequest(2);
-        var res = MakeResponse("I-STRENGTH", "B-STRENGTH");
+        var res = MakeResponse("I-ST", "B-ST");
         var result = _sut.Validate(req, res);
         result.IsValid.Should().BeFalse();
-        result.Errors.Should().Contain(e => e.Contains("I-STRENGTH") && e.Contains("first token"));
+        result.Errors.Should().Contain(e => e.Contains("I-ST") && e.Contains("first token"));
     }
 
     [Fact]
-    public void BProductName_IStrength_IsInvalid()
+    public void BActiveIngredient_IStrength_IsInvalid()
     {
         var req = MakeRequest(2);
-        var res = MakeResponse("B-PRODUCT_NAME", "I-STRENGTH");
+        var res = MakeResponse("B-AI", "I-ST");
         var result = _sut.Validate(req, res);
         result.IsValid.Should().BeFalse();
-        result.Errors.Should().Contain(e => e.Contains("I-STRENGTH") && e.Contains("B-PRODUCT_NAME"));
+        result.Errors.Should().Contain(e => e.Contains("I-ST") && e.Contains("B-AI"));
     }
 
     [Fact]
     public void BDoseForm_IDoseForm_IsValid()
     {
         var req = MakeRequest(2);
-        var res = MakeResponse("B-DOSE_FORM", "I-DOSE_FORM");
+        var res = MakeResponse("B-DF", "I-DF");
         _sut.Validate(req, res).IsValid.Should().BeTrue();
     }
 
@@ -81,10 +81,10 @@ public class BioValidatorTests
     public void BStrength_IDoseForm_IsInvalid_CrossEntity()
     {
         var req = MakeRequest(2);
-        var res = MakeResponse("B-STRENGTH", "I-DOSE_FORM");
+        var res = MakeResponse("B-ST", "I-DF");
         var result = _sut.Validate(req, res);
         result.IsValid.Should().BeFalse();
-        result.Errors.Should().Contain(e => e.Contains("I-DOSE_FORM") && e.Contains("B-STRENGTH"));
+        result.Errors.Should().Contain(e => e.Contains("I-DF") && e.Contains("B-ST"));
     }
 
     [Fact]
@@ -99,7 +99,7 @@ public class BioValidatorTests
     public void IDoseForm_After_IDoseForm_IsValid()
     {
         var req = MakeRequest(3);
-        var res = MakeResponse("B-DOSE_FORM", "I-DOSE_FORM", "I-DOSE_FORM");
+        var res = MakeResponse("B-DF", "I-DF", "I-DF");
         _sut.Validate(req, res).IsValid.Should().BeTrue();
     }
 }
