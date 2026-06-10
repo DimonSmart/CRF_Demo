@@ -17,8 +17,7 @@ public class BioValidatorTests
             Text: string.Join(" ", Enumerable.Range(0, tokenCount).Select(i => $"tok{i}")),
             Tokens: Enumerable.Range(0, tokenCount)
                 .Select(i => new SourceToken(i, $"tok{i}", i * 5, i * 5 + 4))
-                .ToList(),
-            Context: new Dictionary<string, string>());
+                .ToList());
 
     private static PharmaAnnotationResponse MakeResponse(params string[] labels)
     {
@@ -27,7 +26,7 @@ public class BioValidatorTests
         return new PharmaAnnotationResponse(
             tokens,
             new NormalizedPharmaItem(null, null, null, [], null, null, null, null, null, null, null, null),
-            new AnnotationQuality(null, false, []));
+            new AnnotationQuality(null, []));
     }
 
     [Fact]

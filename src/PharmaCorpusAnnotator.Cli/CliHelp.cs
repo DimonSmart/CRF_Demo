@@ -17,7 +17,6 @@ public static class CliHelp
               --source-key <key>        Stable source key (default: slug from file name)
               --delimiter <char>        CSV delimiter (default: ";")
               --encoding <enc>          Input encoding (default: "utf-8-sig")
-              --context-columns <list>  Comma-separated context columns (default: spec defaults)
               --max-rows <n>            Maximum rows to process
               --skip <n>                Rows to skip (default: 0)
               --resume                  Skip already-present rows in output (default: true)

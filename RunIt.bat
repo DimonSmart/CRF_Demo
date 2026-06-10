@@ -12,7 +12,7 @@ dotnet run --project C:\Private\CRF_Demo\src\PharmaCorpusAnnotator.Cli -- annota
   --input C:\Private\CRF_Demo\SourceData\20260610_Nomenclator_de_Facturacion.csv ^
   --text-column "Nombre del producto farmacéutico" ^
   --source-key nomenclator-facturacion-20260610 ^
-  --max-rows 50 ^
+  --max-rows 100 ^
   --output C:\Private\CRF_Demo\corpus\pharma-corpus.json ^
   --failed-output C:\Private\CRF_Demo\corpus\pharma-corpus.failed.jsonl ^
   --verbose

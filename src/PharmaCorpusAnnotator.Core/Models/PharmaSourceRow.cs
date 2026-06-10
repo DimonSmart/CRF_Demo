@@ -5,5 +5,4 @@ public sealed record PharmaSourceRow(
     string FileName,
     long RowNumber,
     string TextColumn,
-    string Text,
-    IReadOnlyDictionary<string, string> Context);
+    string Text);

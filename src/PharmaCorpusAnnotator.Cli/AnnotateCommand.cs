@@ -16,6 +16,12 @@ public static class AnnotateCommand
     {
         var parsed = ArgParser.Parse(args);
 
+        if (parsed.ContainsKey("--context-columns"))
+        {
+            Console.Error.WriteLine("Error: --context-columns is no longer supported.");
+            return 1;
+        }
+
         // Required
         if (!parsed.TryGetValue("--input", out var input) || string.IsNullOrEmpty(input))
         {
@@ -42,11 +48,6 @@ public static class AnnotateCommand
 
         var delimiter = parsed.GetValueOrDefault("--delimiter", ";")!;
         var encoding = parsed.GetValueOrDefault("--encoding", "utf-8-sig")!;
-
-        IReadOnlyList<string> contextColumns = parsed.TryGetValue("--context-columns", out var ctxRaw)
-            && !string.IsNullOrWhiteSpace(ctxRaw)
-            ? ctxRaw.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-            : DefaultContextColumns.All;
 
         int? maxRows = parsed.TryGetValue("--max-rows", out var mrStr)
             && int.TryParse(mrStr, out var mr) ? mr : null;
@@ -76,7 +77,6 @@ public static class AnnotateCommand
             TextColumn: textColumn,
             Delimiter: delimiter,
             Encoding: encoding,
-            ContextColumns: contextColumns,
             Skip: skip,
             MaxRows: maxRows);
 

@@ -21,16 +21,14 @@ public class CorpusWriterTests : IDisposable
         LoggerFactory.Create(_ => { });
 
     private static PharmaCorpusSourceHeader MakeHeader(string sourceKey = "test-source") =>
-        new(sourceKey, "test.csv", "csv", "utf-8-sig", ";", "Nombre del producto farmacéutico",
-            ["Código Nacional"]);
+        new(sourceKey, "test.csv", "csv", "utf-8-sig", ";", "Nombre del producto farmacéutico");
 
-    private static PharmaCorpusRecord MakeRecord(long rowNum, string codigoNacional) =>
+    private static PharmaCorpusRecord MakeRecord(long rowNum) =>
         new(rowNum, $"product text {rowNum}",
-            new Dictionary<string, string> { ["Código Nacional"] = codigoNacional },
             new PharmaAnnotationResponse(
                 [],
                 new NormalizedPharmaItem(null, null, null, [], null, null, null, null, null, null, null, null),
-                new AnnotationQuality(null, false, [])));
+                new AnnotationQuality(null, [])));
 
     [Fact]
     public void WritesSourceMetadata_Once()
@@ -38,8 +36,8 @@ public class CorpusWriterTests : IDisposable
         var path = Path.Combine(_tmpDir, "corpus.json");
         using var writer = new PharmaCorpusWriter(path, null, CreateLoggerFactory());
         writer.SetSource(MakeHeader());
-        writer.AddRecord(MakeRecord(2, "140001"));
-        writer.AddRecord(MakeRecord(3, "140002"));
+        writer.AddRecord(MakeRecord(2));
+        writer.AddRecord(MakeRecord(3));
         writer.Complete();
 
         using var f = File.OpenRead(path);
@@ -56,7 +54,7 @@ public class CorpusWriterTests : IDisposable
         var path = Path.Combine(_tmpDir, "corpus.json");
         using var writer = new PharmaCorpusWriter(path, null, CreateLoggerFactory());
         writer.SetSource(MakeHeader());
-        writer.AddRecord(MakeRecord(2, "140001"));
+        writer.AddRecord(MakeRecord(2));
         writer.Complete();
 
         var json = File.ReadAllText(path);
@@ -77,7 +75,7 @@ public class CorpusWriterTests : IDisposable
         var path = Path.Combine(_tmpDir, "corpus.json");
         using var writer = new PharmaCorpusWriter(path, null, CreateLoggerFactory());
         writer.SetSource(MakeHeader());
-        writer.AddRecord(MakeRecord(2, "140001"));
+        writer.AddRecord(MakeRecord(2));
         writer.Complete();
 
         var json = File.ReadAllText(path);
@@ -85,19 +83,17 @@ public class CorpusWriterTests : IDisposable
     }
 
     [Fact]
-    public void CodigoNacional_IsInsideContext()
+    public void SerializedJson_DoesNotContainContextOrContextColumns()
     {
         var path = Path.Combine(_tmpDir, "corpus.json");
         using var writer = new PharmaCorpusWriter(path, null, CreateLoggerFactory());
         writer.SetSource(MakeHeader());
-        writer.AddRecord(MakeRecord(2, "140001"));
+        writer.AddRecord(MakeRecord(2));
         writer.Complete();
 
-        using var f = File.OpenRead(path);
-        var doc = JsonSerializer.Deserialize<PharmaCorpusDocument>(f, JsonOpts)!;
-        var record = doc.Sources[0].Records[0];
-        record.Context.Should().ContainKey("Código Nacional");
-        record.Context["Código Nacional"].Should().Be("140001");
+        var json = File.ReadAllText(path);
+        json.Should().NotContain("\"context\"");
+        json.Should().NotContain("\"contextColumns\"");
     }
 
     [Fact]
@@ -107,7 +103,7 @@ public class CorpusWriterTests : IDisposable
         using var writer = new PharmaCorpusWriter(path, null, CreateLoggerFactory());
         writer.SetSource(MakeHeader());
         for (int i = 2; i < 7; i++)
-            writer.AddRecord(MakeRecord(i, $"14000{i}"));
+            writer.AddRecord(MakeRecord(i));
         writer.Complete();
 
         using var f = File.OpenRead(path);
@@ -125,8 +121,8 @@ public class CorpusWriterTests : IDisposable
         using (var writer = new PharmaCorpusWriter(path, null, CreateLoggerFactory()))
         {
             writer.SetSource(MakeHeader());
-            writer.AddRecord(MakeRecord(2, "140001"));
-            writer.AddRecord(MakeRecord(3, "140002"));
+            writer.AddRecord(MakeRecord(2));
+            writer.AddRecord(MakeRecord(3));
             writer.Complete();
         }
 

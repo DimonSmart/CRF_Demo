@@ -43,6 +43,8 @@ public class LabelAnnotationMapperTests
         response.Normalized.PackageQuantity.Should().Be(1);
         response.Normalized.PackageUnit.Should().Be("frasco");
         response.Quality.Confidence.Should().BeNull();
+        response.Quality.Warnings.Should().BeEmpty();
+        typeof(AnnotationQuality).GetProperty("NeedsReview").Should().BeNull();
     }
 
     private static PharmaAnnotationModelRequest MakeRequest(string text)
@@ -57,7 +59,6 @@ public class LabelAnnotationMapperTests
             "test",
             1,
             text,
-            tokens,
-            new Dictionary<string, string>());
+            tokens);
     }
 }

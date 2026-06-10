@@ -6,6 +6,5 @@ public sealed record CsvSourceOptions(
     string TextColumn,
     string Delimiter,
     string Encoding,
-    IReadOnlyList<string> ContextColumns,
     int Skip,
     int? MaxRows);

@@ -48,7 +48,7 @@ public class PharmaAnnotationPromptBuilderTests
             .GetProperties(BindingFlags.Instance | BindingFlags.Public)
             .Select(p => p.Name)
             .Should()
-            .NotContain("AllowedLabels");
+            .NotContain(["AllowedLabels", "Context"]);
     }
 
     [Fact]
@@ -59,6 +59,31 @@ public class PharmaAnnotationPromptBuilderTests
             .PropertyType
             .Should()
             .Be(typeof(string[]));
+    }
+
+    [Fact]
+    public void BuildSystemPrompt_ContainsPharmaceuticalConventions()
+    {
+        var prompt = _sut.BuildSystemPrompt();
+
+        prompt.Should().Contain("Pharmaceutical conventions:");
+        prompt.Should().Contain("If \"en solucion\" follows a dose form");
+        prompt.Should().Contain("If \"O/A\" follows crema or emulsion");
+        prompt.Should().Contain("Slash between active ingredients separates active ingredients");
+        prompt.Should().Contain("Plus between strengths separates strengths");
+        prompt.Should().Contain("Brand/lab words are O");
+        prompt.Should().Contain("gotas\",\"oticas\",\"en\",\"solucion");
+        prompt.Should().Contain("emulsion\",\"O\",\"/\",\"A");
+        prompt.Should().Contain("metronidazol\",\"/\",\"lidocaina");
+        prompt.Should().Contain("polvo\",\"para\",\"solucion\",\"oral");
+    }
+
+    [Fact]
+    public void BuildSystemPrompt_ForbidsNonLabelResponseFields()
+    {
+        var prompt = _sut.BuildSystemPrompt();
+
+        prompt.Should().Contain("Do not return tokens, indexes, spans, confidence, warnings or explanations.");
     }
 
     private static PharmaAnnotationModelRequest MakeRequest(string text)
@@ -73,7 +98,6 @@ public class PharmaAnnotationPromptBuilderTests
             "source",
             10,
             text,
-            tokens,
-            new Dictionary<string, string> { ["ctx"] = "value" });
+            tokens);
     }
 }

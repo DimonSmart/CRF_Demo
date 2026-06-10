@@ -9,8 +9,7 @@ public class ResponseValidatorTests
 {
     private readonly PharmaAnnotationValidator _sut = new();
 
-    private static PharmaAnnotationModelRequest MakeRequest(int tokenCount = 3,
-        Dictionary<string, string>? context = null) =>
+    private static PharmaAnnotationModelRequest MakeRequest(int tokenCount = 3) =>
         new(
             Language: "es",
             SourceKey: "test",
@@ -18,8 +17,7 @@ public class ResponseValidatorTests
             Text: "tok0 tok1 tok2",
             Tokens: Enumerable.Range(0, tokenCount)
                 .Select(i => new SourceToken(i, $"tok{i}", i * 5, i * 5 + 4))
-                .ToList(),
-            Context: context ?? new Dictionary<string, string>());
+                .ToList());
 
     private static PharmaAnnotationResponse MakeResponse(
         int tokenCount = 3,
@@ -34,7 +32,7 @@ public class ResponseValidatorTests
         return new PharmaAnnotationResponse(
             tokens,
             new NormalizedPharmaItem(null, null, null, [], null, null, null, null, null, null, price, null),
-            new AnnotationQuality(null, false, warnings ?? []));
+            new AnnotationQuality(null, warnings ?? []));
     }
 
     [Fact]
@@ -66,7 +64,7 @@ public class ResponseValidatorTests
         var res = new PharmaAnnotationResponse(
             tokens,
             new NormalizedPharmaItem(null, null, null, [], null, null, null, null, null, null, null, null),
-            new AnnotationQuality(null, false, []));
+            new AnnotationQuality(null, []));
 
         var result = _sut.Validate(req, res);
         result.IsValid.Should().BeFalse();
@@ -84,7 +82,7 @@ public class ResponseValidatorTests
         var res = new PharmaAnnotationResponse(
             tokens,
             new NormalizedPharmaItem(null, null, null, [], null, null, null, null, null, null, null, null),
-            new AnnotationQuality(null, false, []));
+            new AnnotationQuality(null, []));
 
         var result = _sut.Validate(req, res);
         result.IsValid.Should().BeFalse();
@@ -102,7 +100,7 @@ public class ResponseValidatorTests
         var res = new PharmaAnnotationResponse(
             tokens,
             new NormalizedPharmaItem(null, null, null, [], null, null, null, null, null, null, null, null),
-            new AnnotationQuality(null, false, []));
+            new AnnotationQuality(null, []));
 
         _sut.Validate(req, res).IsValid.Should().BeFalse();
     }
@@ -118,7 +116,7 @@ public class ResponseValidatorTests
         var res = new PharmaAnnotationResponse(
             tokens,
             new NormalizedPharmaItem(null, null, null, [], null, null, null, null, null, null, null, null),
-            new AnnotationQuality(null, false, []));
+            new AnnotationQuality(null, []));
 
         _sut.Validate(req, res).IsValid.Should().BeFalse();
     }

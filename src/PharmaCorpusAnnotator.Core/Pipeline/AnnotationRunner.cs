@@ -69,8 +69,7 @@ public sealed class AnnotationRunner
             "csv",
             csvOpts.Encoding,
             csvOpts.Delimiter,
-            csvOpts.TextColumn,
-            csvOpts.ContextColumns);
+            csvOpts.TextColumn);
 
         corpusWriter.SetSource(sourceHeader);
 
@@ -86,7 +85,6 @@ public sealed class AnnotationRunner
         _logger.LogInformation("Output:         {Path}", options.OutputPath);
         _logger.LogInformation("Source key:     {Key}", csvOpts.SourceKey);
         _logger.LogInformation("Text column:    {Col}", csvOpts.TextColumn);
-        _logger.LogInformation("Context cols:   {Cols}", string.Join(", ", csvOpts.ContextColumns));
         _logger.LogInformation("Max rows:       {Max}", csvOpts.MaxRows?.ToString() ?? "all");
         _logger.LogInformation("Resume:         {Resume}", options.Resume);
         _logger.LogInformation("Dry run:        {DryRun}", options.DryRun);
@@ -132,13 +130,12 @@ public sealed class AnnotationRunner
                 SourceKey: row.SourceKey,
                 RowNumber: row.RowNumber,
                 Text: row.Text,
-                Tokens: tokens,
-                Context: row.Context);
+                Tokens: tokens);
 
             try
             {
                 var response = await _modelClient.AnnotateAsync(request, cancellationToken);
-                var record = new PharmaCorpusRecord(row.RowNumber, row.Text, row.Context, response);
+                var record = new PharmaCorpusRecord(row.RowNumber, row.Text, response);
                 corpusWriter.AddRecord(record);
                 success++;
 
@@ -159,7 +156,6 @@ public sealed class AnnotationRunner
                     row.SourceKey,
                     row.RowNumber,
                     row.Text,
-                    row.Context,
                     new FailedRecordError("llm_contract_invalid", afex.ValidationError, afex.Attempts)));
             }
             catch (Exception ex)
@@ -171,7 +167,6 @@ public sealed class AnnotationRunner
                     row.SourceKey,
                     row.RowNumber,
                     row.Text,
-                    row.Context,
                     new FailedRecordError("llm_call_failed", ex.Message, 1)));
             }
         }

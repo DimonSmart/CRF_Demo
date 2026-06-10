@@ -5,5 +5,4 @@ public sealed record PharmaAnnotationModelRequest(
     string SourceKey,
     long RowNumber,
     string Text,
-    IReadOnlyList<SourceToken> Tokens,
-    IReadOnlyDictionary<string, string> Context);
+    IReadOnlyList<SourceToken> Tokens);

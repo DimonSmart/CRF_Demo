@@ -76,6 +76,29 @@ public class CliSmokeTests
     }
 
     [Fact]
+    public async Task ContextColumns_ReturnsNonZero()
+    {
+        var output = Path.GetTempFileName();
+        var args = new[]
+        {
+            "--input", SampleCsv,
+            "--output", output,
+            "--context-columns", "Código Nacional",
+            "--dry-run",
+        };
+
+        try
+        {
+            var result = await AnnotateCommand.RunAsync(args);
+            result.Should().NotBe(0);
+        }
+        finally
+        {
+            if (File.Exists(output)) File.Delete(output);
+        }
+    }
+
+    [Fact]
     public void SlugFromFileName_GeneratesStableKey()
     {
         var key = PharmaCorpusAnnotatorCliReflection.GetSlug("20260610_Nomenclator_de_Facturacion.csv");

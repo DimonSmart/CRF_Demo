@@ -6,5 +6,4 @@ public sealed record PharmaCorpusSourceHeader(
     string Format,
     string Encoding,
     string Delimiter,
-    string TextColumn,
-    IReadOnlyList<string> ContextColumns);
+    string TextColumn);

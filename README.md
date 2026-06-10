@@ -6,8 +6,7 @@ It uses an OpenAI-compatible LLM endpoint (for example Ollama) through Microsoft
 
 The output is a source-blocked JSON corpus:
 - source metadata is written once per source block
-- every record contains `rowNumber`, source `text`, `context`, and `annotation`
-- `Código Nacional` is preserved as context, not as a technical identifier
+- every record contains `rowNumber`, source `text`, and `annotation`
 
 ## Purpose
 
@@ -35,14 +34,12 @@ Prepares a test corpus for CRF / sequence labeling on pharmaceutical product nam
         "format": "csv",
         "encoding": "utf-8-sig",
         "delimiter": ";",
-        "textColumn": "Nombre del producto farmacéutico",
-        "contextColumns": ["Código Nacional", ...]
+        "textColumn": "Nombre del producto farmacéutico"
       },
       "records": [
         {
           "rowNumber": 2,
           "text": "captopril 4 mg/ml suspension oral 100 ml 1 frasco",
-          "context": { "Código Nacional": "140002" },
           "annotation": { "tokens": [...], "normalized": {...}, "quality": {...} }
         }
       ]
@@ -114,7 +111,6 @@ dotnet run --project src/PharmaCorpusAnnotator.Cli -- annotate `
 | `--source-key` | slug from filename | Stable key for the source block |
 | `--delimiter` | `;` | CSV field delimiter |
 | `--encoding` | `utf-8-sig` | Input encoding |
-| `--context-columns` | spec defaults | Comma-separated context columns |
 | `--max-rows` | all | Maximum rows to process |
 | `--skip` | `0` | Rows to skip before processing |
 | `--resume` / `--no-resume` | resume on | Skip rows already in output |

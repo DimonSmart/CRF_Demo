@@ -10,16 +10,13 @@ public class CsvReaderTests
     private static readonly string SampleCsv =
         Path.Combine(AppContext.BaseDirectory, "Fixtures", "sample.csv");
 
-    private CsvSourceOptions DefaultOptions(
-        string? textColumn = null,
-        IReadOnlyList<string>? contextColumns = null) =>
+    private CsvSourceOptions DefaultOptions(string? textColumn = null) =>
         new(
             InputPath: SampleCsv,
             SourceKey: "test-source",
             TextColumn: textColumn ?? "Nombre del producto farmacéutico",
             Delimiter: ";",
             Encoding: "utf-8-sig",
-            ContextColumns: contextColumns ?? ["Código Nacional", "Principio activo o asociación de principios activos"],
             Skip: 0,
             MaxRows: null);
 
@@ -67,15 +64,14 @@ public class CsvReaderTests
     }
 
     [Fact]
-    public async Task CodigoNacional_IsInContext_NotSourceId()
+    public async Task Rows_DoNotExposeContext()
     {
         var reader = CreateReader();
         var rows = new List<PharmaSourceRow>();
         await foreach (var r in reader.ReadAsync(DefaultOptions(), TestContext.Current.CancellationToken))
             rows.Add(r);
         var first = rows[0];
-        first.Context.Should().ContainKey("Código Nacional");
-        first.Context["Código Nacional"].Should().Be("140001");
+        typeof(PharmaSourceRow).GetProperty("Context").Should().BeNull();
     }
 
     [Fact]
@@ -92,13 +88,11 @@ public class CsvReaderTests
     }
 
     [Fact]
-    public async Task MissingContextColumn_WarnsButContinues()
+    public async Task DoesNotRequireContextColumns()
     {
         var reader = CreateReader();
-        var opts = DefaultOptions(contextColumns: ["Código Nacional", "Does Not Exist"]);
         var rows = new List<PharmaSourceRow>();
-        // Should not throw
-        await foreach (var r in reader.ReadAsync(opts, TestContext.Current.CancellationToken))
+        await foreach (var r in reader.ReadAsync(DefaultOptions(), TestContext.Current.CancellationToken))
             rows.Add(r);
         rows.Should().HaveCount(3);
     }

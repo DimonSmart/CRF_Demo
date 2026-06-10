@@ -34,7 +34,6 @@ public sealed class LabelAnnotationMapper
 
         var quality = new AnnotationQuality(
             Confidence: null,
-            NeedsReview: false,
             Warnings: []);
 
         return new PharmaAnnotationResponse(tokens, normalized, quality);

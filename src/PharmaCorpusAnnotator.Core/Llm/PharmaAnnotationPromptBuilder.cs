@@ -48,6 +48,14 @@ public sealed class PharmaAnnotationPromptBuilder
             "- Use I-X only after B-X or I-X of the same entity.",
             "- Do not return tokens, indexes, spans, confidence, warnings or explanations.",
             "",
+            "Pharmaceutical conventions:",
+            "- If \"en solucion\" follows a dose form, include \"en\" and \"solucion\" in DOSE_FORM.",
+            "- If \"O/A\" follows crema or emulsion, include O, / and A in DOSE_FORM.",
+            "- If \"para solucion oral\" follows polvo, include the whole phrase in DOSE_FORM.",
+            "- Slash between active ingredients separates active ingredients; label \"/\" as O.",
+            "- Plus between strengths separates strengths; label \"+\" as O.",
+            "- Brand/lab words are O unless they are part of the active substance itself.",
+            "",
             "Labels:",
             string.Join('\n', PharmaAnnotationLabels.All),
             "",
@@ -65,7 +73,17 @@ public sealed class PharmaAnnotationPromptBuilder
             "{\"tokens\":[\"ibuprofeno\",\"cinfa\",\"600\",\"mg\",\"comprimidos\",\"recubiertos\",\"con\",\"pelicula\",\"efg\",\"40\",\"comprimidos\"],\"tokenCount\":11}",
             "",
             "Example output:",
-            "{\"labels\":[\"B-ACTIVE_INGREDIENT\",\"O\",\"B-STRENGTH\",\"I-STRENGTH\",\"B-DOSE_FORM\",\"I-DOSE_FORM\",\"I-DOSE_FORM\",\"I-DOSE_FORM\",\"B-REGULATORY_MARKER\",\"B-PACKAGE_QUANTITY\",\"B-PACKAGE_UNIT\"]}");
+            "{\"labels\":[\"B-ACTIVE_INGREDIENT\",\"O\",\"B-STRENGTH\",\"I-STRENGTH\",\"B-DOSE_FORM\",\"I-DOSE_FORM\",\"I-DOSE_FORM\",\"I-DOSE_FORM\",\"B-REGULATORY_MARKER\",\"B-PACKAGE_QUANTITY\",\"B-PACKAGE_UNIT\"]}",
+            "",
+            "Few-shot examples:",
+            "{\"tokens\":[\"alcohol\",\"boricado\",\"50\",\"mg/ml\",\"gotas\",\"oticas\",\"en\",\"solucion\",\"50\",\"ml\",\"1\",\"frasco\"],\"tokenCount\":12}",
+            "{\"labels\":[\"B-ACTIVE_INGREDIENT\",\"I-ACTIVE_INGREDIENT\",\"B-STRENGTH\",\"I-STRENGTH\",\"B-DOSE_FORM\",\"I-DOSE_FORM\",\"I-DOSE_FORM\",\"I-DOSE_FORM\",\"B-PACKAGE_VOLUME\",\"I-PACKAGE_VOLUME\",\"B-PACKAGE_QUANTITY\",\"B-PACKAGE_UNIT\"]}",
+            "{\"tokens\":[\"triamcinolona\",\"acetonido\",\"1\",\"mg/g\",\"emulsion\",\"O\",\"/\",\"A\",\"100\",\"g\",\"1\",\"envase\"],\"tokenCount\":12}",
+            "{\"labels\":[\"B-ACTIVE_INGREDIENT\",\"I-ACTIVE_INGREDIENT\",\"B-STRENGTH\",\"I-STRENGTH\",\"B-DOSE_FORM\",\"I-DOSE_FORM\",\"I-DOSE_FORM\",\"I-DOSE_FORM\",\"B-PACKAGE_VOLUME\",\"I-PACKAGE_VOLUME\",\"B-PACKAGE_QUANTITY\",\"B-PACKAGE_UNIT\"]}",
+            "{\"tokens\":[\"metronidazol\",\"/\",\"lidocaina\",\"20\",\"mg/g\",\"+\",\"10\",\"mg/g\",\"gel\",\"30\",\"g\",\"1\",\"envase\"],\"tokenCount\":13}",
+            "{\"labels\":[\"B-ACTIVE_INGREDIENT\",\"O\",\"B-ACTIVE_INGREDIENT\",\"B-STRENGTH\",\"I-STRENGTH\",\"O\",\"B-STRENGTH\",\"I-STRENGTH\",\"B-DOSE_FORM\",\"B-PACKAGE_VOLUME\",\"I-PACKAGE_VOLUME\",\"B-PACKAGE_QUANTITY\",\"B-PACKAGE_UNIT\"]}",
+            "{\"tokens\":[\"fosfato\",\"monosodico\",\"20\",\"mg\",\"polvo\",\"para\",\"solucion\",\"oral\",\"30\",\"sobres\"],\"tokenCount\":10}",
+            "{\"labels\":[\"B-ACTIVE_INGREDIENT\",\"I-ACTIVE_INGREDIENT\",\"B-STRENGTH\",\"I-STRENGTH\",\"B-DOSE_FORM\",\"I-DOSE_FORM\",\"I-DOSE_FORM\",\"I-DOSE_FORM\",\"B-PACKAGE_QUANTITY\",\"B-PACKAGE_UNIT\"]}");
     }
 
     public string BuildUserPrompt(PharmaAnnotationModelRequest request)

@@ -47,11 +47,7 @@ public class LlmIntegrationTests
             SourceKey: "integration-test",
             RowNumber: 1,
             Text: text,
-            Tokens: tokens,
-            Context: new Dictionary<string, string>
-            {
-                ["Principio activo o asociación de principios activos"] = "CAPTOPRIL"
-            });
+            Tokens: tokens);
 
         var response = await modelClient.AnnotateAsync(request, TestContext.Current.CancellationToken);
 

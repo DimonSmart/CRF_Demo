@@ -105,7 +105,6 @@ public class PharmaLabelAnnotationValidatorTests
             "test",
             1,
             text,
-            tokens,
-            new Dictionary<string, string>());
+            tokens);
     }
 }

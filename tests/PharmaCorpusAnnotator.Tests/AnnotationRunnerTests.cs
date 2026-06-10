@@ -47,15 +47,41 @@ public sealed class AnnotationRunnerTests : IDisposable
 
         doc.Sources.Should().HaveCount(1);
         doc.Sources[0].Records.Select(r => r.RowNumber).Should().Equal(2, 3, 4, 5);
+
+        var json = await File.ReadAllTextAsync(output, TestContext.Current.CancellationToken);
+        json.Should().NotContain("\"context\"");
+        json.Should().NotContain("\"contextColumns\"");
+        json.Should().NotContain("\"needsReview\"");
     }
 
-    private static AnnotationRunner CreateRunner()
+    [Fact]
+    public async Task FailedRecords_DoNotContainContext()
+    {
+        var input = Path.Combine(_tmpDir, "source.csv");
+        await File.WriteAllTextAsync(
+            input,
+            "Código Nacional;Nombre del producto farmacéutico" + Environment.NewLine +
+            "140001;producto uno 1 mg" + Environment.NewLine,
+            TestContext.Current.CancellationToken);
+
+        var output = Path.Combine(_tmpDir, "corpus.json");
+        var failedOutput = Path.Combine(_tmpDir, "failed.jsonl");
+        var runner = CreateRunner(new FailingModelClient());
+
+        await runner.RunAsync(CreateOptions(input, output, failedOutput, maxRows: 1), TestContext.Current.CancellationToken);
+
+        var jsonl = await File.ReadAllTextAsync(failedOutput, TestContext.Current.CancellationToken);
+        jsonl.Should().NotContain("\"context\"");
+        jsonl.Should().Contain("\"error\"");
+    }
+
+    private static AnnotationRunner CreateRunner(IPharmaAnnotationModelClient? modelClient = null)
     {
         var loggerFactory = LoggerFactory.Create(_ => { });
         return new AnnotationRunner(
             new CsvPharmaSourceReader(loggerFactory.CreateLogger<CsvPharmaSourceReader>()),
             new PharmaTokenizer(),
-            new SuccessfulModelClient(),
+            modelClient ?? new SuccessfulModelClient(),
             loggerFactory);
     }
 
@@ -71,7 +97,6 @@ public sealed class AnnotationRunnerTests : IDisposable
                 "Nombre del producto farmacéutico",
                 ";",
                 "utf-8-sig",
-                ["Código Nacional"],
                 0,
                 maxRows),
             output,
@@ -99,9 +124,17 @@ public sealed class AnnotationRunnerTests : IDisposable
             var response = new PharmaAnnotationResponse(
                 tokens,
                 new NormalizedPharmaItem(null, null, null, [], null, null, null, null, null, null, null, null),
-                new AnnotationQuality(null, false, []));
+                new AnnotationQuality(null, []));
 
             return Task.FromResult(response);
         }
+    }
+
+    private sealed class FailingModelClient : IPharmaAnnotationModelClient
+    {
+        public Task<PharmaAnnotationResponse> AnnotateAsync(
+            PharmaAnnotationModelRequest request,
+            CancellationToken cancellationToken = default) =>
+            throw new InvalidOperationException("test failure");
     }
 }

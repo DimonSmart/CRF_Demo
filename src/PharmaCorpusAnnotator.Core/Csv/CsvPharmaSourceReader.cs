@@ -44,14 +44,6 @@ public sealed class CsvPharmaSourceReader
             throw new InvalidOperationException(
                 $"Text column '{options.TextColumn}' not found in CSV. Available: {string.Join(", ", headers)}");
 
-        var missingContext = options.ContextColumns
-            .Where(c => !headers.Contains(c))
-            .ToList();
-        foreach (var col in missingContext)
-            _logger.LogWarning("Context column '{Column}' not found in CSV and will be skipped.", col);
-
-        var availableContext = options.ContextColumns.Where(headers.Contains).ToList();
-
         long physicalRow = 1; // header was row 1
         long skipped = 0;
         long processed = 0;
@@ -87,22 +79,13 @@ public sealed class CsvPharmaSourceReader
                 continue;
             }
 
-            var context = new Dictionary<string, string>(StringComparer.Ordinal);
-            foreach (var col in availableContext)
-            {
-                var val = csv.GetField(col);
-                if (val is not null)
-                    context[col] = val;
-            }
-
             processed++;
             yield return new PharmaSourceRow(
                 options.SourceKey,
                 fileName,
                 physicalRow,
                 options.TextColumn,
-                text.Trim(),
-                context);
+                text.Trim());
         }
     }
 
