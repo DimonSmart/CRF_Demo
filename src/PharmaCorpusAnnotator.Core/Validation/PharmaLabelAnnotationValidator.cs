@@ -1,3 +1,4 @@
+using PharmaCorpusAnnotator.Core.Labeling;
 using PharmaCorpusAnnotator.Core.Models;
 
 namespace PharmaCorpusAnnotator.Core.Validation;
@@ -12,32 +13,31 @@ public sealed class PharmaLabelAnnotationValidator
 
         if (response is null)
         {
-            errors.Add("response is null.");
+            errors.Add("response is null");
             return AgenticModelValidationResult.Failure(errors.ToArray());
         }
 
         if (response.Labels is null)
         {
-            errors.Add("response.labels is null.");
+            errors.Add("labels is null");
             return AgenticModelValidationResult.Failure(errors.ToArray());
         }
 
-        if (response.Labels.Count != request.Tokens.Count)
+        if (response.Labels.Length != request.Tokens.Count)
         {
             errors.Add(
-                $"Label count mismatch: expected {request.Tokens.Count} labels, got {response.Labels.Count}.");
+                $"labels count mismatch: expected {request.Tokens.Count}, actual {response.Labels.Length}");
         }
 
-        var allowedLabels = new HashSet<string>(LabelSchema.AllLabels, StringComparer.Ordinal);
         string? previousLabel = null;
 
-        for (int i = 0; i < response.Labels.Count; i++)
+        for (int i = 0; i < response.Labels.Length; i++)
         {
             var label = response.Labels[i];
 
-            if (!allowedLabels.Contains(label))
+            if (!PharmaAnnotationLabels.AllSet.Contains(label))
             {
-                errors.Add($"Unknown label at token {i}: {label}.");
+                errors.Add($"label at index {i} is not allowed: {label}");
                 previousLabel = label;
                 continue;
             }
@@ -51,7 +51,7 @@ public sealed class PharmaLabelAnnotationValidator
                 if (previousLabel != expectedBegin && previousLabel != expectedInside)
                 {
                     errors.Add(
-                        $"Invalid BIO transition at token {i}: {label} cannot follow {previousLabel ?? "START"}.");
+                        $"invalid BIO transition at index {i}: {label} after {previousLabel ?? "START"}");
                 }
             }
 

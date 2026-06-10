@@ -1,3 +1,4 @@
+using PharmaCorpusAnnotator.Core.Labeling;
 using FluentAssertions;
 using PharmaCorpusAnnotator.Core.Models;
 using PharmaCorpusAnnotator.Core.Validation;
@@ -12,7 +13,15 @@ public class PharmaLabelAnnotationValidatorTests
     public void ValidLabelArray_Passes()
     {
         var request = MakeRequest("captopril 4 mg/ml");
-        var response = new PharmaLabelAnnotationResponse(["B-AI", "B-ST", "I-ST"]);
+        var response = new PharmaLabelAnnotationResponse
+        {
+            Labels =
+            [
+                PharmaAnnotationLabels.ActiveIngredientBegin,
+                PharmaAnnotationLabels.StrengthBegin,
+                PharmaAnnotationLabels.StrengthInside,
+            ],
+        };
 
         var result = _sut.Validate(request, response);
 
@@ -23,36 +32,65 @@ public class PharmaLabelAnnotationValidatorTests
     public void LabelCountMismatch_IsInvalid()
     {
         var request = MakeRequest("captopril 4 mg/ml");
-        var response = new PharmaLabelAnnotationResponse(["B-AI", "B-ST"]);
+        var response = new PharmaLabelAnnotationResponse
+        {
+            Labels = [PharmaAnnotationLabels.ActiveIngredientBegin, PharmaAnnotationLabels.StrengthBegin],
+        };
 
         var result = _sut.Validate(request, response);
 
         result.IsValid.Should().BeFalse();
-        result.Errors.Should().Contain(e => e.Contains("Label count mismatch"));
+        result.Errors.Should().Contain(e => e.Contains("labels count mismatch"));
     }
 
     [Fact]
     public void UnknownLabel_IsInvalid()
     {
         var request = MakeRequest("captopril");
-        var response = new PharmaLabelAnnotationResponse(["B-DOSAGE"]);
+        var response = new PharmaLabelAnnotationResponse { Labels = ["B-DOSAGE"] };
 
         var result = _sut.Validate(request, response);
 
         result.IsValid.Should().BeFalse();
-        result.Errors.Should().Contain(e => e.Contains("Unknown label") && e.Contains("B-DOSAGE"));
+        result.Errors.Should().Contain(e => e.Contains("not allowed") && e.Contains("B-DOSAGE"));
     }
 
     [Fact]
     public void InvalidBioTransition_IsInvalid()
     {
         var request = MakeRequest("captopril 4");
-        var response = new PharmaLabelAnnotationResponse(["B-AI", "I-ST"]);
+        var response = new PharmaLabelAnnotationResponse
+        {
+            Labels =
+            [
+                PharmaAnnotationLabels.ActiveIngredientBegin,
+                PharmaAnnotationLabels.StrengthInside,
+            ],
+        };
 
         var result = _sut.Validate(request, response);
 
         result.IsValid.Should().BeFalse();
-        result.Errors.Should().Contain(e => e.Contains("Invalid BIO transition"));
+        result.Errors.Should().Contain(e => e.Contains("invalid BIO transition"));
+    }
+
+    [Fact]
+    public void InsideLabelAfterOutside_IsInvalid()
+    {
+        var request = MakeRequest("marca 4");
+        var response = new PharmaLabelAnnotationResponse
+        {
+            Labels =
+            [
+                PharmaAnnotationLabels.Outside,
+                PharmaAnnotationLabels.StrengthInside,
+            ],
+        };
+
+        var result = _sut.Validate(request, response);
+
+        result.IsValid.Should().BeFalse();
+        result.Errors.Should().Contain(e => e.Contains("I-STRENGTH after O"));
     }
 
     private static PharmaAnnotationModelRequest MakeRequest(string text)
@@ -68,7 +106,6 @@ public class PharmaLabelAnnotationValidatorTests
             1,
             text,
             tokens,
-            new Dictionary<string, string>(),
-            LabelSchema.AllLabels);
+            new Dictionary<string, string>());
     }
 }

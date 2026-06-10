@@ -1,4 +1,6 @@
 namespace PharmaCorpusAnnotator.Core.Models;
 
-public sealed record PharmaLabelAnnotationResponse(
-    IReadOnlyList<string> Labels);
+public sealed class PharmaLabelAnnotationResponse
+{
+    public string[] Labels { get; set; } = [];
+}

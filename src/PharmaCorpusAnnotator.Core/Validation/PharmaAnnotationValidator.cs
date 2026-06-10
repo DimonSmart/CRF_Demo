@@ -1,3 +1,4 @@
+using PharmaCorpusAnnotator.Core.Labeling;
 using PharmaCorpusAnnotator.Core.Models;
 
 namespace PharmaCorpusAnnotator.Core.Validation;
@@ -28,7 +29,6 @@ public sealed class PharmaAnnotationValidator
                 $"response contains {response.Tokens.Count} tokens, input contains {request.Tokens.Count} tokens.");
         }
 
-        var allowedSet = new HashSet<string>(request.AllowedLabels, StringComparer.Ordinal);
         string? previousLabel = null;
 
         for (int i = 0; i < Math.Min(response.Tokens.Count, request.Tokens.Count); i++)
@@ -42,7 +42,7 @@ public sealed class PharmaAnnotationValidator
             if (rt.Text != it.Text)
                 errors.Add($"tokens[{i}].text '{rt.Text}' does not match input token text '{it.Text}'.");
 
-            if (!allowedSet.Contains(rt.Label))
+            if (!PharmaAnnotationLabels.AllSet.Contains(rt.Label))
                 errors.Add($"tokens[{i}].label has unsupported value {rt.Label}.");
 
             if (rt.Confidence.HasValue && (rt.Confidence < 0 || rt.Confidence > 1))

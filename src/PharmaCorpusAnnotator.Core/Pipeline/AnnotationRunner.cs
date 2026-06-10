@@ -128,8 +128,7 @@ public sealed class AnnotationRunner
                 RowNumber: row.RowNumber,
                 Text: row.Text,
                 Tokens: tokens,
-                Context: row.Context,
-                AllowedLabels: LabelSchema.AllLabels);
+                Context: row.Context);
 
             try
             {

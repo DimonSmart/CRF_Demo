@@ -1,3 +1,4 @@
+using PharmaCorpusAnnotator.Core.Labeling;
 using PharmaCorpusAnnotator.Core.Models;
 
 namespace PharmaCorpusAnnotator.Core.Mapping;
@@ -21,13 +22,13 @@ public sealed class LabelAnnotationMapper
             ProductName: null,
             Brand: null,
             Manufacturer: null,
-            ActiveIngredients: GetEntityTexts(request, labelResponse, LabelSchema.ActiveIngredient),
-            Strength: JoinEntityTexts(request, labelResponse, LabelSchema.Strength),
-            DoseForm: JoinEntityTexts(request, labelResponse, LabelSchema.DoseForm),
-            Route: JoinEntityTexts(request, labelResponse, LabelSchema.Route),
+            ActiveIngredients: GetEntityTexts(request, labelResponse, PharmaAnnotationLabels.ActiveIngredient),
+            Strength: JoinEntityTexts(request, labelResponse, PharmaAnnotationLabels.Strength),
+            DoseForm: JoinEntityTexts(request, labelResponse, PharmaAnnotationLabels.DoseForm),
+            Route: JoinEntityTexts(request, labelResponse, PharmaAnnotationLabels.Route),
             PackageQuantity: ParsePackageQuantity(request, labelResponse),
-            PackageUnit: JoinEntityTexts(request, labelResponse, LabelSchema.PackageUnit),
-            PackageVolume: JoinEntityTexts(request, labelResponse, LabelSchema.PackageVolume),
+            PackageUnit: JoinEntityTexts(request, labelResponse, PharmaAnnotationLabels.PackageUnit),
+            PackageVolume: JoinEntityTexts(request, labelResponse, PharmaAnnotationLabels.PackageVolume),
             Price: null,
             Currency: null);
 
@@ -43,7 +44,7 @@ public sealed class LabelAnnotationMapper
         PharmaAnnotationModelRequest request,
         PharmaLabelAnnotationResponse response)
     {
-        var value = JoinEntityTexts(request, response, LabelSchema.PackageQuantity);
+        var value = JoinEntityTexts(request, response, PharmaAnnotationLabels.PackageQuantity);
         return int.TryParse(value, out var quantity) ? quantity : null;
     }
 
@@ -66,7 +67,7 @@ public sealed class LabelAnnotationMapper
         var begin = "B-" + entityType;
         var inside = "I-" + entityType;
 
-        for (int i = 0; i < response.Labels.Count; i++)
+        for (int i = 0; i < response.Labels.Length; i++)
         {
             var label = response.Labels[i];
 

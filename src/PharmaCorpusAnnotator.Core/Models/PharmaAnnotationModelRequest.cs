@@ -6,5 +6,4 @@ public sealed record PharmaAnnotationModelRequest(
     long RowNumber,
     string Text,
     IReadOnlyList<SourceToken> Tokens,
-    IReadOnlyDictionary<string, string> Context,
-    IReadOnlyList<string> AllowedLabels);
+    IReadOnlyDictionary<string, string> Context);

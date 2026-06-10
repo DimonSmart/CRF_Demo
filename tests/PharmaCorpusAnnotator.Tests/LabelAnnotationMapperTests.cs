@@ -1,4 +1,5 @@
 using FluentAssertions;
+using PharmaCorpusAnnotator.Core.Labeling;
 using PharmaCorpusAnnotator.Core.Mapping;
 using PharmaCorpusAnnotator.Core.Models;
 
@@ -12,18 +13,21 @@ public class LabelAnnotationMapperTests
     public void Map_CreatesAnnotatedTokensFromRequestTokensAndLabels()
     {
         var request = MakeRequest("captopril 4 mg/ml suspension oral 100 ml 1 frasco");
-        var labelResponse = new PharmaLabelAnnotationResponse(
-        [
-            "B-AI",
-            "B-ST",
-            "I-ST",
-            "B-DF",
-            "B-RO",
-            "B-PV",
-            "I-PV",
-            "B-PQ",
-            "B-PU",
-        ]);
+        var labelResponse = new PharmaLabelAnnotationResponse
+        {
+            Labels =
+            [
+                PharmaAnnotationLabels.ActiveIngredientBegin,
+                PharmaAnnotationLabels.StrengthBegin,
+                PharmaAnnotationLabels.StrengthInside,
+                PharmaAnnotationLabels.DoseFormBegin,
+                PharmaAnnotationLabels.RouteBegin,
+                PharmaAnnotationLabels.PackageVolumeBegin,
+                PharmaAnnotationLabels.PackageVolumeInside,
+                PharmaAnnotationLabels.PackageQuantityBegin,
+                PharmaAnnotationLabels.PackageUnitBegin,
+            ],
+        };
 
         var response = _sut.Map(request, labelResponse);
 
@@ -54,7 +58,6 @@ public class LabelAnnotationMapperTests
             1,
             text,
             tokens,
-            new Dictionary<string, string>(),
-            LabelSchema.AllLabels);
+            new Dictionary<string, string>());
     }
 }

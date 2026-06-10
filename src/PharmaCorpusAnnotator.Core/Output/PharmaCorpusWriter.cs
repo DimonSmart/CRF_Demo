@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.Logging;
+using PharmaCorpusAnnotator.Core.Labeling;
 using PharmaCorpusAnnotator.Core.Models;
 
 namespace PharmaCorpusAnnotator.Core.Output;
@@ -38,7 +39,7 @@ public sealed class PharmaCorpusWriter : IDisposable
         _document = existingDocument ?? new PharmaCorpusDocument(
             SchemaVersion: "1.0",
             CreatedAt: DateTimeOffset.UtcNow,
-            AnnotationSchema: new AnnotationSchema("es", LabelSchema.AllLabels),
+            AnnotationSchema: new AnnotationSchema("es", PharmaAnnotationLabels.All),
             Sources: new List<PharmaCorpusSourceBlock>());
     }
 

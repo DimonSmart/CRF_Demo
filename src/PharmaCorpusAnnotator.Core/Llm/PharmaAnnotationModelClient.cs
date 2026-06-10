@@ -44,28 +44,10 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
         PharmaAnnotationModelRequest request,
         CancellationToken cancellationToken = default)
     {
-        var messages = new List<ChatMessage>
-        {
-            new(ChatRole.System, _promptBuilder.GetSystemPrompt()),
-            new(ChatRole.User, _promptBuilder.BuildUserPrompt(request)),
-        };
-
         IReadOnlyList<string> lastErrors = [];
-
         for (int attempt = 0; attempt < _retryCount; attempt++)
         {
-            if (attempt > 0)
-            {
-                messages.Add(new ChatMessage(ChatRole.User,
-                    "Previous response was invalid:\n" +
-                    string.Join("\n", lastErrors.Select(e => $"- {e}")) +
-                    "\n\nReturn corrected JSON object:\n" +
-                    "{ \"labels\": [...] }\n\n" +
-                    $"Rules:\n- labels.length must be exactly {request.Tokens.Count}.\n" +
-                    "- Use only allowed labels.\n" +
-                    "Do not return tokens.\n" +
-                    "Do not return confidence."));
-            }
+            var messages = _promptBuilder.BuildMessages(request, lastErrors);
 
             string? rawResponse = null;
 
@@ -82,6 +64,7 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
                 LogRawResponse(request, attempt + 1, rawResponse);
 
                 var labelResponse = agentResponse.Result;
+                LogTypedResult(request, labelResponse);
                 var labelValidation = _labelValidator.Validate(request, labelResponse);
 
                 if (!labelValidation.IsValid)
@@ -89,10 +72,14 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
                     lastErrors = labelValidation.Errors;
                     await WriteAttemptAsync(request, attempt + 1, false, lastErrors, null, rawResponse, cancellationToken);
 
-                    _logger.LogWarning("Attempt {Attempt}/{Max} label validation failed for {Key}:{Row}: {Error}",
+                    LogLabelValidationFailure(request, labelResponse, lastErrors);
+                    _logger.LogWarning("Attempt {Attempt}/{Max} LLM labels validation failed for {Key}:{Row}: {Error}",
                         attempt + 1, _retryCount, request.SourceKey, request.RowNumber, string.Join("; ", lastErrors));
                     continue;
                 }
+
+                _logger.LogDebug("LLM labels validation passed for {SourceKey}:{RowNumber}",
+                    request.SourceKey, request.RowNumber);
 
                 var response = _labelMapper.Map(request, labelResponse);
                 var validation = _validator.Validate(request, response);
@@ -160,21 +147,75 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
         await File.AppendAllTextAsync(_attemptsOutputPath, line + Environment.NewLine, cancellationToken);
     }
 
-    private void LogRawResponse(PharmaAnnotationModelRequest request, int attempt, string rawResponse)
+    private void LogRawResponse(PharmaAnnotationModelRequest request, int attempt, string? rawResponse)
     {
         if (string.IsNullOrWhiteSpace(rawResponse))
         {
-            _logger.LogWarning("LLM response JSON for {Key}:{Row} attempt {Attempt}/{Max}: <empty>",
+            _logger.LogWarning("LLM raw response text is empty for {Key}:{Row} attempt {Attempt}/{Max}",
                 request.SourceKey, request.RowNumber, attempt, _retryCount);
             return;
         }
 
-        _logger.LogInformation("LLM response JSON for {Key}:{Row} attempt {Attempt}/{Max}:{NewLine}{Json}",
+        _logger.LogDebug("LLM raw response text for {Key}:{Row} attempt {Attempt}/{Max}:{NewLine}{Json}",
             request.SourceKey,
             request.RowNumber,
             attempt,
             _retryCount,
             Environment.NewLine,
             rawResponse);
+    }
+
+    private void LogTypedResult(
+        PharmaAnnotationModelRequest request,
+        PharmaLabelAnnotationResponse? response)
+    {
+        if (response is null)
+        {
+            _logger.LogWarning("LLM typed result is null for {SourceKey}:{RowNumber}",
+                request.SourceKey, request.RowNumber);
+            return;
+        }
+
+        if (response.Labels is null)
+        {
+            _logger.LogWarning("LLM labels array is null for {SourceKey}:{RowNumber}",
+                request.SourceKey, request.RowNumber);
+            return;
+        }
+
+        if (response.Labels.Length == 0)
+        {
+            _logger.LogWarning("LLM labels array is empty for {SourceKey}:{RowNumber}",
+                request.SourceKey, request.RowNumber);
+            return;
+        }
+
+        _logger.LogDebug(
+            "LLM parsed labels for {SourceKey}:{RowNumber}: {Labels}",
+            request.SourceKey,
+            request.RowNumber,
+            string.Join("|", response.Labels));
+    }
+
+    private void LogLabelValidationFailure(
+        PharmaAnnotationModelRequest request,
+        PharmaLabelAnnotationResponse? response,
+        IReadOnlyList<string> errors)
+    {
+        if (response?.Labels is not null && response.Labels.Length != request.Tokens.Count)
+        {
+            _logger.LogWarning(
+                "LLM labels count mismatch for {SourceKey}:{RowNumber}: expected {Expected}, actual {Actual}",
+                request.SourceKey,
+                request.RowNumber,
+                request.Tokens.Count,
+                response.Labels.Length);
+        }
+
+        _logger.LogWarning(
+            "LLM labels validation failed for {SourceKey}:{RowNumber}: {Errors}",
+            request.SourceKey,
+            request.RowNumber,
+            string.Join("; ", errors));
     }
 }

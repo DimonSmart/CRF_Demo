@@ -51,8 +51,7 @@ public class LlmIntegrationTests
             Context: new Dictionary<string, string>
             {
                 ["Principio activo o asociación de principios activos"] = "CAPTOPRIL"
-            },
-            AllowedLabels: LabelSchema.AllLabels);
+            });
 
         var response = await modelClient.AnnotateAsync(request, TestContext.Current.CancellationToken);
 

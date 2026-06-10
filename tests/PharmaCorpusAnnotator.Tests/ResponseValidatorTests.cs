@@ -1,4 +1,5 @@
 using FluentAssertions;
+using PharmaCorpusAnnotator.Core.Labeling;
 using PharmaCorpusAnnotator.Core.Models;
 using PharmaCorpusAnnotator.Core.Validation;
 
@@ -18,8 +19,7 @@ public class ResponseValidatorTests
             Tokens: Enumerable.Range(0, tokenCount)
                 .Select(i => new SourceToken(i, $"tok{i}", i * 5, i * 5 + 4))
                 .ToList(),
-            Context: context ?? new Dictionary<string, string>(),
-            AllowedLabels: LabelSchema.AllLabels);
+            Context: context ?? new Dictionary<string, string>());
 
     private static PharmaAnnotationResponse MakeResponse(
         int tokenCount = 3,
@@ -127,7 +127,12 @@ public class ResponseValidatorTests
     public void ValidResponse_PassesAllChecks()
     {
         var req = MakeRequest(3);
-        var res = MakeResponse(3, ["B-AI", "B-ST", "O"]);
+        var res = MakeResponse(3,
+        [
+            PharmaAnnotationLabels.ActiveIngredientBegin,
+            PharmaAnnotationLabels.StrengthBegin,
+            PharmaAnnotationLabels.Outside,
+        ]);
         _sut.Validate(req, res).IsValid.Should().BeTrue();
     }
 }
