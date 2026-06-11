@@ -147,6 +147,27 @@ public class CliSmokeTests
     }
 
     [Fact]
+    public void LlmOptions_ExplicitProfileOverridesEnvironmentProfile()
+    {
+        WithLlmConfig(configPath =>
+            WithEnvironment(
+                () =>
+                {
+                    var options = LlmOptionsFactory.FromEnvironment(profileName: "ollama");
+
+                    options.ModelId.Should().Be("qwen3:14b");
+                    options.BaseEndpoint.ToString().Should().Be("http://localhost:11434/v1");
+                    options.ApiKey.Should().Be("ollama");
+                },
+                ("LLM_CONFIG_PATH", configPath),
+                ("LLM_PROFILE", "nvidia"),
+                ("LLM_MODEL", null),
+                ("LLM_BASE_URL", null),
+                ("LLM_API_KEY", null),
+                ("NVIDIA_API_KEY", "test-secret")));
+    }
+
+    [Fact]
     public void LlmOptions_EnvironmentOverridesSelectedProfile()
     {
         WithLlmConfig(configPath =>

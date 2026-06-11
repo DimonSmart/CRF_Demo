@@ -6,10 +6,11 @@ namespace PharmaCorpusAnnotator.Cli;
 
 public static class LlmOptionsFactory
 {
-    public static LlmOptions FromEnvironment(string? attemptsOutputPath = null)
+    public static LlmOptions FromEnvironment(string? attemptsOutputPath = null, string? profileName = null)
     {
         var configuration = BuildConfiguration();
-        var activeProfileName = Env("LLM_PROFILE", null)
+        var activeProfileName = NonEmpty(profileName)
+            ?? Env("LLM_PROFILE", null)
             ?? configuration["Llm:ActiveProfile"]
             ?? "ollama";
 
@@ -47,6 +48,9 @@ public static class LlmOptionsFactory
 
     private static string? Env(string name, string? fallback) =>
         Environment.GetEnvironmentVariable(name) is { Length: > 0 } v ? v : fallback;
+
+    private static string? NonEmpty(string? value) =>
+        string.IsNullOrWhiteSpace(value) ? null : value;
 
     private static IConfigurationRoot BuildConfiguration()
     {

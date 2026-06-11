@@ -63,6 +63,7 @@ public static class AnnotateCommand
         var failedOutput = parsed.GetValueOrDefault("--failed-output")
             ?? DeriveFailedPath(output);
         var attemptsOutput = parsed.GetValueOrDefault("--attempts-output");
+        var llmProfile = parsed.GetValueOrDefault("--llm-profile");
 
         var logLevel = verbose ? LogLevel.Debug : LogLevel.Information;
         using var loggerFactory = LoggerFactory.Create(b =>
@@ -92,7 +93,7 @@ public static class AnnotateCommand
 
         if (!dryRun)
         {
-            var llmOpts = LlmOptionsFactory.FromEnvironment(attemptsOutput);
+            var llmOpts = LlmOptionsFactory.FromEnvironment(attemptsOutput, llmProfile);
             loggerFactory.CreateLogger("Config").LogInformation(
                 "LLM: {Model} @ {Endpoint}", llmOpts.ModelId, llmOpts.BaseEndpoint);
 
