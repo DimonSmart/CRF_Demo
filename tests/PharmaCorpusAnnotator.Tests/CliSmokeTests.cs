@@ -168,6 +168,27 @@ public class CliSmokeTests
     }
 
     [Fact]
+    public void LlmOptions_ExplicitProfileIgnoresEnvironmentModelAndBaseUrlOverrides()
+    {
+        WithLlmConfig(configPath =>
+            WithEnvironment(
+                () =>
+                {
+                    var options = LlmOptionsFactory.FromEnvironment(profileName: "nvidia");
+
+                    options.ModelId.Should().Be("openai/gpt-oss-120b");
+                    options.BaseEndpoint.ToString().Should().Be("https://integrate.api.nvidia.com/v1");
+                    options.ApiKey.Should().Be("test-secret");
+                },
+                ("LLM_CONFIG_PATH", configPath),
+                ("LLM_PROFILE", "ollama"),
+                ("LLM_MODEL", "gpt-oss:20b-cloud"),
+                ("LLM_BASE_URL", "http://localhost:11434"),
+                ("LLM_API_KEY", "ignored-key"),
+                ("NVIDIA_API_KEY", "test-secret")));
+    }
+
+    [Fact]
     public void LlmOptions_EnvironmentOverridesSelectedProfile()
     {
         WithLlmConfig(configPath =>

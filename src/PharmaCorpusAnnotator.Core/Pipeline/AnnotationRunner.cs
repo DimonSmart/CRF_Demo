@@ -158,6 +158,11 @@ public sealed class AnnotationRunner
             {
                 throw;
             }
+            catch (FatalLlmException ex)
+            {
+                _logger.LogCritical(ex, "Fatal LLM error while processing row {Row}. Annotation run stopped.", row.RowNumber);
+                throw;
+            }
             catch (AnnotationFailedException afex)
             {
                 failed++;

@@ -102,7 +102,15 @@ public static class AnnotateCommand
             var tokenizer = new PharmaTokenizer();
             var runner = new AnnotationRunner(reader, tokenizer, modelClient, loggerFactory);
 
-            await runner.RunAsync(runnerOpts);
+            try
+            {
+                await runner.RunAsync(runnerOpts);
+            }
+            catch (FatalLlmException ex)
+            {
+                Console.Error.WriteLine($"Fatal LLM error: {ex.Message}");
+                return 1;
+            }
         }
         else
         {

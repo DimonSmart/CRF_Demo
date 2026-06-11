@@ -121,14 +121,7 @@ dotnet run --project src/PharmaCorpusAnnotator.Cli -- annotate `
 ### Windows CMD
 
 ```bat
-set LLM_PROFILE=nvidia
-
-dotnet run --project src/PharmaCorpusAnnotator.Cli -- annotate ^
-  --input SourceData/20260610_Nomenclator_de_Facturacion.csv ^
-  --text-column "Nombre del producto farmacéutico" ^
-  --source-key nomenclator-facturacion-20260610 ^
-  --max-rows 50 ^
-  --output corpus/pharma-corpus.json
+RunPharmaCorpusAnnotator.bat
 ```
 
 ### Dry run (no LLM)
@@ -167,7 +160,7 @@ Configuration order:
 2. .NET user-secrets
 3. Environment variables
 
-Environment variables override the selected profile:
+Environment variables override the selected profile only when the profile is selected through configuration or `LLM_PROFILE`. If `--llm-profile` is passed on the command line, the named profile is used as written in `llmsettings.json`; global overrides such as `LLM_MODEL` and `LLM_BASE_URL` are ignored.
 
 | Variable | Default |
 |----------|---------|
@@ -181,6 +174,8 @@ Environment variables override the selected profile:
 | `LLM_IGNORE_SSL_ERRORS` | `false` |
 | `LLM_USERNAME` | — |
 | `LLM_PASSWORD` | — |
+
+Provider configuration errors such as HTTP 400, 401, 403, or 404 stop the annotation run immediately. They are not written as per-row failed annotations because retrying the rest of the CSV cannot fix an unavailable model, invalid key, or unsupported request shape.
 
 ## Building and testing
 

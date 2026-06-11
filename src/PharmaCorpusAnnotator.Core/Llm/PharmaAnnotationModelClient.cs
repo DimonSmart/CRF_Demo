@@ -6,6 +6,7 @@ using PharmaCorpusAnnotator.Core.Interfaces;
 using PharmaCorpusAnnotator.Core.Mapping;
 using PharmaCorpusAnnotator.Core.Models;
 using PharmaCorpusAnnotator.Core.Validation;
+using System.ClientModel;
 
 namespace PharmaCorpusAnnotator.Core.Llm;
 
@@ -102,6 +103,13 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
             }
             catch (Exception ex)
             {
+                if (IsFatalLlmError(ex))
+                {
+                    var message = $"Fatal LLM provider error for {request.SourceKey}:{request.RowNumber}: {ex.Message}";
+                    await WriteAttemptAsync(request, attempt + 1, false, [], message, rawResponse, cancellationToken);
+                    throw new FatalLlmException(message, ex);
+                }
+
                 lastErrors = [ex.Message];
                 await WriteAttemptAsync(request, attempt + 1, false, [], ex.Message, rawResponse, cancellationToken);
                 _logger.LogWarning("Attempt {Attempt}/{Max} call failed for {Key}:{Row}: {Error}",
@@ -115,6 +123,35 @@ public sealed class PharmaAnnotationModelClient : IPharmaAnnotationModelClient
             request.Text,
             string.Join("; ", lastErrors),
             _retryCount);
+    }
+
+    private static bool IsFatalLlmError(Exception exception)
+    {
+        if (exception is FatalLlmException)
+            return true;
+
+        if (exception is ClientResultException clientException
+            && IsFatalHttpStatus(clientException.Status))
+        {
+            return true;
+        }
+
+        return exception.InnerException is not null && IsFatalLlmError(exception.InnerException)
+            || IsFatalLlmMessage(exception.Message);
+    }
+
+    private static bool IsFatalHttpStatus(int status) =>
+        status is 400 or 401 or 403 or 404;
+
+    private static bool IsFatalLlmMessage(string message)
+    {
+        return message.Contains("model", StringComparison.OrdinalIgnoreCase)
+            && (message.Contains("not found", StringComparison.OrdinalIgnoreCase)
+                || message.Contains("does not exist", StringComparison.OrdinalIgnoreCase)
+                || message.Contains("not available", StringComparison.OrdinalIgnoreCase))
+            || message.Contains("invalid_api_key", StringComparison.OrdinalIgnoreCase)
+            || message.Contains("unauthorized", StringComparison.OrdinalIgnoreCase)
+            || message.Contains("forbidden", StringComparison.OrdinalIgnoreCase);
     }
 
     private async Task WriteAttemptAsync(

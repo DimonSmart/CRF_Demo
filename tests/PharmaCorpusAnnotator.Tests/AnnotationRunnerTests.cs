@@ -114,6 +114,29 @@ public sealed class AnnotationRunnerTests : IDisposable
     }
 
     [Fact]
+    public async Task FatalLlmError_StopsRunWithoutFailedRecord()
+    {
+        var input = Path.Combine(_tmpDir, "source.csv");
+        await File.WriteAllTextAsync(
+            input,
+            "Código Nacional;Nombre del producto farmacéutico" + Environment.NewLine +
+            "140001;producto uno 1 mg" + Environment.NewLine +
+            "140002;producto dos 2 mg" + Environment.NewLine,
+            TestContext.Current.CancellationToken);
+
+        var output = Path.Combine(_tmpDir, "corpus.json");
+        var failedOutput = Path.Combine(_tmpDir, "failed.jsonl");
+        var modelClient = new FatalModelClient();
+        var runner = CreateRunner(modelClient);
+
+        var act = () => runner.RunAsync(CreateOptions(input, output, failedOutput, maxRows: 2), TestContext.Current.CancellationToken);
+
+        await act.Should().ThrowAsync<FatalLlmException>();
+        modelClient.Calls.Should().Be(1);
+        File.Exists(failedOutput).Should().BeFalse();
+    }
+
+    [Fact]
     public async Task RequiredNonEmptyColumn_IsStoredInSourceMetadata()
     {
         var input = Path.Combine(_tmpDir, "source.csv");
@@ -228,6 +251,19 @@ public sealed class AnnotationRunnerTests : IDisposable
             PharmaAnnotationModelRequest request,
             CancellationToken cancellationToken = default) =>
             throw new InvalidOperationException("test failure");
+    }
+
+    private sealed class FatalModelClient : IPharmaAnnotationModelClient
+    {
+        public int Calls { get; private set; }
+
+        public Task<PharmaAnnotationResponse> AnnotateAsync(
+            PharmaAnnotationModelRequest request,
+            CancellationToken cancellationToken = default)
+        {
+            Calls++;
+            throw new FatalLlmException("model 'openai/gpt-oss-120b' not found");
+        }
     }
 
     private sealed class CapturingModelClient : IPharmaAnnotationModelClient

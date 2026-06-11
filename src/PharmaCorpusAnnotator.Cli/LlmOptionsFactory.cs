@@ -9,28 +9,32 @@ public static class LlmOptionsFactory
     public static LlmOptions FromEnvironment(string? attemptsOutputPath = null, string? profileName = null)
     {
         var configuration = BuildConfiguration();
-        var activeProfileName = NonEmpty(profileName)
+        var explicitProfileName = NonEmpty(profileName);
+        var activeProfileName = explicitProfileName
             ?? Env("LLM_PROFILE", null)
             ?? configuration["Llm:ActiveProfile"]
             ?? "ollama";
+        var useEnvironmentOverrides = explicitProfileName is null;
 
         var profile = FindProfile(configuration, activeProfileName);
 
-        var model = Env("LLM_MODEL", null)
+        var model = EnvOverride("LLM_MODEL", useEnvironmentOverrides)
             ?? profile.Model
             ?? "qwen3:14b";
-        var baseUrlRaw = Env("LLM_BASE_URL", null)
+        var baseUrlRaw = EnvOverride("LLM_BASE_URL", useEnvironmentOverrides)
             ?? profile.BaseUrl
             ?? "http://localhost:11434";
         var apiKey = ResolveSecretReference(
-                Env("LLM_API_KEY", null) ?? profile.ApiKey ?? "ollama",
+                EnvOverride("LLM_API_KEY", useEnvironmentOverrides) ?? profile.ApiKey ?? "ollama",
                 configuration)
             ?? throw new InvalidOperationException("LLM API key is empty.");
-        var ignoreSsl = GetBool("LLM_IGNORE_SSL_ERRORS", profile.IgnoreSslErrors, false);
-        var username = Env("LLM_USERNAME", null) ?? profile.Username;
-        var password = ResolveSecretReference(Env("LLM_PASSWORD", null) ?? profile.Password, configuration);
-        var retryCount = GetInt("LLM_RETRY_COUNT", profile.RetryCount, 5);
-        var timeoutMin = GetDouble("LLM_TIMEOUT_MINUTES", profile.TimeoutMinutes, 30);
+        var ignoreSsl = GetBool("LLM_IGNORE_SSL_ERRORS", useEnvironmentOverrides, profile.IgnoreSslErrors, false);
+        var username = EnvOverride("LLM_USERNAME", useEnvironmentOverrides) ?? profile.Username;
+        var password = ResolveSecretReference(
+            EnvOverride("LLM_PASSWORD", useEnvironmentOverrides) ?? profile.Password,
+            configuration);
+        var retryCount = GetInt("LLM_RETRY_COUNT", useEnvironmentOverrides, profile.RetryCount, 5);
+        var timeoutMin = GetDouble("LLM_TIMEOUT_MINUTES", useEnvironmentOverrides, profile.TimeoutMinutes, 30);
 
         var baseEndpoint = NormalizeEndpoint(baseUrlRaw);
 
@@ -48,6 +52,9 @@ public static class LlmOptionsFactory
 
     private static string? Env(string name, string? fallback) =>
         Environment.GetEnvironmentVariable(name) is { Length: > 0 } v ? v : fallback;
+
+    private static string? EnvOverride(string name, bool enabled) =>
+        enabled ? Env(name, null) : null;
 
     private static string? NonEmpty(string? value) =>
         string.IsNullOrWhiteSpace(value) ? null : value;
@@ -121,25 +128,25 @@ public static class LlmOptionsFactory
         return secretValue;
     }
 
-    private static bool GetBool(string envName, bool? profileValue, bool fallback)
+    private static bool GetBool(string envName, bool useEnvironmentOverrides, bool? profileValue, bool fallback)
     {
-        var raw = Env(envName, null);
+        var raw = EnvOverride(envName, useEnvironmentOverrides);
         return raw is not null && bool.TryParse(raw, out var envValue)
             ? envValue
             : profileValue ?? fallback;
     }
 
-    private static int GetInt(string envName, int? profileValue, int fallback)
+    private static int GetInt(string envName, bool useEnvironmentOverrides, int? profileValue, int fallback)
     {
-        var raw = Env(envName, null);
+        var raw = EnvOverride(envName, useEnvironmentOverrides);
         return raw is not null && int.TryParse(raw, out var envValue)
             ? envValue
             : profileValue ?? fallback;
     }
 
-    private static double GetDouble(string envName, double? profileValue, double fallback)
+    private static double GetDouble(string envName, bool useEnvironmentOverrides, double? profileValue, double fallback)
     {
-        var raw = Env(envName, null);
+        var raw = EnvOverride(envName, useEnvironmentOverrides);
         return raw is not null && double.TryParse(raw, out var envValue)
             ? envValue
             : profileValue ?? fallback;
