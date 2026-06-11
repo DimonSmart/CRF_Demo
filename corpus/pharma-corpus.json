@@ -42952,6 +42952,6701 @@
               "warnings": []
             }
           }
+        },
+        {
+          "rowNumber": 5314,
+          "text": "ENALAPRIL MABO 20MG 28 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ENALAPRIL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "MABO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ENALAPRIL"
+              ],
+              "strength": "20 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5315,
+          "text": "PRITADOL 10MG 28 COMPRIMIDOS",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PRITADOL",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "10",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "10 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5316,
+          "text": "PRITADOL 20MG 28 COMPRIMIDOS",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PRITADOL",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "20 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5317,
+          "text": "PRITADOL 40MG 28 COMPRIMIDOS",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PRITADOL",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "40",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "40 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5318,
+          "text": "TERAZOSINA ALTER 5MG 30 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "TERAZOSINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "TERAZOSINA"
+              ],
+              "strength": "5 MG",
+              "packageQuantity": 30,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5319,
+          "text": "LANSOPRAZOL ALTER 30MG 28 CAPSULAS GASTROR EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "LANSOPRAZOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "30",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "CAPSULAS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "GASTROR",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "LANSOPRAZOL"
+              ],
+              "strength": "30 MG",
+              "packageQuantity": 28,
+              "packageUnit": "CAPSULAS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5320,
+          "text": "DICLOFENACO ALTER 50 mg COMPRIMIDOS GASTRORRESISTENTES EFG , 40 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "DICLOFENACO",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "50",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "GASTRORRESISTENTES",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "40",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "DICLOFENACO"
+              ],
+              "strength": "50 mg",
+              "doseForm": "COMPRIMIDOS GASTRORRESISTENTES",
+              "packageQuantity": 40,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5321,
+          "text": "DEFLAZACORT ALTER 30MG 10 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "DEFLAZACORT",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "30",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "10",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "DEFLAZACORT"
+              ],
+              "strength": "30 MG",
+              "packageQuantity": 10,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5322,
+          "text": "DEFLAZACORT ALTER 6MG 20 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "DEFLAZACORT",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "6",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "20",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "DEFLAZACORT"
+              ],
+              "strength": "6 MG",
+              "packageQuantity": 20,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5323,
+          "text": "ARACALM 400 mg comprimidos recubiertos con pelicula , 30 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ARACALM",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "400",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "comprimidos",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "recubiertos",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "con",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "pelicula",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "400 mg",
+              "doseForm": "comprimidos recubiertos con pelicula",
+              "packageQuantity": 30,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5324,
+          "text": "DOXAZOSINA ALTER 2MG 28 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "DOXAZOSINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "2",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "DOXAZOSINA"
+              ],
+              "strength": "2 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5325,
+          "text": "ARACALM 200 mg comprimidos , 60 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ARACALM",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "200",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "comprimidos",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "60",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "200 mg",
+              "doseForm": "comprimidos",
+              "packageQuantity": 60,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5326,
+          "text": "DOXAZOSINA ALTER 4MG 28 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "DOXAZOSINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "4",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "DOXAZOSINA"
+              ],
+              "strength": "4 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5327,
+          "text": "CAPTOPRIL ALTER 25MG 60 COMPRIMIDOS RANURADOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CAPTOPRIL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "25",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "60",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "RANURADOS",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CAPTOPRIL"
+              ],
+              "strength": "25 MG",
+              "packageQuantity": 60,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5328,
+          "text": "CAPTOPRIL ALTER 50MG 30 COMPRIMIDOS RANURADOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CAPTOPRIL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "50",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RANURADOS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CAPTOPRIL"
+              ],
+              "strength": "50 MG",
+              "doseForm": "COMPRIMIDOS RANURADOS",
+              "packageQuantity": 30
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5329,
+          "text": "ATENOLOL ALTER 50MG 30 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ATENOLOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "50",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ATENOLOL"
+              ],
+              "strength": "50 MG",
+              "packageQuantity": 30,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5330,
+          "text": "ARACALM 100 mg comprimidos , 60 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ARACALM",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "100",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "comprimidos",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "60",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "100 mg",
+              "doseForm": "comprimidos",
+              "packageQuantity": 60,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5331,
+          "text": "ATENOLOL ALTER 100MG 60 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ATENOLOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "100",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "60",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ATENOLOL"
+              ],
+              "strength": "100 MG",
+              "packageQuantity": 60,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5332,
+          "text": "RANITIDINA ALTER 150MG 28 COMPRIMIDOS RECUBIER EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "RANITIDINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "150",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUBIER",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "RANITIDINA"
+              ],
+              "strength": "150 MG",
+              "doseForm": "COMPRIMIDOS RECUBIER"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5333,
+          "text": "RANITIDINA ALTER 300MG 28 COMPRIMIDOS RECU EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "RANITIDINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "300",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECU",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "RANITIDINA"
+              ],
+              "strength": "300 MG",
+              "doseForm": "COMPRIMIDOS RECU",
+              "packageQuantity": 28
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5334,
+          "text": "CETIRIZINA ALTER 10MG 20 COMPRIMIDOS RECUBIERT EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CETIRIZINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "10",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "20",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUBIERT",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CETIRIZINA"
+              ],
+              "strength": "10 MG",
+              "doseForm": "COMPRIMIDOS RECUBIERT",
+              "packageQuantity": 20
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5335,
+          "text": "MIRTAZAPINA ALTER 30MG 30 COMPRIMIDOS REC PEL EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "MIRTAZAPINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "30",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "REC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PEL",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "MIRTAZAPINA"
+              ],
+              "strength": "30 MG",
+              "doseForm": "COMPRIMIDOS REC PEL",
+              "packageQuantity": 30
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5336,
+          "text": "Alastina 20 mg comprimidos recubiertos con pelicula, 20 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "Alastina",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "comprimidos",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "recubiertos",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "con",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "pelicula",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "20",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "20 mg",
+              "doseForm": "comprimidos recubiertos con pelicula",
+              "packageQuantity": 20,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5337,
+          "text": "OMEPRAZOL KORHISPANA 20MG 28 CAPSULAS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "OMEPRAZOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "KORHISPANA",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "CAPSULAS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "OMEPRAZOL"
+              ],
+              "strength": "20 MG",
+              "packageQuantity": 28,
+              "packageUnit": "CAPSULAS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5338,
+          "text": "AZITROMICINA AUXIL 500 mg COMPRIMIDOS RECUBIERTOS CON PELICULA EFG , 3 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "AZITROMICINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "AUXIL",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "500",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "RECUBIERTOS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "CON",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PELICULA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 9,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 10,
+                "text": "3",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 11,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "AZITROMICINA"
+              ],
+              "strength": "500 mg",
+              "doseForm": "COMPRIMIDOS RECUBIERTOS CON PELICULA",
+              "packageQuantity": 3,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5339,
+          "text": "BISOPROLOL RATIOPHARM 5MG 30 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "BISOPROLOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "BISOPROLOL"
+              ],
+              "strength": "5 MG",
+              "packageQuantity": 30,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5340,
+          "text": "BISOPROLOL RATIOPHARM 10MG 30 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "BISOPROLOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "10",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "BISOPROLOL"
+              ],
+              "strength": "10 MG",
+              "packageQuantity": 30,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5341,
+          "text": "HALOPERIDOL PRODES gotas orales, 1 frasco de 30 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "HALOPERIDOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "PRODES",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "gotas",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 3,
+                "text": "orales",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 7,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "30",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 9,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "HALOPERIDOL"
+              ],
+              "doseForm": "gotas orales",
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "30 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5342,
+          "text": "CAPTOPRIL/HIDROCLO RATIOPHARM 50/25MG 30 COMP EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CAPTOPRIL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "/",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "HIDROCLO",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 3,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 4,
+                "text": "50",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "/",
+                "label": "O"
+              },
+              {
+                "index": 6,
+                "text": "25",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 7,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 8,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "COMP",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 10,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CAPTOPRIL",
+                "HIDROCLO"
+              ],
+              "strength": "50; 25 MG",
+              "packageQuantity": 30,
+              "packageUnit": "COMP"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5343,
+          "text": "CETIRIZINA RATIOPHARM 10MG 20 COMPRIMIDOS RECU EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CETIRIZINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "10",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "20",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECU",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CETIRIZINA"
+              ],
+              "strength": "10 MG",
+              "doseForm": "COMPRIMIDOS RECU",
+              "packageQuantity": 20
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5344,
+          "text": "CITALOPRAM RATIOPHARM 20MG 14 COMPRIMID RECUBI EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CITALOPRAM",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "14",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMID",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUBI",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CITALOPRAM"
+              ],
+              "strength": "20 MG",
+              "doseForm": "COMPRIMID RECUBI",
+              "packageQuantity": 14
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5345,
+          "text": "CITALOPRAM RATIOPHARM 20MG 28 COMPRIMID RECUBI EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CITALOPRAM",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMID",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUBI",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CITALOPRAM"
+              ],
+              "strength": "20 MG",
+              "doseForm": "COMPRIMID RECUBI",
+              "packageQuantity": 28
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5346,
+          "text": "PROCTOSTEROID AEROSOL  ESPUMA , 20 g",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PROCTOSTEROID",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "AEROSOL",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 2,
+                "text": "ESPUMA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 3,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 4,
+                "text": "20",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 5,
+                "text": "g",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "doseForm": "AEROSOL ESPUMA",
+              "packageVolume": "20 g"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5347,
+          "text": "ENALAPRIL RATIOPHARM 5 mg COMPRIMIDOS EFG, 60 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ENALAPRIL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 6,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "60",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 8,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ENALAPRIL"
+              ],
+              "strength": "5 mg",
+              "doseForm": "COMPRIMIDOS",
+              "packageQuantity": 60,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5348,
+          "text": "ENALAPRIL/HIDROCLOR RATIOPH 20/12,5MG 28 COMP EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ENALAPRIL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "/",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "HIDROCLOR",
+                "label": "O"
+              },
+              {
+                "index": 3,
+                "text": "RATIOPH",
+                "label": "O"
+              },
+              {
+                "index": 4,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "/",
+                "label": "O"
+              },
+              {
+                "index": 6,
+                "text": "12,5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 7,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 8,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "COMP",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 10,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ENALAPRIL"
+              ],
+              "strength": "20; 12,5 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMP"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5349,
+          "text": "GABAPENTINA RATIOPHARM 300MG 90 CAPSULAS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GABAPENTINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "300",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "90",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "CAPSULAS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GABAPENTINA"
+              ],
+              "strength": "300 MG",
+              "packageQuantity": 90,
+              "packageUnit": "CAPSULAS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5350,
+          "text": "BENTIFEN 0.25mg/ml COLIRIO EN SOLUCION . 1 frasco de 5 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "BENTIFEN",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "0.25",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg/ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "COLIRIO",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "EN",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "SOLUCION",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": ".",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 8,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 9,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 10,
+                "text": "5",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 11,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "BENTIFEN"
+              ],
+              "strength": "0.25 mg/ml",
+              "doseForm": "COLIRIO EN SOLUCION",
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "5 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5351,
+          "text": "GABAPENTINA RATIOPHARM 400MG 90 CAPSULAS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GABAPENTINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "400",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "90",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "CAPSULAS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GABAPENTINA"
+              ],
+              "strength": "400 MG",
+              "packageQuantity": 90,
+              "packageUnit": "CAPSULAS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5352,
+          "text": "IBUPROFENO RATIOPHARM 600MG 40 COMP REC PELIC EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "IBUPROFENO",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "600",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "40",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMP",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "REC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PELIC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "IBUPROFENO"
+              ],
+              "strength": "600 MG",
+              "doseForm": "COMP REC PELIC",
+              "packageQuantity": 40
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5353,
+          "text": "LANSOPRAZOL TEVA-RATIOPHARM 30 mg CAPSULAS DURAS GASTRORRESISTENTES EFG. 28 capsulas (FRASCO)",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "LANSOPRAZOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "TEVA-RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "30",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "CAPSULAS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "DURAS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "GASTRORRESISTENTES",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 8,
+                "text": ".",
+                "label": "O"
+              },
+              {
+                "index": 9,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 10,
+                "text": "capsulas",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 11,
+                "text": "(",
+                "label": "O"
+              },
+              {
+                "index": 12,
+                "text": "FRASCO",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 13,
+                "text": ")",
+                "label": "O"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "LANSOPRAZOL"
+              ],
+              "strength": "30 mg",
+              "doseForm": "CAPSULAS DURAS GASTRORRESISTENTES",
+              "packageQuantity": 28,
+              "packageUnit": "capsulas; FRASCO"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5354,
+          "text": "LORATADINA RATIOPHARM 10MG 20 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "LORATADINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "10",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "20",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "LORATADINA"
+              ],
+              "strength": "10 MG",
+              "packageQuantity": 20,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5355,
+          "text": "MIRTAZAPINA RATIOPHARM 15MG 30 COMPRIM REC PEL EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "MIRTAZAPINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "15",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIM",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "REC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PEL",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "MIRTAZAPINA"
+              ],
+              "strength": "15 MG",
+              "doseForm": "COMPRIM REC PEL",
+              "packageQuantity": 30
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5356,
+          "text": "MIRTAZAPINA RATIOPHARM 30MG 30 COMPRIM REC PEL EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "MIRTAZAPINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RATIOPHARM",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "30",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIM",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "REC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PEL",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "MIRTAZAPINA"
+              ],
+              "strength": "30 MG",
+              "doseForm": "COMPRIM REC PEL",
+              "packageQuantity": 30
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5357,
+          "text": "TRAMADOL ARISTO 50 mg CAPSULAS EFG , 20 capsulas",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "TRAMADOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ARISTO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "50",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "CAPSULAS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 6,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "20",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 8,
+                "text": "capsulas",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "TRAMADOL"
+              ],
+              "strength": "50 mg",
+              "doseForm": "CAPSULAS",
+              "packageQuantity": 20,
+              "packageUnit": "capsulas"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5358,
+          "text": "SIMVASTATINA KERN PHARMA 10MG 28 COMPRIM REC EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "SIMVASTATINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "KERN",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "PHARMA",
+                "label": "O"
+              },
+              {
+                "index": 3,
+                "text": "10",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "COMPRIM",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "REC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "SIMVASTATINA"
+              ],
+              "strength": "10 MG",
+              "doseForm": "COMPRIM REC",
+              "packageQuantity": 28
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5359,
+          "text": "SIMVASTATINA KERN 20MG 28 COMPRIM RECUBIERTOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "SIMVASTATINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "KERN",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIM",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUBIERTOS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "SIMVASTATINA"
+              ],
+              "strength": "20 MG",
+              "doseForm": "COMPRIM RECUBIERTOS",
+              "packageQuantity": 28
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5360,
+          "text": "SIMVASTATINA KERN PHARMA 40MG 28 COMPRIM REC EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "SIMVASTATINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "KERN",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "PHARMA",
+                "label": "O"
+              },
+              {
+                "index": 3,
+                "text": "40",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "COMPRIM",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "REC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "SIMVASTATINA"
+              ],
+              "strength": "40 MG",
+              "doseForm": "COMPRIM REC",
+              "packageQuantity": 28
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5361,
+          "text": "BONVIVA 150MG 1 COMPR RECUB PELIC",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "BONVIVA",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "150",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "COMPR",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "RECUB",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "PELIC",
+                "label": "I-DOSE_FORM"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "150 MG",
+              "doseForm": "COMPR RECUB PELIC",
+              "packageQuantity": 1
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5362,
+          "text": "AEROFLAT , 40 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "AEROFLAT",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "40",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 3,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "packageQuantity": 40,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5363,
+          "text": "COLESVIR 40MG 28 COMPRIMIDOS",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "COLESVIR",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "40",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "40 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5364,
+          "text": "AMLODIPINO CINFA 5MG 30 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "AMLODIPINO",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "CINFA",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "AMLODIPINO"
+              ],
+              "strength": "5 MG",
+              "packageQuantity": 30,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5365,
+          "text": "AMLODIPINO CINFA 10MG 30 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "AMLODIPINO",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "CINFA",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "10",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "AMLODIPINO"
+              ],
+              "strength": "10 MG",
+              "packageQuantity": 30,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5366,
+          "text": "IBUPROFENO ALDO-UNION 100MG/5ML 200ML SUS ORAL EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "IBUPROFENO",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALDO-UNION",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "100",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "/",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "5",
+                "label": "O"
+              },
+              {
+                "index": 6,
+                "text": "ML",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "200",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 8,
+                "text": "ML",
+                "label": "I-PACKAGE_VOLUME"
+              },
+              {
+                "index": 9,
+                "text": "SUS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 10,
+                "text": "ORAL",
+                "label": "B-ROUTE"
+              },
+              {
+                "index": 11,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "IBUPROFENO"
+              ],
+              "strength": "100 MG",
+              "doseForm": "SUS",
+              "route": "ORAL",
+              "packageVolume": "200 ML"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5367,
+          "text": "DENVAR 100 MG/5 ML GRANULADO PARA SUSPENSION ORAL , 1 frasco de 100 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "DENVAR",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "100",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "/",
+                "label": "O"
+              },
+              {
+                "index": 4,
+                "text": "5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "ML",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 6,
+                "text": "GRANULADO",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PARA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "SUSPENSION",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 9,
+                "text": "ORAL",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 10,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 12,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 13,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 14,
+                "text": "100",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 15,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "100 MG; 5 ML",
+              "doseForm": "GRANULADO PARA SUSPENSION ORAL",
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "100 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5368,
+          "text": "ARATRO 500 mg polvo para suspension oral en sobre , 3 sobres",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ARATRO",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "500",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "polvo",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "para",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "suspension",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "oral",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "en",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "sobre",
+                "label": "O"
+              },
+              {
+                "index": 9,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 10,
+                "text": "3",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 11,
+                "text": "sobres",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "500 mg",
+              "doseForm": "polvo para suspension oral",
+              "packageQuantity": 3,
+              "packageUnit": "sobres"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5369,
+          "text": "ARATRO 200 mg/5 ml polvo para suspension oral en frasco , 1 frasco de 15ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ARATRO",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "200",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "/",
+                "label": "O"
+              },
+              {
+                "index": 4,
+                "text": "5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 6,
+                "text": "polvo",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "para",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "suspension",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 9,
+                "text": "oral",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 10,
+                "text": "en",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 12,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 13,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 14,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 15,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 16,
+                "text": "15",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 17,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ARATRO"
+              ],
+              "strength": "200 mg; 5 ml",
+              "doseForm": "polvo para suspension oral",
+              "packageQuantity": 1,
+              "packageUnit": "frasco; frasco",
+              "packageVolume": "15 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5370,
+          "text": "DARAPRIM 25 MG COMPRIMIDOS , 30 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "DARAPRIM",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "25",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "25 MG",
+              "doseForm": "COMPRIMIDOS",
+              "packageQuantity": 30,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5371,
+          "text": "ARAPRIDE 20 mg capsulas , 14 capsulas (blister)",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ARAPRIDE",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "capsulas",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "14",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "capsulas",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 7,
+                "text": "(",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "blister",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 9,
+                "text": ")",
+                "label": "O"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ARAPRIDE"
+              ],
+              "strength": "20 mg",
+              "doseForm": "capsulas",
+              "packageQuantity": 14,
+              "packageUnit": "capsulas; blister"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5372,
+          "text": "ARAPRIDE 40 mg capsulas , 14 capsulas",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ARAPRIDE",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "40",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "capsulas",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "14",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "capsulas",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ARAPRIDE"
+              ],
+              "strength": "40 mg",
+              "doseForm": "capsulas",
+              "packageQuantity": 14,
+              "packageUnit": "capsulas"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5373,
+          "text": "DIPRODERM 0,5 mg/g CREMA , 1 tubo de 30 g",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "DIPRODERM",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "0,5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg/g",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "CREMA",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "tubo",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 7,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "30",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 9,
+                "text": "g",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "0,5 mg/g",
+              "doseForm": "CREMA",
+              "packageQuantity": 1,
+              "packageUnit": "tubo",
+              "packageVolume": "30 g"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5374,
+          "text": "DIPRODERM 0,5 mg/g pomada , 1 tubo de 30 g",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "DIPRODERM",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "0,5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg/g",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "pomada",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "tubo",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 7,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "30",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 9,
+                "text": "g",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "0,5 mg/g",
+              "doseForm": "pomada",
+              "packageQuantity": 1,
+              "packageUnit": "tubo",
+              "packageVolume": "30 g"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5375,
+          "text": "LANIRAPID 0,1MG 50 COMPRIMIDOS",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "LANIRAPID",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "0,1",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "50",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "0,1 MG",
+              "packageQuantity": 50,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5376,
+          "text": "COLIRCUSI FENILEFRINA 100 mg/ml colirio en solucion , 1 frasco de 10 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "COLIRCUSI",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "FENILEFRINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 2,
+                "text": "100",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg/ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "colirio",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "en",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "solucion",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 10,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "10",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 12,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "FENILEFRINA"
+              ],
+              "strength": "100 mg/ml",
+              "doseForm": "colirio en solucion",
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "10 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5377,
+          "text": "PENILEVEL 10.000.000 U.I., 1 vial \u002B 1 ampolla de disolvente",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PENILEVEL",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "10.000",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "000",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "U",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 6,
+                "text": "I",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 7,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 8,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 9,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 10,
+                "text": "vial",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 11,
+                "text": "\u002B",
+                "label": "O"
+              },
+              {
+                "index": 12,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 13,
+                "text": "ampolla",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 14,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 15,
+                "text": "disolvente",
+                "label": "O"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "10.000 . 000 U . I .",
+              "packageUnit": "vial; ampolla"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5378,
+          "text": "PENILEVEL 1.000.000 U.I., 1 vial \u002B 1 ampolla de disolvente",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PENILEVEL",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "1.000",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "000",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "U",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 6,
+                "text": "I",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 7,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 8,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 9,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 10,
+                "text": "vial",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 11,
+                "text": "\u002B",
+                "label": "O"
+              },
+              {
+                "index": 12,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 13,
+                "text": "ampolla",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 14,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 15,
+                "text": "disolvente",
+                "label": "O"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "1.000 . 000 U . I .",
+              "packageUnit": "vial; ampolla"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5379,
+          "text": "PENILEVEL 2.000.000 U.I., 1 vial \u002B 1 ampolla de disolvente",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PENILEVEL",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "2.000",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "000",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "U",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 6,
+                "text": "I",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 7,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 8,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 9,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 10,
+                "text": "vial",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 11,
+                "text": "\u002B",
+                "label": "O"
+              },
+              {
+                "index": 12,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 13,
+                "text": "ampolla",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 14,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 15,
+                "text": "disolvente",
+                "label": "O"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "2.000 . 000 U . I .",
+              "packageUnit": "vial; ampolla"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5380,
+          "text": "PENILEVEL 600.000 U.I., 1 vial \u002B 1 ampolla de disolvente",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PENILEVEL",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "600.000",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "U",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "I",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 6,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 8,
+                "text": "vial",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 9,
+                "text": "\u002B",
+                "label": "O"
+              },
+              {
+                "index": 10,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 11,
+                "text": "ampolla",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 12,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 13,
+                "text": "disolvente",
+                "label": "O"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "600.000 U . I .",
+              "packageUnit": "vial; ampolla"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5381,
+          "text": "COLIRCUSI DEXAMETASONA 1 mg/ml colirio en solucion , 1 frasco de 10 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "COLIRCUSI",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "DEXAMETASONA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 2,
+                "text": "1",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg/ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "colirio",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "en",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "solucion",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 10,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "10",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 12,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "DEXAMETASONA"
+              ],
+              "strength": "1 mg/ml",
+              "doseForm": "colirio en solucion",
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "10 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5382,
+          "text": "PENILEVEL 5.000.000 U.I., 1 vial \u002B 1 ampolla de disolvente",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PENILEVEL",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "5.000",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "000",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "U",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 6,
+                "text": "I",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 7,
+                "text": ".",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 8,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 9,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 10,
+                "text": "vial",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 11,
+                "text": "\u002B",
+                "label": "O"
+              },
+              {
+                "index": 12,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 13,
+                "text": "ampolla",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 14,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 15,
+                "text": "disolvente",
+                "label": "O"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "5.000 . 000 U . I .",
+              "packageUnit": "vial; ampolla"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5383,
+          "text": "COLIROFTA FLUOTEST, 1 frasco de 3 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "COLIROFTA",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "FLUOTEST",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 3,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 5,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 6,
+                "text": "3",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 7,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "3 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5384,
+          "text": "LACTULOSA LEVEL 66,75G/100ML 200ML SOLUCION ORAL",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "LACTULOSA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "LEVEL",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "66,75",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "G",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "/",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "100",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 6,
+                "text": "ML",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 7,
+                "text": "200",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 8,
+                "text": "ML",
+                "label": "I-PACKAGE_VOLUME"
+              },
+              {
+                "index": 9,
+                "text": "SOLUCION",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 10,
+                "text": "ORAL",
+                "label": "B-ROUTE"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "LACTULOSA"
+              ],
+              "strength": "66,75 G; 100 ML",
+              "doseForm": "SOLUCION",
+              "route": "ORAL",
+              "packageVolume": "200 ML"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5385,
+          "text": "IGAMPLIA 160 mg/ml SOLUCION INYECTABLE , 5 ml con 800 mg",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "IGAMPLIA",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "160",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg/ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "SOLUCION",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "INYECTABLE",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 6,
+                "text": "5",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 7,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              },
+              {
+                "index": 8,
+                "text": "con",
+                "label": "O"
+              },
+              {
+                "index": 9,
+                "text": "800",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 10,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "160 mg/ml; 800 mg",
+              "doseForm": "SOLUCION INYECTABLE",
+              "packageVolume": "5 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5386,
+          "text": "IGAMPLIA 160 mg/ml SOLUCION INYECTABLE, 1 ampolla de 2 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "IGAMPLIA",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "160",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg/ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "SOLUCION",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "INYECTABLE",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 6,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 7,
+                "text": "ampolla",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 8,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 9,
+                "text": "2",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 10,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "160 mg/ml",
+              "doseForm": "SOLUCION INYECTABLE",
+              "packageQuantity": 1,
+              "packageUnit": "ampolla",
+              "packageVolume": "2 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5387,
+          "text": "COLIRCUSI GENTAMICINA 3mg/ml COLIRIO EN SOLUCION , 1 frasco de 10 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "COLIRCUSI",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "GENTAMICINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 2,
+                "text": "3",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg/ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "COLIRIO",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "EN",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "SOLUCION",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 10,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "10",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 12,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GENTAMICINA"
+              ],
+              "strength": "3 mg/ml",
+              "doseForm": "COLIRIO EN SOLUCION",
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "10 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5388,
+          "text": "COLIRCUSI PILOCARPINA 2% 10 COLIRIO",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "COLIRCUSI",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "PILOCARPINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 2,
+                "text": "2%",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "10",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "COLIRIO",
+                "label": "B-DOSE_FORM"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "PILOCARPINA"
+              ],
+              "strength": "2%",
+              "doseForm": "COLIRIO",
+              "packageQuantity": 10
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5389,
+          "text": "COLIROFTA TROPICAMIDA 10 MG/ML COLIRIO EN SOLUCION, 1 frasco de 5 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "COLIROFTA",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "TROPICAMIDA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 2,
+                "text": "10",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG/ML",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "COLIRIO",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "EN",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "SOLUCION",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 10,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "5",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 12,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "TROPICAMIDA"
+              ],
+              "strength": "10 MG/ML",
+              "doseForm": "COLIRIO EN SOLUCION",
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "5 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5390,
+          "text": "XAZAL 5 mg/ml gotas orales en solucion , 1 frasco de 20 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "XAZAL",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg/ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "gotas",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "orales",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "en",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "solucion",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 10,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "20",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 12,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "5 mg/ml",
+              "doseForm": "gotas orales en solucion",
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "20 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5391,
+          "text": "MAXIDEX 1 MG/ML COLIRIO EN SUSPENSION , 1 frasco de 5 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "MAXIDEX",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "1",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "MG/ML",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "COLIRIO",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "EN",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "SUSPENSION",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 8,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 9,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 10,
+                "text": "5",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 11,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "1 MG/ML",
+              "doseForm": "COLIRIO EN SUSPENSION",
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "5 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5392,
+          "text": "COMBIGAN 2 mg/ml \u002B 5 mg/ml COLIRIO EN  SOLUCION, 1 frasco de 5 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "COMBIGAN",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "2",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg/ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "\u002B",
+                "label": "O"
+              },
+              {
+                "index": 4,
+                "text": "5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "mg/ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 6,
+                "text": "COLIRIO",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EN",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "SOLUCION",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 9,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 10,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 11,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 12,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 13,
+                "text": "5",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 14,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "2 mg/ml; 5 mg/ml",
+              "doseForm": "COLIRIO EN SOLUCION",
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "5 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5393,
+          "text": "TIOCONAZOL KORHISPANA 280 mg/ml BARNIZ DE U\u00D1AS MEDICAMENTOSO EFG, 1 frasco de 12 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "TIOCONAZOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "KORHISPANA",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "280",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg/ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "BARNIZ",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "DE",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "U\u00D1AS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "MEDICAMENTOSO",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 9,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 10,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 11,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 12,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 13,
+                "text": "12",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 14,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "TIOCONAZOL"
+              ],
+              "strength": "280 mg/ml",
+              "doseForm": "BARNIZ DE U\u00D1AS",
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "12 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5394,
+          "text": "OFTALMOLOSA CUSI AUREOMICINA 5 mg/g pomada oftalmica , 1 tubo de 3 g",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "OFTALMOLOSA",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "CUSI",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "AUREOMICINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 3,
+                "text": "5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "mg/g",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "pomada",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "oftalmica",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "tubo",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 10,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "3",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 12,
+                "text": "g",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "AUREOMICINA"
+              ],
+              "strength": "5 mg/g",
+              "doseForm": "pomada oftalmica",
+              "packageQuantity": 1,
+              "packageUnit": "tubo",
+              "packageVolume": "3 g"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5395,
+          "text": "OFTALMOLOSA CUSI ERITROMICINA 5 MG/G POMADA OFTALMICA , 1 tubo de 3,5 g",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "OFTALMOLOSA",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "CUSI",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "ERITROMICINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 3,
+                "text": "5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "MG/G",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "POMADA",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "OFTALMICA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "tubo",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 10,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "3,5",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 12,
+                "text": "g",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ERITROMICINA"
+              ],
+              "strength": "5 MG/G",
+              "doseForm": "POMADA OFTALMICA",
+              "packageQuantity": 1,
+              "packageUnit": "tubo",
+              "packageVolume": "3,5 g"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5396,
+          "text": "OFTALMOLOSA CUSI GENTAMINCIA 3mg/g POMADA OFTALMICA , 1 tubo de 5 g",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "OFTALMOLOSA",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "CUSI",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "GENTAMINCIA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 3,
+                "text": "3",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "mg/g",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "POMADA",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "OFTALMICA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "tubo",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 10,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "5",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 12,
+                "text": "g",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GENTAMINCIA"
+              ],
+              "strength": "3 mg/g",
+              "doseForm": "POMADA OFTALMICA",
+              "packageQuantity": 1,
+              "packageUnit": "tubo",
+              "packageVolume": "5 g"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5397,
+          "text": "OFTALMOLOSA CUSI HIDROCORT POMADA , 1 tubo de 3 g",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "OFTALMOLOSA",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "CUSI",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "HIDROCORT",
+                "label": "O"
+              },
+              {
+                "index": 3,
+                "text": "POMADA",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "tubo",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 7,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "3",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 9,
+                "text": "g",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "doseForm": "POMADA",
+              "packageQuantity": 1,
+              "packageUnit": "tubo",
+              "packageVolume": "3 g"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5398,
+          "text": "TOBREX UNG\u00DCENTO OFTALMICO 3 mg/g POMADA OFTALMICA , 1 tubo de 3,5 g",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "TOBREX",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "UNG\u00DCENTO",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 2,
+                "text": "OFTALMICO",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 3,
+                "text": "3",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "mg/g",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "POMADA",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "OFTALMICA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "tubo",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 10,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "3,5",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 12,
+                "text": "g",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "3 mg/g",
+              "doseForm": "UNG\u00DCENTO OFTALMICO; POMADA OFTALMICA",
+              "packageQuantity": 1,
+              "packageUnit": "tubo",
+              "packageVolume": "3,5 g"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5399,
+          "text": "CALCIUMOSTEO 500 mg COMPRIMIDOS EFERVESCENTES , 30 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CALCIUMOSTEO",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "500",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "EFERVESCENTES",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 6,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 7,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "500 mg",
+              "doseForm": "COMPRIMIDOS EFERVESCENTES",
+              "packageQuantity": 30,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5400,
+          "text": "VIAFLO CLORURO SODICO 0,9% Y CLORURO POTASICO 0,15%, SOLUCION PARA PERFUSION, 20 bolsas de 500 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "VIAFLO",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "CLORURO",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 2,
+                "text": "SODICO",
+                "label": "I-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 3,
+                "text": "0,9",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "%",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "Y",
+                "label": "O"
+              },
+              {
+                "index": 6,
+                "text": "CLORURO",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 7,
+                "text": "POTASICO",
+                "label": "I-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 8,
+                "text": "0,15",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 9,
+                "text": "%",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 10,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "SOLUCION",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 12,
+                "text": "PARA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 13,
+                "text": "PERFUSION",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 14,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 15,
+                "text": "20",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 16,
+                "text": "bolsas",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 17,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 18,
+                "text": "500",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 19,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CLORURO SODICO",
+                "CLORURO POTASICO"
+              ],
+              "strength": "0,9 %; 0,15 %",
+              "doseForm": "SOLUCION PARA PERFUSION",
+              "packageQuantity": 20,
+              "packageUnit": "bolsas",
+              "packageVolume": "500 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5401,
+          "text": "PAROXETINA QUALIGEN FARMA 20 MG COMPRIMIDOS RECUBIERTOS CON PELICULA EFG  , 14 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PAROXETINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "QUALIGEN",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "FARMA",
+                "label": "O"
+              },
+              {
+                "index": 3,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUBIERTOS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "CON",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "PELICULA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 9,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 10,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "14",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 12,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "PAROXETINA"
+              ],
+              "strength": "20 MG",
+              "doseForm": "COMPRIMIDOS RECUBIERTOS CON PELICULA",
+              "packageQuantity": 14,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5402,
+          "text": "PAROXETINA QUALIGEN FARMA 20 MG COMPRIMIDOS RECUBIERTOS CON PELICULA EFG  , 28 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PAROXETINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "QUALIGEN",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "FARMA",
+                "label": "O"
+              },
+              {
+                "index": 3,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUBIERTOS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "CON",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "PELICULA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 9,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 10,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 12,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "PAROXETINA"
+              ],
+              "strength": "20 MG",
+              "doseForm": "COMPRIMIDOS RECUBIERTOS CON PELICULA",
+              "packageQuantity": 28,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5403,
+          "text": "PAROXETINA QUALIGEN FARMA 20 MG COMPRIMIDOS RECUBIERTOS CON PELICULA EFG  , 56 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PAROXETINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "QUALIGEN",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "FARMA",
+                "label": "O"
+              },
+              {
+                "index": 3,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUBIERTOS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "CON",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "PELICULA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 9,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 10,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "56",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 12,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "PAROXETINA"
+              ],
+              "strength": "20 MG",
+              "doseForm": "COMPRIMIDOS RECUBIERTOS CON PELICULA",
+              "packageQuantity": 56,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5404,
+          "text": "NAPRILENE 20MG 30 COMPRIMIDOS",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "NAPRILENE",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "NAPRILENE"
+              ],
+              "strength": "20 MG",
+              "doseForm": "COMPRIMIDOS",
+              "packageQuantity": 30
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5405,
+          "text": "ISOACNE 5MG 50 CAPSULAS BLANDAS",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ISOACNE",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "50",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "CAPSULAS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 5,
+                "text": "BLANDAS",
+                "label": "I-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "5 MG",
+              "packageQuantity": 50,
+              "packageUnit": "CAPSULAS BLANDAS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5406,
+          "text": "GLIMEPIRIDA VIATRIS 2 MG COMPRIMIDOS EFG. 30 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLIMEPIRIDA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "VIATRIS",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "2",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 6,
+                "text": ".",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 8,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLIMEPIRIDA"
+              ],
+              "strength": "2 MG",
+              "doseForm": "COMPRIMIDOS",
+              "packageQuantity": 30,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5407,
+          "text": "GLIMEPIRIDA VIATRIS 2 MG COMPRIMIDOS EFG. 120 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLIMEPIRIDA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "VIATRIS",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "2",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 6,
+                "text": ".",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "120",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 8,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLIMEPIRIDA"
+              ],
+              "strength": "2 MG",
+              "doseForm": "COMPRIMIDOS",
+              "packageQuantity": 120,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5408,
+          "text": "GLIMEPIRIDA VIATRIS 4 MG COMPRIMIDOS EFG. 30 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLIMEPIRIDA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "VIATRIS",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "4",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 6,
+                "text": ".",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 8,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLIMEPIRIDA"
+              ],
+              "strength": "4 MG",
+              "doseForm": "COMPRIMIDOS",
+              "packageQuantity": 30,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5409,
+          "text": "GLIMEPIRIDA VIATRIS 4 MG COMPRIMIDOS EFG. 120 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLIMEPIRIDA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "VIATRIS",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "4",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 6,
+                "text": ".",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "120",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 8,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLIMEPIRIDA"
+              ],
+              "strength": "4 MG",
+              "doseForm": "COMPRIMIDOS",
+              "packageQuantity": 120,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5410,
+          "text": "ESTILSONA 7 mg/ml GOTAS ORALES EN SUSPENSION, 1 frasco de 10 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ESTILSONA",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "7",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg/ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "GOTAS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "ORALES",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "EN",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "SUSPENSION",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "frasco",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 10,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 11,
+                "text": "10",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 12,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "7 mg/ml",
+              "doseForm": "GOTAS ORALES EN SUSPENSION",
+              "packageQuantity": 1,
+              "packageUnit": "frasco",
+              "packageVolume": "10 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5411,
+          "text": "RISPERIDONA STADA 0,5MG 56 COMPRIM RECUB PELICULA",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "RISPERIDONA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "STADA",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "0,5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "56",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIM",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUB",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PELICULA",
+                "label": "I-DOSE_FORM"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "RISPERIDONA"
+              ],
+              "strength": "0,5 MG",
+              "doseForm": "COMPRIM RECUB PELICULA",
+              "packageQuantity": 56
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5412,
+          "text": "CAOSINA SUSPENSION 24",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CAOSINA",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "SUSPENSION",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 2,
+                "text": "24",
+                "label": "B-STRENGTH"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "24",
+              "doseForm": "SUSPENSION"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5413,
+          "text": "ACECLOFENACO KERN PHARMA 100MG 20 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ACECLOFENACO",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "KERN",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "PHARMA",
+                "label": "O"
+              },
+              {
+                "index": 3,
+                "text": "100",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "20",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ACECLOFENACO"
+              ],
+              "strength": "100 MG",
+              "packageQuantity": 20,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
         }
       ]
     }
