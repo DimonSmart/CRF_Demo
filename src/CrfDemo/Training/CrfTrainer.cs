@@ -16,21 +16,35 @@ public sealed class CrfTrainer : ISequenceLabelerTrainer
 
     public TrainedSequenceLabeler Train(IReadOnlyList<TrainingSequence> sequences, IReadOnlyList<string> labels)
     {
-        var model = new TrainedSequenceLabeler(
-            labels.ToArray(),
-            new Dictionary<string, double>(StringComparer.Ordinal),
-            new Dictionary<string, double>(StringComparer.Ordinal));
+        var model = CreateModel(labels);
 
         var random = new Random(_options.Seed);
         var train = sequences.OrderBy(_ => random.Next()).ToArray();
 
         for (var epoch = 0; epoch < _options.Epochs; epoch++)
-        {
-            foreach (var sequence in train)
-                Update(model, sequence);
-        }
+            TrainEpoch(model, train);
 
         return model;
+    }
+
+    public TrainedSequenceLabeler CreateModel(IReadOnlyList<string> labels)
+    {
+        return new TrainedSequenceLabeler(
+            labels.ToArray(),
+            new Dictionary<string, double>(StringComparer.Ordinal),
+            new Dictionary<string, double>(StringComparer.Ordinal));
+    }
+
+    public IReadOnlyList<TrainingSequence> Shuffle(IReadOnlyList<TrainingSequence> sequences)
+    {
+        var random = new Random(_options.Seed);
+        return sequences.OrderBy(_ => random.Next()).ToArray();
+    }
+
+    public void TrainEpoch(TrainedSequenceLabeler model, IReadOnlyList<TrainingSequence> sequences)
+    {
+        foreach (var sequence in sequences)
+            Update(model, sequence);
     }
 
     private void Update(TrainedSequenceLabeler model, TrainingSequence sequence)

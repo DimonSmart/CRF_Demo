@@ -1,6 +1,7 @@
 using CrfDemo.Corpus;
 using CrfDemo.Features;
 using CrfDemo.Inference;
+using System.Globalization;
 
 namespace CrfDemo.Training;
 
@@ -20,18 +21,97 @@ public sealed class CrfTrainingWorkflow
         var labels = corpus.AnnotationSchema?.Labels ?? Array.Empty<string>();
         var split = Split(sequences);
         var trainer = new CrfTrainer(_options);
-        var model = trainer.Train(split.Train, labels);
-        model.Save(modelPath);
+        var train = trainer.Shuffle(split.Train);
+        var model = trainer.CreateModel(labels);
+        var epochReports = new List<EpochTrainingReport>();
+        var validationDisabled = split.Validation.Count == 0;
+        TrainedSequenceLabeler? bestModel = null;
+        EvaluationReport? bestEvaluation = null;
+        var bestMacroF1 = double.NegativeInfinity;
+        int? bestEpoch = null;
+        var epochsWithoutImprovement = 0;
+        var earlyStoppingTriggered = false;
+        var epochsCompleted = 0;
 
-        var evaluation = Evaluate(model, split.Validation, sequences.Count);
+        for (var epoch = 1; epoch <= _options.Epochs; epoch++)
+        {
+            trainer.TrainEpoch(model, train);
+            epochsCompleted = epoch;
+
+            if (validationDisabled)
+                continue;
+
+            var evaluation = Evaluate(model, split.Validation, sequences.Count);
+            var isBest = evaluation.MacroF1 > bestMacroF1 + 1e-9;
+            if (isBest)
+            {
+                bestMacroF1 = evaluation.MacroF1;
+                bestModel = model.Clone();
+                bestEvaluation = evaluation;
+                bestEpoch = epoch;
+                epochsWithoutImprovement = 0;
+            }
+            else
+            {
+                epochsWithoutImprovement++;
+            }
+
+            var epochReport = new EpochTrainingReport
+            {
+                Epoch = epoch,
+                EpochsRequested = _options.Epochs,
+                TokenAccuracy = evaluation.Accuracy,
+                MicroF1 = evaluation.MicroF1,
+                MacroF1 = evaluation.MacroF1,
+                IsBest = isBest
+            };
+            epochReports.Add(epochReport);
+            Console.WriteLine(
+                string.Format(
+                    CultureInfo.InvariantCulture,
+                    "Epoch {0}/{1}: token accuracy={2:F4}, micro F1={3:F4}, macro F1={4:F4}, best={5}",
+                    epochReport.Epoch,
+                    epochReport.EpochsRequested,
+                    epochReport.TokenAccuracy,
+                    epochReport.MicroF1,
+                    epochReport.MacroF1,
+                    epochReport.IsBest.ToString().ToLowerInvariant()));
+
+            if (_options.EarlyStoppingPatience > 0 && epochsWithoutImprovement >= _options.EarlyStoppingPatience)
+            {
+                earlyStoppingTriggered = true;
+                break;
+            }
+        }
+
+        if (validationDisabled)
+            Console.WriteLine("Best model by Macro F1 is unavailable because validation split is disabled.");
+
+        var modelToSave = validationDisabled ? model : bestModel ?? model;
+        modelToSave.Save(modelPath);
+
         return new TrainingReport
         {
             TrainingRecords = split.Train.Count,
             ValidationRecords = split.Validation.Count,
             LabelCount = labels.Count,
             TokenCount = split.Train.Sum(s => s.Tokens.Count),
+            EpochsRequested = _options.Epochs,
+            EpochsCompleted = epochsCompleted,
+            LearningRate = _options.LearningRate,
+            L2 = _options.L2,
+            Seed = _options.Seed,
+            ValidationShare = _options.ValidationShare,
+            EarlyStoppingPatience = _options.EarlyStoppingPatience,
+            BestEpoch = bestEpoch,
+            BestMacroF1 = bestEvaluation?.MacroF1,
+            BestMicroF1 = bestEvaluation?.MicroF1,
+            BestTokenAccuracy = bestEvaluation?.Accuracy,
+            EarlyStoppingTriggered = earlyStoppingTriggered,
+            ValidationDisabled = validationDisabled,
             ModelPath = modelPath,
-            Evaluation = evaluation
+            Evaluation = bestEvaluation,
+            Epochs = epochReports
         };
     }
 
@@ -99,7 +179,9 @@ public sealed class CrfTrainingWorkflow
     {
         var random = new Random(_options.Seed);
         var shuffled = sequences.OrderBy(_ => random.Next()).ToArray();
-        var validationCount = Math.Max(1, (int)Math.Round(shuffled.Length * _options.ValidationShare));
+        var validationCount = _options.ValidationShare == 0
+            ? 0
+            : Math.Max(1, (int)Math.Round(shuffled.Length * _options.ValidationShare));
         validationCount = Math.Min(validationCount, Math.Max(0, shuffled.Length - 1));
         return (shuffled.Skip(validationCount).ToArray(), shuffled.Take(validationCount).ToArray());
     }

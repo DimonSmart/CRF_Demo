@@ -184,6 +184,35 @@ or run:
 TrainCrfModel.bat
 ```
 
+### Training parameters
+
+The `train` command accepts these training parameters:
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `--epochs` | `6` | Number of training epochs |
+| `--learning-rate` | `0.08` | Training learning rate |
+| `--l2` | `0.0001` | L2 regularization |
+| `--seed` | `42` | Seed for deterministic shuffle and train/validation split |
+| `--validation-share` | `0.2` | Corpus share used for validation, from `0.0` inclusive to `1.0` exclusive |
+| `--early-stopping-patience` | `5` | Epochs without validation Macro F1 improvement before stopping; `0` disables early stopping |
+
+Training evaluates the model after each epoch on the validation split. The final `.model` file contains the best model by validation `Macro F1`. If `--validation-share 0` is used, validation is disabled and the last epoch model is saved.
+
+```bat
+TrainCrfModel.bat
+```
+
+```bat
+TrainCrfModel.bat --epochs 40 --learning-rate 0.03 --l2 0.001
+```
+
+```bat
+TrainCrfModel.bat --epochs 80 --learning-rate 0.015 --early-stopping-patience 10
+```
+
+Parameters passed to `TrainCrfModel.bat` override the script defaults when the same CLI option is repeated.
+
 ### Parse a new line
 
 ```powershell

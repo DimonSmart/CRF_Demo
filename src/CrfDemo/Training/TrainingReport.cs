@@ -6,8 +6,32 @@ public sealed class TrainingReport
     public int ValidationRecords { get; init; }
     public int LabelCount { get; init; }
     public int TokenCount { get; init; }
+    public int EpochsRequested { get; init; }
+    public int EpochsCompleted { get; init; }
+    public double LearningRate { get; init; }
+    public double L2 { get; init; }
+    public int Seed { get; init; }
+    public double ValidationShare { get; init; }
+    public int EarlyStoppingPatience { get; init; }
+    public int? BestEpoch { get; init; }
+    public double? BestMacroF1 { get; init; }
+    public double? BestMicroF1 { get; init; }
+    public double? BestTokenAccuracy { get; init; }
+    public bool EarlyStoppingTriggered { get; init; }
+    public bool ValidationDisabled { get; init; }
     public string ModelPath { get; init; } = "";
     public EvaluationReport? Evaluation { get; init; }
+    public IReadOnlyList<EpochTrainingReport> Epochs { get; init; } = Array.Empty<EpochTrainingReport>();
+}
+
+public sealed class EpochTrainingReport
+{
+    public int Epoch { get; init; }
+    public int EpochsRequested { get; init; }
+    public double TokenAccuracy { get; init; }
+    public double MicroF1 { get; init; }
+    public double MacroF1 { get; init; }
+    public bool IsBest { get; init; }
 }
 
 public sealed class EvaluationReport

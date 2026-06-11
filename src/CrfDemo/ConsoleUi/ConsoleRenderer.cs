@@ -2,6 +2,7 @@ using CrfDemo.Corpus;
 using CrfDemo.Inference;
 using CrfDemo.Parsing;
 using CrfDemo.Training;
+using System.Globalization;
 
 namespace CrfDemo.ConsoleUi;
 
@@ -32,10 +33,28 @@ public sealed class ConsoleRenderer
     {
         Console.WriteLine($"Training records: {report.TrainingRecords}");
         Console.WriteLine($"Validation records: {report.ValidationRecords}");
+        Console.WriteLine($"Epochs requested: {report.EpochsRequested}");
+        Console.WriteLine($"Epochs completed: {report.EpochsCompleted}");
+        Console.WriteLine($"Learning rate: {FormatDouble(report.LearningRate)}");
+        Console.WriteLine($"L2: {FormatDouble(report.L2)}");
+        Console.WriteLine($"Seed: {report.Seed}");
+        Console.WriteLine($"Validation share: {FormatDouble(report.ValidationShare)}");
+        Console.WriteLine($"Early stopping patience: {report.EarlyStoppingPatience}");
+        Console.WriteLine($"Best epoch: {report.BestEpoch?.ToString() ?? "n/a"}");
+        Console.WriteLine($"Best Macro F1: {FormatMetric(report.BestMacroF1)}");
+        Console.WriteLine($"Best Micro F1: {FormatMetric(report.BestMicroF1)}");
+        Console.WriteLine($"Best Token Accuracy: {FormatMetric(report.BestTokenAccuracy)}");
         Console.WriteLine($"Labels: {report.LabelCount}");
         Console.WriteLine($"Tokens: {report.TokenCount}");
-        Console.WriteLine($"Model: {report.ModelPath}");
+        Console.WriteLine($"Model path: {report.ModelPath}");
         Console.WriteLine("Status: saved");
+        if (report.ValidationDisabled)
+            Console.WriteLine("Validation is disabled. The last epoch model was saved.");
+        else if (report.EarlyStoppingTriggered)
+            Console.WriteLine($"Early stopping: stopped after {report.EarlyStoppingPatience} epochs without Macro F1 improvement.");
+        else
+            Console.WriteLine("Early stopping: not triggered.");
+
         if (report.Evaluation is not null)
             RenderEvaluation(report.Evaluation, includeErrors: false);
     }
@@ -46,13 +65,13 @@ public sealed class ConsoleRenderer
         Console.WriteLine($"Total rows: {report.TotalRows}");
         Console.WriteLine($"Validation rows: {report.ValidationRows}");
         Console.WriteLine($"Tokens: {report.TokenCount}");
-        Console.WriteLine($"Token accuracy: {report.Accuracy:P2}");
-        Console.WriteLine($"Micro F1: {report.MicroF1:P2}");
-        Console.WriteLine($"Macro F1: {report.MacroF1:P2}");
+        Console.WriteLine($"Token accuracy: {FormatPercent(report.Accuracy)}");
+        Console.WriteLine($"Micro F1: {FormatPercent(report.MicroF1)}");
+        Console.WriteLine($"Macro F1: {FormatPercent(report.MacroF1)}");
         Console.WriteLine();
         Console.WriteLine($"{"Label",-28} {"Precision",10} {"Recall",10} {"F1",10}");
         foreach (var item in report.Labels)
-            Console.WriteLine($"{item.Key,-28} {item.Value.Precision,10:P2} {item.Value.Recall,10:P2} {item.Value.F1,10:P2}");
+            Console.WriteLine($"{item.Key,-28} {FormatPercent(item.Value.Precision),10} {FormatPercent(item.Value.Recall),10} {FormatPercent(item.Value.F1),10}");
 
         if (includeErrors)
             RenderErrors(report.Errors);
@@ -150,4 +169,8 @@ public sealed class ConsoleRenderer
                 Console.WriteLine($"{token.Token,-22} {token.Expected,-28} {token.Predicted,-28}");
         }
     }
+
+    private static string FormatMetric(double? value) => value.HasValue ? value.Value.ToString("F4", CultureInfo.InvariantCulture) : "n/a";
+    private static string FormatDouble(double value) => value.ToString("G", CultureInfo.InvariantCulture);
+    private static string FormatPercent(double value) => value.ToString("P2", CultureInfo.InvariantCulture);
 }

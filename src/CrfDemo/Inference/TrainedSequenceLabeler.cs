@@ -98,6 +98,14 @@ public sealed class TrainedSequenceLabeler : ISequenceLabeler
     public static string EmissionKey(string label, string feature) => $"{label}\u001f{feature}";
     public static string TransitionKey(string previous, string label) => $"{previous}\u001f{label}";
 
+    public TrainedSequenceLabeler Clone()
+    {
+        return new TrainedSequenceLabeler(
+            Labels.ToArray(),
+            new Dictionary<string, double>(_emissionWeights, StringComparer.Ordinal),
+            new Dictionary<string, double>(_transitionWeights, StringComparer.Ordinal));
+    }
+
     public void Save(string path)
     {
         var directory = Path.GetDirectoryName(path);

@@ -5,6 +5,7 @@ using CrfDemo.Inference;
 using CrfDemo.Parsing;
 using CrfDemo.Tokenization;
 using CrfDemo.Training;
+using System.Globalization;
 
 var exitCode = Run(args);
 return exitCode;
@@ -61,7 +62,8 @@ static int Train(string[] args)
         return 2;
     }
 
-    var report = new CrfTrainingWorkflow(new TrainingOptions()).Train(corpus, modelPath);
+    var trainingOptions = TrainingOptionsParser.Parse(options);
+    var report = new CrfTrainingWorkflow(trainingOptions).Train(corpus, modelPath);
     new ConsoleRenderer().RenderTrainingReport(report);
     return 0;
 }
@@ -101,9 +103,10 @@ static int Evaluate(string[] args)
     var options = Args.Parse(args);
     var corpusPath = options.Required("--corpus");
     var modelPath = options.Required("--model");
+    var trainingOptions = TrainingOptionsParser.Parse(options);
     var corpus = CorpusLoader.Load(corpusPath);
     var sequences = TrainingDataBuilder.Build(corpus);
-    var workflow = new CrfTrainingWorkflow(new TrainingOptions());
+    var workflow = new CrfTrainingWorkflow(trainingOptions);
     var split = workflow.Split(sequences);
     var report = workflow.Evaluate(TrainedSequenceLabeler.Load(modelPath), split.Validation, sequences.Count);
     new ConsoleRenderer().RenderEvaluation(report, includeErrors: true);
@@ -120,14 +123,50 @@ static int Unknown(string command)
 static void Help()
 {
     Console.WriteLine("crf-demo inspect-corpus --corpus corpus/pharma-corpus.json");
-    Console.WriteLine("crf-demo train --corpus corpus/pharma-corpus.json --model models/pharma-crf.model");
+    Console.WriteLine("crf-demo train --corpus corpus/pharma-corpus.json --model models/pharma-crf.model [--epochs 40 --learning-rate 0.03 --l2 0.001 --seed 42 --validation-share 0.2 --early-stopping-patience 5]");
     Console.WriteLine("crf-demo tokenize --text \"CITALOPRAM NORMON 20MG 28 COMPRIMIDOS EFG\"");
     Console.WriteLine("crf-demo parse --model models/pharma-crf.model --text \"CITALOPRAM NORMON 20MG 28 COMPRIMIDOS EFG\"");
     Console.WriteLine("crf-demo demo --corpus corpus/pharma-corpus.json --model models/pharma-crf.model");
     Console.WriteLine("crf-demo evaluate --corpus corpus/pharma-corpus.json --model models/pharma-crf.model");
 }
 
-internal sealed class Args
+public static class TrainingOptionsParser
+{
+    public static TrainingOptions Parse(Args args)
+    {
+        var defaults = new TrainingOptions();
+        var options = new TrainingOptions
+        {
+            Epochs = args.GetInt("--epochs", defaults.Epochs),
+            LearningRate = args.GetDouble("--learning-rate", defaults.LearningRate),
+            L2 = args.GetDouble("--l2", defaults.L2),
+            Seed = args.GetInt("--seed", defaults.Seed),
+            ValidationShare = args.GetDouble("--validation-share", defaults.ValidationShare),
+            EarlyStoppingPatience = args.GetInt("--early-stopping-patience", defaults.EarlyStoppingPatience)
+        };
+
+        Validate(options);
+        return options;
+    }
+
+    public static void Validate(TrainingOptions options)
+    {
+        if (options.Epochs <= 0)
+            throw new ArgumentException("--epochs must be greater than 0.");
+        if (options.LearningRate <= 0)
+            throw new ArgumentException("--learning-rate must be greater than 0.");
+        if (options.L2 < 0)
+            throw new ArgumentException("--l2 must be greater than or equal to 0.");
+        if (options.ValidationShare < 0)
+            throw new ArgumentException("--validation-share must be greater than or equal to 0.");
+        if (options.ValidationShare >= 1)
+            throw new ArgumentException("--validation-share must be less than 1.");
+        if (options.EarlyStoppingPatience < 0)
+            throw new ArgumentException("--early-stopping-patience must be greater than or equal to 0.");
+    }
+}
+
+public sealed class Args
 {
     private readonly Dictionary<string, string?> _values;
 
@@ -163,5 +202,27 @@ internal sealed class Args
     }
 
     public string? Get(string key) => _values.GetValueOrDefault(key);
+    public int GetInt(string key, int defaultValue)
+    {
+        var value = Get(key);
+        if (string.IsNullOrWhiteSpace(value))
+            return defaultValue;
+
+        return int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out var result)
+            ? result
+            : throw new ArgumentException($"{key} must be an integer.");
+    }
+
+    public double GetDouble(string key, double defaultValue)
+    {
+        var value = Get(key);
+        if (string.IsNullOrWhiteSpace(value))
+            return defaultValue;
+
+        return double.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out var result)
+            ? result
+            : throw new ArgumentException($"{key} must be a number with '.' as decimal separator.");
+    }
+
     public bool Contains(string key) => _values.ContainsKey(key);
 }

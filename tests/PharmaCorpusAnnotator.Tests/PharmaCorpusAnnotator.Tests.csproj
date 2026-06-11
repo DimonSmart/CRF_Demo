@@ -29,6 +29,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\PharmaCorpusAnnotator.Core\PharmaCorpusAnnotator.Core.csproj" />
     <ProjectReference Include="..\..\src\PharmaCorpusAnnotator.Cli\PharmaCorpusAnnotator.Cli.csproj" />
+    <ProjectReference Include="..\..\src\CrfDemo\CrfDemo.csproj" />
   </ItemGroup>
 
   <ItemGroup>
