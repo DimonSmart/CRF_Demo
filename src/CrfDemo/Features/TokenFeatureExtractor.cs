@@ -29,6 +29,7 @@ public sealed class TokenFeatureExtractor
                 $"isTitle={IsTitle(token)}",
                 $"containsDigit={token.Any(char.IsDigit)}",
                 $"isNumeric={IsNumeric(token)}",
+                $"isInteger={IsInteger(token)}",
                 $"hasCommaDecimal={HasCommaDecimal(token)}",
                 $"hasSlash={token.Contains('/')}",
                 $"hasHyphen={token.Contains('-')}",
@@ -74,6 +75,7 @@ public sealed class TokenFeatureExtractor
     private static bool IsLower(string token) => token.Any(char.IsLetter) && token.Where(char.IsLetter).All(char.IsLower);
     private static bool IsTitle(string token) => token.Length > 0 && char.IsUpper(token[0]) && token.Skip(1).All(c => !char.IsLetter(c) || char.IsLower(c));
     private static bool IsNumeric(string token) => token.All(c => char.IsDigit(c) || c is ',' or '.');
+    private static bool IsInteger(string token) => token.Length > 0 && token.All(char.IsDigit);
     private static bool HasCommaDecimal(string token) => token.Any(char.IsDigit) && token.Contains(',');
     private static string Prefix(string token, int length) => token.Length <= length ? token.ToLowerInvariant() : token[..length].ToLowerInvariant();
     private static string Suffix(string token, int length) => token.Length <= length ? token.ToLowerInvariant() : token[^length..].ToLowerInvariant();
