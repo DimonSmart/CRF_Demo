@@ -41084,6 +41084,1874 @@
               "warnings": []
             }
           }
+        },
+        {
+          "rowNumber": 5284,
+          "text": "PRAVASTATINA ALTER 10MG 28 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PRAVASTATINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "10",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "PRAVASTATINA"
+              ],
+              "strength": "10 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5285,
+          "text": "PRAVASTATINA ALTER 20MG 28 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PRAVASTATINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "PRAVASTATINA"
+              ],
+              "strength": "20 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5286,
+          "text": "PRAVASTATINA ALTER 40MG 28 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "PRAVASTATINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "40",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "PRAVASTATINA"
+              ],
+              "strength": "40 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5287,
+          "text": "SIMVASTATINA ALTER 10MG 28 COMPRIM RECUBIERTOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "SIMVASTATINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "10",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIM",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUBIERTOS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "SIMVASTATINA"
+              ],
+              "strength": "10 MG",
+              "doseForm": "COMPRIM RECUBIERTOS",
+              "packageQuantity": 28
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5288,
+          "text": "SIMVASTATINA ALTER 20MG 28 COMPRIM RECUBIERTOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "SIMVASTATINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIM",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUBIERTOS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "SIMVASTATINA"
+              ],
+              "strength": "20 MG",
+              "doseForm": "COMPRIM RECUBIERTOS",
+              "packageQuantity": 28
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5289,
+          "text": "SIMVASTATINA ALTER 40MG 28 COMPRI RECUBIERTOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "SIMVASTATINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "40",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRI",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUBIERTOS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "SIMVASTATINA"
+              ],
+              "strength": "40 MG",
+              "doseForm": "COMPRI RECUBIERTOS",
+              "packageQuantity": 28
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5290,
+          "text": "ARAHORMO 5 mg comprimidos recubiertos con pelicula , 28 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ARAHORMO",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "5",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "comprimidos",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "recubiertos",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "con",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "pelicula",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "5 mg",
+              "doseForm": "comprimidos recubiertos con pelicula",
+              "packageQuantity": 28,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5291,
+          "text": "CLARITROMICINA ALTER 500MG 14 COMPRIMIDOS RECU EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CLARITROMICINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "500",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "14",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "RECU",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CLARITROMICINA"
+              ],
+              "strength": "500 MG",
+              "doseForm": "RECU",
+              "packageQuantity": 14,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5292,
+          "text": "CLARITROMICINA ALTER 500MG 21 COMPRIMIDOS RECU EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CLARITROMICINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "500",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "21",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "RECU",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CLARITROMICINA"
+              ],
+              "strength": "500 MG",
+              "packageQuantity": 21,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5293,
+          "text": "AZITROMICINA ALTER 500MG 3 COMPR CUBIERTA PEL EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "AZITROMICINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "500",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "3",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPR",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "CUBIERTA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PEL",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "AZITROMICINA"
+              ],
+              "strength": "500 MG",
+              "doseForm": "COMPR CUBIERTA PEL",
+              "packageQuantity": 3
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5294,
+          "text": "AZITROMICINA ALTER 500MG 3 SOB GRANUL SUS ORAL EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "AZITROMICINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "500",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "3",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "SOB",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "GRANUL",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "SUS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "ORAL",
+                "label": "B-ROUTE"
+              },
+              {
+                "index": 9,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "AZITROMICINA"
+              ],
+              "strength": "500 MG",
+              "doseForm": "GRANUL SUS",
+              "route": "ORAL",
+              "packageQuantity": 3,
+              "packageUnit": "SOB"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5295,
+          "text": "CITALOPRAM ALTER 20MG 28 COMPRIM CUBIERTA PEL EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CITALOPRAM",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIM",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "CUBIERTA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PEL",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CITALOPRAM"
+              ],
+              "strength": "20 MG",
+              "doseForm": "COMPRIM CUBIERTA PEL",
+              "packageQuantity": 28
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5296,
+          "text": "CITALOPRAM ALTER 30MG 28 COMPRIM CUBIERTA PEL EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CITALOPRAM",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "30",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIM",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "CUBIERTA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PEL",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CITALOPRAM"
+              ],
+              "strength": "30 MG",
+              "doseForm": "COMPRIM CUBIERTA PEL",
+              "packageQuantity": 28
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5297,
+          "text": "ARAFAXINA RETARD 75 mg capsulas de liberacion prolongada , 30 capsulas",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ARAFAXINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RETARD",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "75",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "capsulas",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "de",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "liberacion",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "prolongada",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 9,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 10,
+                "text": "capsulas",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ARAFAXINA"
+              ],
+              "strength": "75 mg",
+              "doseForm": "capsulas de liberacion prolongada",
+              "packageQuantity": 30,
+              "packageUnit": "capsulas"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5298,
+          "text": "SERTRALINA ALTER 50MG 30 COMPRIM CUBIERTA PEL EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "SERTRALINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "50",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIM",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "CUBIERTA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PEL",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "SERTRALINA"
+              ],
+              "strength": "50 MG",
+              "doseForm": "COMPRIM CUBIERTA PEL",
+              "packageQuantity": 30
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5299,
+          "text": "SERTRALINA ALTER 100MG 30 COMP CUBIERTA PELIC EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "SERTRALINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALTER",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "100",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMP",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "CUBIERTA",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PELIC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "SERTRALINA"
+              ],
+              "strength": "100 MG",
+              "doseForm": "CUBIERTA PELIC",
+              "packageQuantity": 30,
+              "packageUnit": "COMP"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5300,
+          "text": "ARAFAXINA RETARD 150 mg capsulas de liberacion prolongada , 30 capsulas",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ARAFAXINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "RETARD",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "150",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "capsulas",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "de",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "liberacion",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "prolongada",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 9,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 10,
+                "text": "capsulas",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ARAFAXINA"
+              ],
+              "strength": "150 mg",
+              "doseForm": "capsulas de liberacion prolongada",
+              "packageQuantity": 30,
+              "packageUnit": "capsulas"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5301,
+          "text": "CITALOPRAM MABO 20MG 28 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CITALOPRAM",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "MABO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CITALOPRAM"
+              ],
+              "strength": "20 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5302,
+          "text": "FAMOTIDINA MABO 20MG 28 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "FAMOTIDINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "MABO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "FAMOTIDINA"
+              ],
+              "strength": "20 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5303,
+          "text": "FAMOTIDINA MABO 40MG 28 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "FAMOTIDINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "MABO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "40",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "FAMOTIDINA"
+              ],
+              "strength": "40 MG",
+              "packageQuantity": 28,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5304,
+          "text": "RISPERIDONA MABO 1MG 20 COMPRIMIDOS REC PELIC EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "RISPERIDONA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "MABO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "1",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "20",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "REC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PELIC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "RISPERIDONA"
+              ],
+              "strength": "1 MG",
+              "doseForm": "COMPRIMIDOS REC PELIC",
+              "packageQuantity": 20
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5305,
+          "text": "RISPERIDONA MABO 1MG 60 COMPRIMIDOS REC PELIC EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "RISPERIDONA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "MABO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "1",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "60",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "REC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PELIC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "RISPERIDONA"
+              ],
+              "strength": "1 MG",
+              "doseForm": "COMPRIMIDOS REC PELIC",
+              "packageQuantity": 60
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5306,
+          "text": "ARACENAC 100 mg comprimidos recubiertos con pelicula , 40 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ARACENAC",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "100",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "comprimidos",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "recubiertos",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "con",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "pelicula",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "40",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "100 mg",
+              "doseForm": "comprimidos recubiertos con pelicula",
+              "packageQuantity": 40,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5307,
+          "text": "RISPERIDONA MABO 3MG 20 COMPRIMIDOS REC PELIC EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "RISPERIDONA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "MABO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "3",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "20",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "REC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PELIC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "RISPERIDONA"
+              ],
+              "strength": "3 MG",
+              "doseForm": "COMPRIMIDOS REC PELIC",
+              "packageQuantity": 20
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5308,
+          "text": "RISPERIDONA MABO 3MG 60 COMPRIMIDOS REC PELIC EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "RISPERIDONA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "MABO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "3",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "60",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "REC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PELIC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "RISPERIDONA"
+              ],
+              "strength": "3 MG",
+              "doseForm": "COMPRIMIDOS REC PELIC",
+              "packageQuantity": 60
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5309,
+          "text": "RISPERIDONA MABO 6MG 30 COMPRIMIDOS REC PELIC EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "RISPERIDONA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "MABO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "6",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "REC",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "PELIC",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "RISPERIDONA"
+              ],
+              "strength": "6 MG",
+              "packageQuantity": 30,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5310,
+          "text": "RISPERIDONA MABO 6MG 60 COMPRIMIDOS REC PELIC EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "RISPERIDONA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "MABO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "6",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "60",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "REC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PELIC",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "RISPERIDONA"
+              ],
+              "strength": "6 MG",
+              "doseForm": "COMPRIMIDOS REC PELIC",
+              "packageQuantity": 60
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5311,
+          "text": "FLUOXETINA MABO 20MG 28 CAPSULAS DURAS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "FLUOXETINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "MABO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "CAPSULAS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "DURAS",
+                "label": "I-PACKAGE_UNIT"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "FLUOXETINA"
+              ],
+              "strength": "20 MG",
+              "packageQuantity": 28,
+              "packageUnit": "CAPSULAS DURAS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5312,
+          "text": "FLUOXETINA MABO 20MG 60 CAPSULAS DURAS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "FLUOXETINA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "MABO",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "60",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "CAPSULAS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "DURAS",
+                "label": "I-PACKAGE_UNIT"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "FLUOXETINA"
+              ],
+              "strength": "20 MG",
+              "packageQuantity": 60,
+              "packageUnit": "CAPSULAS DURAS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5313,
+          "text": "ARACENAC 100 mg comprimidos recubiertos con pelicula , 20 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ARACENAC",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "100",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "comprimidos",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "recubiertos",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "con",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "pelicula",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "20",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "100 mg",
+              "doseForm": "comprimidos recubiertos con pelicula",
+              "packageQuantity": 20,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
         }
       ]
     }
