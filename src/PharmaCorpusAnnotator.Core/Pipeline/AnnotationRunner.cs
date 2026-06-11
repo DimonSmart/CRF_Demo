@@ -99,16 +99,20 @@ public sealed class AnnotationRunner
 
         var readOpts = csvOpts with { MaxRows = null };
 
-        await foreach (var row in _csvReader.ReadAsync(readOpts, cancellationToken))
-        {
-            var key = $"{row.SourceKey}:{row.RowNumber}";
+        await using var rows = _csvReader
+            .ReadAsync(readOpts, cancellationToken)
+            .GetAsyncEnumerator(cancellationToken);
 
-            if (processedKeys.Contains(key))
-            {
-                skipped++;
-                _logger.LogDebug("Skipping already processed row {Row}", row.RowNumber);
-                continue;
-            }
+        var hasRow = await rows.MoveNextAsync();
+        while (hasRow)
+        {
+            var skipResult = await SkipProcessedRowsAsync(rows, rows.Current, processedKeys);
+            skipped += skipResult.Skipped;
+
+            if (!skipResult.HasPendingRow)
+                break;
+
+            var row = skipResult.PendingRow!;
 
             if (csvOpts.MaxRows.HasValue && processed >= csvOpts.MaxRows.Value)
                 break;
@@ -177,6 +181,8 @@ public sealed class AnnotationRunner
                     row.Text,
                     new FailedRecordError("llm_call_failed", ex.Message, 1)));
             }
+
+            hasRow = await rows.MoveNextAsync();
         }
 
         if (!options.DryRun)
@@ -185,6 +191,54 @@ public sealed class AnnotationRunner
         _logger.LogInformation(
             "Done. Elapsed: {Elapsed}. Processed: {P}, Success: {S}, Failed: {F}, Skipped: {Sk}",
             sw.Elapsed, processed, success, failed, skipped);
+    }
+
+    private async ValueTask<SkipProcessedRowsResult> SkipProcessedRowsAsync(
+        IAsyncEnumerator<PharmaSourceRow> rows,
+        PharmaSourceRow firstRow,
+        IReadOnlySet<string> processedKeys)
+    {
+        var skipped = 0L;
+        var firstSkippedRow = 0L;
+        var lastSkippedRow = 0L;
+        var row = firstRow;
+
+        while (processedKeys.Contains(GetProcessedKey(row)))
+        {
+            skipped++;
+            firstSkippedRow = firstSkippedRow == 0 ? row.RowNumber : firstSkippedRow;
+            lastSkippedRow = row.RowNumber;
+
+            if (!await rows.MoveNextAsync())
+            {
+                LogSkippedRows(skipped, firstSkippedRow, lastSkippedRow);
+                return new SkipProcessedRowsResult(null, skipped);
+            }
+
+            row = rows.Current;
+        }
+
+        LogSkippedRows(skipped, firstSkippedRow, lastSkippedRow);
+        return new SkipProcessedRowsResult(row, skipped);
+    }
+
+    private static string GetProcessedKey(PharmaSourceRow row) => $"{row.SourceKey}:{row.RowNumber}";
+
+    private void LogSkippedRows(long skipped, long firstRow, long lastRow)
+    {
+        if (skipped == 0)
+            return;
+
+        _logger.LogDebug(
+            "Skipped {Count} already processed rows ({FirstRow}-{LastRow})",
+            skipped,
+            firstRow,
+            lastRow);
+    }
+
+    private readonly record struct SkipProcessedRowsResult(PharmaSourceRow? PendingRow, long Skipped)
+    {
+        public bool HasPendingRow => PendingRow is not null;
     }
 
 }

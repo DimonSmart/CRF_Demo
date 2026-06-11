@@ -119,6 +119,131 @@ public class CliSmokeTests
         uri.ToString().Should().EndWith("/v1");
         uri.ToString().Should().NotContain("/v1/v1");
     }
+
+    [Fact]
+    public void LlmOptions_UsesSelectedProfile()
+    {
+        WithLlmConfig(configPath =>
+            WithEnvironment(
+                () =>
+                {
+                    var options = LlmOptionsFactory.FromEnvironment();
+
+                    options.ModelId.Should().Be("openai/gpt-oss-120b");
+                    options.BaseEndpoint.ToString().Should().Be("https://integrate.api.nvidia.com/v1");
+                    options.ApiKey.Should().Be("test-secret");
+                },
+                ("LLM_CONFIG_PATH", configPath),
+                ("LLM_PROFILE", "nvidia"),
+                ("LLM_MODEL", null),
+                ("LLM_BASE_URL", null),
+                ("LLM_API_KEY", null),
+                ("LLM_RETRY_COUNT", null),
+                ("LLM_TIMEOUT_MINUTES", null),
+                ("LLM_IGNORE_SSL_ERRORS", null),
+                ("LLM_USERNAME", null),
+                ("LLM_PASSWORD", null),
+                ("NVIDIA_API_KEY", "test-secret")));
+    }
+
+    [Fact]
+    public void LlmOptions_EnvironmentOverridesSelectedProfile()
+    {
+        WithLlmConfig(configPath =>
+            WithEnvironment(
+                () =>
+                {
+                    var options = LlmOptionsFactory.FromEnvironment();
+
+                    options.ModelId.Should().Be("custom-model");
+                    options.BaseEndpoint.ToString().Should().Be("http://custom-host:1234/v1");
+                    options.ApiKey.Should().Be("custom-key");
+                },
+                ("LLM_CONFIG_PATH", configPath),
+                ("LLM_PROFILE", "nvidia"),
+                ("NVIDIA_API_KEY", "test-secret"),
+                ("LLM_MODEL", "custom-model"),
+                ("LLM_BASE_URL", "http://custom-host:1234"),
+                ("LLM_API_KEY", "custom-key")));
+    }
+
+    [Fact]
+    public void LlmOptions_UsesOneBasedProfileNumber()
+    {
+        WithLlmConfig(configPath =>
+            WithEnvironment(
+                () =>
+                {
+                    var options = LlmOptionsFactory.FromEnvironment();
+
+                    options.ModelId.Should().Be("openai/gpt-oss-120b");
+                    options.ApiKey.Should().Be("test-secret");
+                },
+                ("LLM_CONFIG_PATH", configPath),
+                ("LLM_PROFILE", "2"),
+                ("LLM_MODEL", null),
+                ("LLM_BASE_URL", null),
+                ("LLM_API_KEY", null),
+                ("NVIDIA_API_KEY", "test-secret")));
+    }
+
+    private static void WithLlmConfig(Action<string> action)
+    {
+        var path = Path.Combine(Path.GetTempPath(), $"llmsettings-{Guid.NewGuid()}.json");
+        File.WriteAllText(
+            path,
+            """
+            {
+              "Llm": {
+                "ActiveProfile": "ollama",
+                "Profiles": [
+                  {
+                    "Name": "ollama",
+                    "BaseUrl": "http://localhost:11434",
+                    "Model": "qwen3:14b",
+                    "ApiKey": "ollama"
+                  },
+                  {
+                    "Name": "nvidia",
+                    "BaseUrl": "https://integrate.api.nvidia.com/v1",
+                    "Model": "openai/gpt-oss-120b",
+                    "ApiKey": "%NVIDIA_API_KEY%",
+                    "RetryCount": 3
+                  }
+                ]
+              }
+            }
+            """);
+
+        try
+        {
+            action(path);
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    private static void WithEnvironment(Action action, params (string Name, string? Value)[] values)
+    {
+        var previous = values
+            .Select(v => (v.Name, Value: Environment.GetEnvironmentVariable(v.Name)))
+            .ToArray();
+
+        try
+        {
+            foreach (var (name, value) in values)
+                Environment.SetEnvironmentVariable(name, value);
+
+            action();
+        }
+        finally
+        {
+            foreach (var (name, value) in previous)
+                Environment.SetEnvironmentVariable(name, value);
+        }
+    }
 }
 
 /// <summary>Provides access to private CLI helpers via reflection for testing.</summary>

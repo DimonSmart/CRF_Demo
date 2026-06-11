@@ -52,7 +52,49 @@ The repository also contains `CrfDemo`, a console demo that loads `pharma-corpus
 
 ## Prerequisites
 
-### Ollama
+### LLM endpoint
+
+The annotator uses an OpenAI-compatible `/v1/chat/completions` endpoint.
+
+Profiles are stored in `llmsettings.json`:
+
+```json
+{
+  "Llm": {
+    "ActiveProfile": "ollama",
+    "Profiles": [
+      {
+        "Name": "ollama",
+        "BaseUrl": "http://localhost:11434",
+        "Model": "gpt-oss:120b-cloud",
+        "ApiKey": "ollama"
+      },
+      {
+        "Name": "nvidia",
+        "BaseUrl": "https://integrate.api.nvidia.com/v1",
+        "Model": "openai/gpt-oss-120b",
+        "ApiKey": "%NVIDIA_API_KEY%"
+      }
+    ]
+  }
+}
+```
+
+Set `Llm:ActiveProfile` in `llmsettings.json`, or override it for one run. The selector accepts either a profile name or a 1-based profile number from the `Profiles` array:
+
+```powershell
+$env:LLM_PROFILE = "nvidia"
+# or:
+$env:LLM_PROFILE = "2"
+```
+
+If a setting value is written as `%NAME%`, the app reads the real value from .NET user-secrets or environment variables by `NAME`.
+
+```powershell
+dotnet user-secrets set NVIDIA_API_KEY "nvapi-..." --project src/PharmaCorpusAnnotator.Cli
+```
+
+For local Ollama, set the `ollama` profile model to an installed local model, for example `qwen3:14b`:
 
 1. Install [Ollama](https://ollama.com)
 2. Pull a model:
@@ -66,9 +108,7 @@ The repository also contains `CrfDemo`, a console demo that loads `pharma-corpus
 ### PowerShell
 
 ```powershell
-$env:LLM_BASE_URL = "http://localhost:11434"
-$env:LLM_MODEL    = "qwen3:14b"
-$env:LLM_API_KEY  = "ollama"
+$env:LLM_PROFILE = "nvidia"
 
 dotnet run --project src/PharmaCorpusAnnotator.Cli -- annotate `
   --input SourceData/20260610_Nomenclator_de_Facturacion.csv `
@@ -81,9 +121,7 @@ dotnet run --project src/PharmaCorpusAnnotator.Cli -- annotate `
 ### Windows CMD
 
 ```bat
-set LLM_BASE_URL=http://localhost:11434
-set LLM_MODEL=qwen3:14b
-set LLM_API_KEY=ollama
+set LLM_PROFILE=nvidia
 
 dotnet run --project src/PharmaCorpusAnnotator.Cli -- annotate ^
   --input SourceData/20260610_Nomenclator_de_Facturacion.csv ^
@@ -121,10 +159,20 @@ dotnet run --project src/PharmaCorpusAnnotator.Cli -- annotate `
 | `--verbose` | off | Verbose diagnostics |
 | `--dry-run` | off | Tokenize without LLM calls |
 
-## Environment variables
+## LLM configuration
+
+Configuration order:
+
+1. `llmsettings.json`
+2. .NET user-secrets
+3. Environment variables
+
+Environment variables override the selected profile:
 
 | Variable | Default |
 |----------|---------|
+| `LLM_PROFILE` | `Llm:ActiveProfile` or `ollama` |
+| `LLM_CONFIG_PATH` | `llmsettings.json` |
 | `LLM_MODEL` | `qwen3:14b` |
 | `LLM_BASE_URL` | `http://localhost:11434` |
 | `LLM_API_KEY` | `ollama` |
@@ -144,9 +192,7 @@ dotnet test
 ### Run explicit LLM integration test
 
 ```powershell
-$env:LLM_BASE_URL = "http://localhost:11434"
-$env:LLM_MODEL = "qwen3:14b"
-$env:LLM_API_KEY = "ollama"
+$env:LLM_PROFILE = "nvidia"
 
 dotnet test --filter "FullyQualifiedName~LlmIntegrationTests" -- xUnit.Explicit=on
 ```

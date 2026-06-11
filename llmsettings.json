@@ -1,0 +1,23 @@
+{
+  "Llm": {
+    "ActiveProfile": "ollama",
+    "Profiles": [
+      {
+        "Name": "ollama",
+        "BaseUrl": "http://localhost:11434",
+        "Model": "gpt-oss:120b-cloud",
+        "ApiKey": "ollama",
+        "RetryCount": 3,
+        "TimeoutMinutes": 30
+      },
+      {
+        "Name": "nvidia",
+        "BaseUrl": "https://integrate.api.nvidia.com/v1",
+        "Model": "openai/gpt-oss-120b",
+        "ApiKey": "%NVIDIA_API_KEY%",
+        "RetryCount": 3,
+        "TimeoutMinutes": 10
+      }
+    ]
+  }
+}

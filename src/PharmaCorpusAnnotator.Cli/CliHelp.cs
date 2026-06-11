@@ -29,6 +29,8 @@ public static class CliHelp
               --dry-run                 Tokenize without calling LLM
 
             Environment variables:
+              LLM_PROFILE        Profile name or 1-based number from llmsettings.json
+              LLM_CONFIG_PATH    Config file path (default: llmsettings.json)
               LLM_MODEL          (default: qwen3:14b)
               LLM_BASE_URL       (default: http://localhost:11434)
               LLM_API_KEY        (default: ollama)

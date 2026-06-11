@@ -56,6 +56,43 @@ public sealed class AnnotationRunnerTests : IDisposable
     }
 
     [Fact]
+    public async Task Resume_LogsAlreadyProcessedRowsAsRange()
+    {
+        var input = Path.Combine(_tmpDir, "source.csv");
+        await File.WriteAllTextAsync(
+            input,
+            "Código Nacional;Nombre del producto farmacéutico" + Environment.NewLine +
+            "140001;producto uno 1 mg" + Environment.NewLine +
+            "140002;producto dos 2 mg" + Environment.NewLine +
+            "140003;producto tres 3 mg" + Environment.NewLine +
+            "140004;producto cuatro 4 mg" + Environment.NewLine,
+            TestContext.Current.CancellationToken);
+
+        var output = Path.Combine(_tmpDir, "corpus.json");
+        var failedOutput = Path.Combine(_tmpDir, "failed.jsonl");
+        var logProvider = new CapturingLoggerProvider();
+        using var loggerFactory = LoggerFactory.Create(builder =>
+        {
+            builder.SetMinimumLevel(LogLevel.Debug);
+            builder.AddProvider(logProvider);
+        });
+
+        await CreateRunner(loggerFactory: loggerFactory)
+            .RunAsync(CreateOptions(input, output, failedOutput, maxRows: 3), TestContext.Current.CancellationToken);
+
+        await CreateRunner(loggerFactory: loggerFactory)
+            .RunAsync(CreateOptions(input, output, failedOutput, maxRows: 1), TestContext.Current.CancellationToken);
+
+        logProvider.Messages
+            .Where(message => message.Contains("already processed rows", StringComparison.Ordinal))
+            .Should()
+            .ContainSingle()
+            .Which
+            .Should()
+            .Be("Skipped 3 already processed rows (2-4)");
+    }
+
+    [Fact]
     public async Task FailedRecords_DoNotContainContext()
     {
         var input = Path.Combine(_tmpDir, "source.csv");
@@ -126,9 +163,11 @@ public sealed class AnnotationRunnerTests : IDisposable
         modelClient.Requests[0].Tokens.Select(t => t.Text).Should().Equal("producto", "uno", "1", "mg");
     }
 
-    private static AnnotationRunner CreateRunner(IPharmaAnnotationModelClient? modelClient = null)
+    private static AnnotationRunner CreateRunner(
+        IPharmaAnnotationModelClient? modelClient = null,
+        ILoggerFactory? loggerFactory = null)
     {
-        var loggerFactory = LoggerFactory.Create(_ => { });
+        loggerFactory ??= LoggerFactory.Create(_ => { });
         return new AnnotationRunner(
             new CsvPharmaSourceReader(loggerFactory.CreateLogger<CsvPharmaSourceReader>()),
             new PharmaTokenizer(),
@@ -210,6 +249,55 @@ public sealed class AnnotationRunnerTests : IDisposable
                 new AnnotationQuality(null, []));
 
             return Task.FromResult(response);
+        }
+    }
+
+    private sealed class CapturingLoggerProvider : ILoggerProvider
+    {
+        private readonly object _gate = new();
+        private readonly List<string> _messages = [];
+
+        public IReadOnlyList<string> Messages
+        {
+            get
+            {
+                lock (_gate)
+                    return [.. _messages];
+            }
+        }
+
+        public ILogger CreateLogger(string categoryName) => new CapturingLogger(this);
+
+        public void Dispose()
+        {
+        }
+
+        private void Add(string message)
+        {
+            lock (_gate)
+                _messages.Add(message);
+        }
+
+        private sealed class CapturingLogger(CapturingLoggerProvider provider) : ILogger
+        {
+            public IDisposable? BeginScope<TState>(TState state)
+                where TState : notnull =>
+                null;
+
+            public bool IsEnabled(LogLevel logLevel) => logLevel >= LogLevel.Debug;
+
+            public void Log<TState>(
+                LogLevel logLevel,
+                EventId eventId,
+                TState state,
+                Exception? exception,
+                Func<TState, Exception?, string> formatter)
+            {
+                if (!IsEnabled(logLevel))
+                    return;
+
+                provider.Add(formatter(state, exception));
+            }
         }
     }
 }
