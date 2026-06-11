@@ -1,4 +1,5 @@
 using CrfDemo.Corpus;
+using CrfDemo.ConsoleUi;
 using CrfDemo.Inference;
 using CrfDemo.Training;
 using FluentAssertions;
@@ -67,7 +68,99 @@ public class CrfTrainingCliTests
     }
 
     [Fact]
-    public void Workflow_WithValidation_SavesBestMacroF1Model()
+    public void Evaluation_SelectionMacroF1_ExcludesO()
+    {
+        var workflow = new CrfTrainingWorkflow(new TrainingOptions { ValidationShare = 0 });
+        var model = Model("O", "B-STRENGTH");
+        var validation = new[]
+        {
+            Sequence("good-1", "O"),
+            Sequence("good-2", "O"),
+            Sequence("missed", "B-STRENGTH")
+        };
+
+        var report = workflow.Evaluate(model, validation, validation.Length);
+
+        report.MacroF1.Should().BeApproximately(0.4, 1e-9);
+        report.SelectionMacroF1.Should().Be(0);
+        report.SelectionLabels.Should().Equal("B-STRENGTH");
+    }
+
+    [Fact]
+    public void Evaluation_SelectionMacroF1_ExcludesLabelsWithoutSupport()
+    {
+        var workflow = new CrfTrainingWorkflow(new TrainingOptions { ValidationShare = 0 });
+        var model = Model("O", "B-STRENGTH", "B-ROUTE");
+        var validation = new[] { Sequence("missed", "B-STRENGTH") };
+
+        var report = workflow.Evaluate(model, validation, validation.Length);
+
+        report.SelectionLabels.Should().Equal("B-STRENGTH");
+        report.SelectionLabels.Should().NotContain("B-ROUTE");
+    }
+
+    [Fact]
+    public void Evaluation_SelectionMacroF1_IncludesLabelsWithSupport()
+    {
+        var workflow = new CrfTrainingWorkflow(new TrainingOptions { ValidationShare = 0 });
+        var model = Model("B-STRENGTH", "O");
+        var validation = new[] { Sequence("matched", "B-STRENGTH") };
+
+        var report = workflow.Evaluate(model, validation, validation.Length);
+
+        report.SelectionLabels.Should().Equal("B-STRENGTH");
+        report.SelectionMacroF1.Should().Be(1);
+    }
+
+    [Fact]
+    public void Evaluation_SelectionMacroF1_IsZeroWhenValidationHasOnlyO()
+    {
+        var workflow = new CrfTrainingWorkflow(new TrainingOptions { ValidationShare = 0 });
+        var model = Model("O", "B-STRENGTH");
+        var validation = new[] { Sequence("only-o", "O") };
+
+        var report = workflow.Evaluate(model, validation, validation.Length);
+
+        report.SelectionMacroF1.Should().Be(0);
+        report.SelectionLabels.Should().BeEmpty();
+    }
+
+    [Fact]
+    public void Evaluation_Renderer_WarnsWhenSelectionMacroF1IsUnavailable()
+    {
+        var report = new EvaluationReport
+        {
+            TotalRows = 1,
+            ValidationRows = 1,
+            TokenCount = 1,
+            Accuracy = 1,
+            MicroF1 = 1,
+            MacroF1 = 1,
+            SelectionMacroF1 = 0,
+            SelectionLabels = Array.Empty<string>(),
+            Labels = new Dictionary<string, LabelMetrics>(StringComparer.Ordinal)
+            {
+                ["O"] = new(1, 0, 0)
+            }
+        };
+        using var writer = new StringWriter();
+        var originalOut = Console.Out;
+
+        try
+        {
+            Console.SetOut(writer);
+            new ConsoleRenderer().RenderEvaluation(report, includeErrors: false);
+        }
+        finally
+        {
+            Console.SetOut(originalOut);
+        }
+
+        writer.ToString().Should().Contain("Selection Macro F1 is unavailable because validation set has no non-O labels with support.");
+    }
+
+    [Fact]
+    public void Workflow_WithValidation_SavesBestSelectionMacroF1Model()
     {
         var corpus = Corpus(
             Record(1, "alpha", "B-AI"),
@@ -93,7 +186,8 @@ public class CrfTrainingCliTests
             var savedEvaluation = workflow.Evaluate(saved, split.Validation, split.Train.Count + split.Validation.Count);
 
             report.BestEpoch.Should().NotBeNull();
-            savedEvaluation.MacroF1.Should().BeApproximately(report.BestMacroF1!.Value, 1e-9);
+            savedEvaluation.SelectionMacroF1.Should().BeApproximately(report.BestSelectionMacroF1!.Value, 1e-9);
+            report.BestSelectionMacroF1.Should().Be(report.Epochs.Max(x => x.SelectionMacroF1));
         }
         finally
         {
@@ -119,7 +213,38 @@ public class CrfTrainingCliTests
             File.Exists(modelPath).Should().BeTrue();
             report.ValidationDisabled.Should().BeTrue();
             report.BestEpoch.Should().BeNull();
+            report.BestSelectionMacroF1.Should().BeNull();
             report.Evaluation.Should().BeNull();
+        }
+        finally
+        {
+            if (File.Exists(modelPath))
+                File.Delete(modelPath);
+        }
+    }
+
+    [Fact]
+    public void Workflow_EarlyStopping_UsesSelectionMacroF1()
+    {
+        var corpus = Corpus(
+            Record(1, "alpha", "O"),
+            Record(2, "beta", "O"),
+            Record(3, "gamma", "O"));
+        var modelPath = Path.Combine(Path.GetTempPath(), $"crf-early-stop-{Guid.NewGuid()}.model");
+
+        try
+        {
+            var report = new CrfTrainingWorkflow(new TrainingOptions
+            {
+                Epochs = 5,
+                Seed = 1,
+                ValidationShare = 0.5,
+                EarlyStoppingPatience = 1
+            }).Train(corpus, modelPath);
+
+            report.EarlyStoppingTriggered.Should().BeTrue();
+            report.EpochsCompleted.Should().Be(2);
+            report.BestSelectionMacroF1.Should().Be(0);
         }
         finally
         {
@@ -131,6 +256,14 @@ public class CrfTrainingCliTests
     private static TrainingSequence Sequence(string token, string label)
     {
         return new TrainingSequence(token, new[] { token }, new[] { label });
+    }
+
+    private static TrainedSequenceLabeler Model(params string[] labels)
+    {
+        return new TrainedSequenceLabeler(
+            labels,
+            new Dictionary<string, double>(StringComparer.Ordinal),
+            new Dictionary<string, double>(StringComparer.Ordinal));
     }
 
     private static CorpusDocument Corpus(params CorpusRecord[] records)

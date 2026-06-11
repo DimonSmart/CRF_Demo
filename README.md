@@ -195,9 +195,11 @@ The `train` command accepts these training parameters:
 | `--l2` | `0.0001` | L2 regularization |
 | `--seed` | `42` | Seed for deterministic shuffle and train/validation split |
 | `--validation-share` | `0.2` | Corpus share used for validation, from `0.0` inclusive to `1.0` exclusive |
-| `--early-stopping-patience` | `5` | Epochs without validation Macro F1 improvement before stopping; `0` disables early stopping |
+| `--early-stopping-patience` | `5` | Epochs without validation Selection Macro F1 improvement before stopping; `0` disables early stopping |
 
-Training evaluates the model after each epoch on the validation split. The final `.model` file contains the best model by validation `Macro F1`. If `--validation-share 0` is used, validation is disabled and the last epoch model is saved.
+Training evaluates the model after each epoch on the validation split. The final `.model` file contains the best model by validation `Selection Macro F1`. `Selection Macro F1` is calculated only over labels that are present in the validation set, excluding `O`. `Full Macro F1` remains in the report as a diagnostic metric over the full evaluated label set.
+
+If `Full Macro F1` is noticeably lower than `Selection Macro F1`, the BIO schema may contain rare labels or labels absent from the current validation split. Model selection uses `Selection Macro F1` because it is more stable on a small corpus. If `--validation-share 0` is used, validation is disabled, `Selection Macro F1` is unavailable, and the last epoch model is saved.
 
 ```bat
 TrainCrfModel.bat

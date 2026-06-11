@@ -27,7 +27,7 @@ public sealed class CrfTrainingWorkflow
         var validationDisabled = split.Validation.Count == 0;
         TrainedSequenceLabeler? bestModel = null;
         EvaluationReport? bestEvaluation = null;
-        var bestMacroF1 = double.NegativeInfinity;
+        var bestSelectionMacroF1 = double.NegativeInfinity;
         int? bestEpoch = null;
         var epochsWithoutImprovement = 0;
         var earlyStoppingTriggered = false;
@@ -42,10 +42,10 @@ public sealed class CrfTrainingWorkflow
                 continue;
 
             var evaluation = Evaluate(model, split.Validation, sequences.Count);
-            var isBest = evaluation.MacroF1 > bestMacroF1 + 1e-9;
+            var isBest = evaluation.SelectionMacroF1 > bestSelectionMacroF1 + 1e-9;
             if (isBest)
             {
-                bestMacroF1 = evaluation.MacroF1;
+                bestSelectionMacroF1 = evaluation.SelectionMacroF1;
                 bestModel = model.Clone();
                 bestEvaluation = evaluation;
                 bestEpoch = epoch;
@@ -63,18 +63,20 @@ public sealed class CrfTrainingWorkflow
                 TokenAccuracy = evaluation.Accuracy,
                 MicroF1 = evaluation.MicroF1,
                 MacroF1 = evaluation.MacroF1,
+                SelectionMacroF1 = evaluation.SelectionMacroF1,
                 IsBest = isBest
             };
             epochReports.Add(epochReport);
             Console.WriteLine(
                 string.Format(
                     CultureInfo.InvariantCulture,
-                    "Epoch {0}/{1}: token accuracy={2:F4}, micro F1={3:F4}, macro F1={4:F4}, best={5}",
+                    "Epoch {0}/{1}: token accuracy={2:F4}, micro F1={3:F4}, macro F1={4:F4}, selection macro F1={5:F4}, best={6}",
                     epochReport.Epoch,
                     epochReport.EpochsRequested,
                     epochReport.TokenAccuracy,
                     epochReport.MicroF1,
                     epochReport.MacroF1,
+                    epochReport.SelectionMacroF1,
                     epochReport.IsBest.ToString().ToLowerInvariant()));
 
             if (_options.EarlyStoppingPatience > 0 && epochsWithoutImprovement >= _options.EarlyStoppingPatience)
@@ -83,9 +85,6 @@ public sealed class CrfTrainingWorkflow
                 break;
             }
         }
-
-        if (validationDisabled)
-            Console.WriteLine("Best model by Macro F1 is unavailable because validation split is disabled.");
 
         var modelToSave = validationDisabled ? model : bestModel ?? model;
         modelToSave.Save(modelPath);
@@ -104,6 +103,7 @@ public sealed class CrfTrainingWorkflow
             ValidationShare = _options.ValidationShare,
             EarlyStoppingPatience = _options.EarlyStoppingPatience,
             BestEpoch = bestEpoch,
+            BestSelectionMacroF1 = bestEvaluation?.SelectionMacroF1,
             BestMacroF1 = bestEvaluation?.MacroF1,
             BestMicroF1 = bestEvaluation?.MicroF1,
             BestTokenAccuracy = bestEvaluation?.Accuracy,
@@ -161,6 +161,13 @@ public sealed class CrfTrainingWorkflow
         var microFp = immutable.Values.Sum(x => x.FalsePositive);
         var microFn = immutable.Values.Sum(x => x.FalseNegative);
         var micro = new LabelMetrics(microTp, microFp, microFn);
+        var selectionLabels = immutable
+            .Where(x => x.Key != "O" && x.Value.TruePositive + x.Value.FalseNegative > 0)
+            .Select(x => x.Key)
+            .ToArray();
+        var selectionMacroF1 = selectionLabels.Length == 0
+            ? 0
+            : selectionLabels.Average(label => immutable[label].F1);
 
         return new EvaluationReport
         {
@@ -170,6 +177,8 @@ public sealed class CrfTrainingWorkflow
             Accuracy = tokenCount == 0 ? 0 : (double)correct / tokenCount,
             MicroF1 = micro.F1,
             MacroF1 = immutable.Count == 0 ? 0 : immutable.Values.Average(x => x.F1),
+            SelectionMacroF1 = selectionMacroF1,
+            SelectionLabels = selectionLabels,
             Labels = immutable,
             Errors = errors
         };

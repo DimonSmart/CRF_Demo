@@ -41,7 +41,8 @@ public sealed class ConsoleRenderer
         Console.WriteLine($"Validation share: {FormatDouble(report.ValidationShare)}");
         Console.WriteLine($"Early stopping patience: {report.EarlyStoppingPatience}");
         Console.WriteLine($"Best epoch: {report.BestEpoch?.ToString() ?? "n/a"}");
-        Console.WriteLine($"Best Macro F1: {FormatMetric(report.BestMacroF1)}");
+        Console.WriteLine($"Best Selection Macro F1: {FormatMetric(report.BestSelectionMacroF1)}");
+        Console.WriteLine($"Best Full Macro F1: {FormatMetric(report.BestMacroF1)}");
         Console.WriteLine($"Best Micro F1: {FormatMetric(report.BestMicroF1)}");
         Console.WriteLine($"Best Token Accuracy: {FormatMetric(report.BestTokenAccuracy)}");
         Console.WriteLine($"Labels: {report.LabelCount}");
@@ -49,9 +50,9 @@ public sealed class ConsoleRenderer
         Console.WriteLine($"Model path: {report.ModelPath}");
         Console.WriteLine("Status: saved");
         if (report.ValidationDisabled)
-            Console.WriteLine("Validation is disabled. The last epoch model was saved.");
+            Console.WriteLine("Validation is disabled. Selection Macro F1 is unavailable. The last epoch model was saved.");
         else if (report.EarlyStoppingTriggered)
-            Console.WriteLine($"Early stopping: stopped after {report.EarlyStoppingPatience} epochs without Macro F1 improvement.");
+            Console.WriteLine($"Early stopping: stopped after {report.EarlyStoppingPatience} epochs without Selection Macro F1 improvement.");
         else
             Console.WriteLine("Early stopping: not triggered.");
 
@@ -67,7 +68,19 @@ public sealed class ConsoleRenderer
         Console.WriteLine($"Tokens: {report.TokenCount}");
         Console.WriteLine($"Token accuracy: {FormatPercent(report.Accuracy)}");
         Console.WriteLine($"Micro F1: {FormatPercent(report.MicroF1)}");
-        Console.WriteLine($"Macro F1: {FormatPercent(report.MacroF1)}");
+        Console.WriteLine($"Full Macro F1: {FormatPercent(report.MacroF1)}");
+        Console.WriteLine($"Selection Macro F1: {FormatPercent(report.SelectionMacroF1)}");
+        if (report.SelectionLabels.Count == 0)
+        {
+            Console.WriteLine("Selection Macro F1 is unavailable because validation set has no non-O labels with support.");
+        }
+        else
+        {
+            Console.WriteLine("Selection labels:");
+            foreach (var label in report.SelectionLabels)
+                Console.WriteLine(label);
+        }
+
         Console.WriteLine();
         Console.WriteLine($"{"Label",-28} {"Precision",10} {"Recall",10} {"F1",10}");
         foreach (var item in report.Labels)

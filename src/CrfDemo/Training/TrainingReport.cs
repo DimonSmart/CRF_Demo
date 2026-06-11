@@ -14,6 +14,7 @@ public sealed class TrainingReport
     public double ValidationShare { get; init; }
     public int EarlyStoppingPatience { get; init; }
     public int? BestEpoch { get; init; }
+    public double? BestSelectionMacroF1 { get; init; }
     public double? BestMacroF1 { get; init; }
     public double? BestMicroF1 { get; init; }
     public double? BestTokenAccuracy { get; init; }
@@ -31,6 +32,7 @@ public sealed class EpochTrainingReport
     public double TokenAccuracy { get; init; }
     public double MicroF1 { get; init; }
     public double MacroF1 { get; init; }
+    public double SelectionMacroF1 { get; init; }
     public bool IsBest { get; init; }
 }
 
@@ -42,6 +44,8 @@ public sealed class EvaluationReport
     public double Accuracy { get; init; }
     public double MicroF1 { get; init; }
     public double MacroF1 { get; init; }
+    public double SelectionMacroF1 { get; init; }
+    public IReadOnlyList<string> SelectionLabels { get; init; } = Array.Empty<string>();
     public Dictionary<string, LabelMetrics> Labels { get; init; } = new(StringComparer.Ordinal);
     public IReadOnlyList<PredictionError> Errors { get; init; } = Array.Empty<PredictionError>();
 }
