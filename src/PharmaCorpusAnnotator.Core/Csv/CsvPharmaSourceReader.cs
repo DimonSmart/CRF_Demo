@@ -44,48 +44,96 @@ public sealed class CsvPharmaSourceReader
             throw new InvalidOperationException(
                 $"Text column '{options.TextColumn}' not found in CSV. Available: {string.Join(", ", headers)}");
 
-        long physicalRow = 1; // header was row 1
-        long skipped = 0;
-        long processed = 0;
-
-        while (await csv.ReadAsync())
+        if (!string.IsNullOrWhiteSpace(options.RequiredNonEmptyColumn) &&
+            !headers.Contains(options.RequiredNonEmptyColumn))
         {
-            cancellationToken.ThrowIfCancellationRequested();
-            physicalRow++;
+            throw new InvalidOperationException(
+                $"Required non-empty column not found: {options.RequiredNonEmptyColumn}");
+        }
 
-            if (options.Skip > 0 && skipped < options.Skip)
+        long physicalRow = 1; // header was row 1
+        long skippedBySkipOption = 0;
+        long rowsRead = 0;
+        long skippedByEmptyTextColumn = 0;
+        long skippedByRequiredColumn = 0;
+        long acceptedRows = 0;
+
+        try
+        {
+            while (!options.MaxRows.HasValue || acceptedRows < options.MaxRows.Value)
             {
-                skipped++;
-                continue;
+                if (!await csv.ReadAsync())
+                    break;
+
+                cancellationToken.ThrowIfCancellationRequested();
+                physicalRow++;
+                rowsRead++;
+
+                string text;
+                try
+                {
+                    text = csv.GetField(options.TextColumn) ?? "";
+                }
+                catch (Exception ex)
+                {
+                    skippedByEmptyTextColumn++;
+                    _logger.LogWarning(ex, "Could not read text column at row {Row}, skipping.", physicalRow);
+                    continue;
+                }
+
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    skippedByEmptyTextColumn++;
+                    _logger.LogWarning("Empty text at row {Row}, skipping.", physicalRow);
+                    continue;
+                }
+
+                if (!string.IsNullOrWhiteSpace(options.RequiredNonEmptyColumn))
+                {
+                    var requiredValue = csv.GetField(options.RequiredNonEmptyColumn) ?? "";
+                    if (string.IsNullOrWhiteSpace(requiredValue))
+                    {
+                        skippedByRequiredColumn++;
+                        continue;
+                    }
+                }
+
+                if (options.Skip > 0 && skippedBySkipOption < options.Skip)
+                {
+                    skippedBySkipOption++;
+                    continue;
+                }
+
+                acceptedRows++;
+                yield return new PharmaSourceRow(
+                    options.SourceKey,
+                    fileName,
+                    physicalRow,
+                    options.TextColumn,
+                    text.Trim());
+            }
+        }
+        finally
+        {
+            var stats = new CsvReadStatistics(
+                rowsRead,
+                skippedByEmptyTextColumn,
+                skippedByRequiredColumn,
+                acceptedRows);
+
+            _logger.LogInformation("CSV rows read:                         {RowsRead}", stats.RowsRead);
+            _logger.LogInformation(
+                "CSV rows skipped by empty text column:  {Skipped}",
+                stats.SkippedByEmptyTextColumn);
+
+            if (!string.IsNullOrWhiteSpace(options.RequiredNonEmptyColumn))
+            {
+                _logger.LogInformation(
+                    "CSV rows skipped by required column:    {Skipped}",
+                    stats.SkippedByRequiredColumn);
             }
 
-            if (options.MaxRows.HasValue && processed >= options.MaxRows.Value)
-                yield break;
-
-            string text;
-            try
-            {
-                text = csv.GetField(options.TextColumn) ?? "";
-            }
-            catch (Exception ex)
-            {
-                _logger.LogWarning(ex, "Could not read text column at row {Row}, skipping.", physicalRow);
-                continue;
-            }
-
-            if (string.IsNullOrWhiteSpace(text))
-            {
-                _logger.LogWarning("Empty text at row {Row}, skipping.", physicalRow);
-                continue;
-            }
-
-            processed++;
-            yield return new PharmaSourceRow(
-                options.SourceKey,
-                fileName,
-                physicalRow,
-                options.TextColumn,
-                text.Trim());
+            _logger.LogInformation("CSV rows accepted:                     {Accepted}", stats.AcceptedRows);
         }
     }
 

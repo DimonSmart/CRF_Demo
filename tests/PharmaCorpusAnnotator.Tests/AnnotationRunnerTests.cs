@@ -13,6 +13,7 @@ namespace PharmaCorpusAnnotator.Tests;
 public sealed class AnnotationRunnerTests : IDisposable
 {
     private static readonly JsonSerializerOptions JsonOpts = new(JsonSerializerOptions.Web);
+    private const string RequiredColumn = "Principio activo o asociación de principios activos";
     private readonly string _tmpDir;
 
     public AnnotationRunnerTests()
@@ -75,6 +76,56 @@ public sealed class AnnotationRunnerTests : IDisposable
         jsonl.Should().Contain("\"error\"");
     }
 
+    [Fact]
+    public async Task RequiredNonEmptyColumn_IsStoredInSourceMetadata()
+    {
+        var input = Path.Combine(_tmpDir, "source.csv");
+        await File.WriteAllTextAsync(
+            input,
+            $"Código Nacional;Nombre del producto farmacéutico;{RequiredColumn}" + Environment.NewLine +
+            "140001;producto uno 1 mg;ACTIVO" + Environment.NewLine +
+            "140002;producto dos 2 mg;" + Environment.NewLine,
+            TestContext.Current.CancellationToken);
+
+        var output = Path.Combine(_tmpDir, "corpus.json");
+        var failedOutput = Path.Combine(_tmpDir, "failed.jsonl");
+        var runner = CreateRunner();
+
+        await runner.RunAsync(
+            CreateOptions(input, output, failedOutput, maxRows: 10, requiredNonEmptyColumn: RequiredColumn),
+            TestContext.Current.CancellationToken);
+
+        using var f = File.OpenRead(output);
+        var doc = JsonSerializer.Deserialize<PharmaCorpusDocument>(f, JsonOpts)!;
+
+        doc.Sources[0].Source.RequiredNonEmptyColumn.Should().Be(RequiredColumn);
+        doc.Sources[0].Records.Select(r => r.RowNumber).Should().Equal(2);
+    }
+
+    [Fact]
+    public async Task RequiredNonEmptyColumn_IsNotSentToModelRequest()
+    {
+        var input = Path.Combine(_tmpDir, "source.csv");
+        await File.WriteAllTextAsync(
+            input,
+            $"Código Nacional;Nombre del producto farmacéutico;{RequiredColumn}" + Environment.NewLine +
+            "140001;producto uno 1 mg;ACTIVO" + Environment.NewLine,
+            TestContext.Current.CancellationToken);
+
+        var output = Path.Combine(_tmpDir, "corpus.json");
+        var failedOutput = Path.Combine(_tmpDir, "failed.jsonl");
+        var modelClient = new CapturingModelClient();
+        var runner = CreateRunner(modelClient);
+
+        await runner.RunAsync(
+            CreateOptions(input, output, failedOutput, maxRows: 1, requiredNonEmptyColumn: RequiredColumn),
+            TestContext.Current.CancellationToken);
+
+        modelClient.Requests.Should().ContainSingle();
+        modelClient.Requests[0].Text.Should().Be("producto uno 1 mg");
+        modelClient.Requests[0].Tokens.Select(t => t.Text).Should().Equal("producto", "uno", "1", "mg");
+    }
+
     private static AnnotationRunner CreateRunner(IPharmaAnnotationModelClient? modelClient = null)
     {
         var loggerFactory = LoggerFactory.Create(_ => { });
@@ -89,7 +140,8 @@ public sealed class AnnotationRunnerTests : IDisposable
         string input,
         string output,
         string failedOutput,
-        int maxRows) =>
+        int maxRows,
+        string? requiredNonEmptyColumn = null) =>
         new(
             new CsvSourceOptions(
                 input,
@@ -98,7 +150,8 @@ public sealed class AnnotationRunnerTests : IDisposable
                 ";",
                 "utf-8-sig",
                 0,
-                maxRows),
+                maxRows,
+                requiredNonEmptyColumn),
             output,
             failedOutput,
             Resume: true,
@@ -136,5 +189,27 @@ public sealed class AnnotationRunnerTests : IDisposable
             PharmaAnnotationModelRequest request,
             CancellationToken cancellationToken = default) =>
             throw new InvalidOperationException("test failure");
+    }
+
+    private sealed class CapturingModelClient : IPharmaAnnotationModelClient
+    {
+        public List<PharmaAnnotationModelRequest> Requests { get; } = [];
+
+        public Task<PharmaAnnotationResponse> AnnotateAsync(
+            PharmaAnnotationModelRequest request,
+            CancellationToken cancellationToken = default)
+        {
+            Requests.Add(request);
+            var tokens = request.Tokens
+                .Select(t => new AnnotatedToken(t.Index, t.Text, "O", null, 1.0))
+                .ToList();
+
+            var response = new PharmaAnnotationResponse(
+                tokens,
+                new NormalizedPharmaItem(null, null, null, [], null, null, null, null, null, null, null, null),
+                new AnnotationQuality(null, []));
+
+            return Task.FromResult(response);
+        }
     }
 }

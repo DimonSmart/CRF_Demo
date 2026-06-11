@@ -57,6 +57,12 @@ public sealed class AnnotationRunner
                     throw new InvalidOperationException(
                         $"Source key \"{csvOpts.SourceKey}\" already exists but delimiter differs.\n" +
                         $"Existing: {h.Delimiter}\nCurrent: {csvOpts.Delimiter}");
+
+                if (h.RequiredNonEmptyColumn != csvOpts.RequiredNonEmptyColumn)
+                    throw new InvalidOperationException(
+                        $"Source key \"{csvOpts.SourceKey}\" already exists but requiredNonEmptyColumn differs.\n" +
+                        $"Existing: {h.RequiredNonEmptyColumn ?? "(none)"}\n" +
+                        $"Current:  {csvOpts.RequiredNonEmptyColumn ?? "(none)"}");
             }
         }
 
@@ -69,7 +75,8 @@ public sealed class AnnotationRunner
             "csv",
             csvOpts.Encoding,
             csvOpts.Delimiter,
-            csvOpts.TextColumn);
+            csvOpts.TextColumn,
+            csvOpts.RequiredNonEmptyColumn);
 
         corpusWriter.SetSource(sourceHeader);
 
@@ -85,6 +92,7 @@ public sealed class AnnotationRunner
         _logger.LogInformation("Output:         {Path}", options.OutputPath);
         _logger.LogInformation("Source key:     {Key}", csvOpts.SourceKey);
         _logger.LogInformation("Text column:    {Col}", csvOpts.TextColumn);
+        _logger.LogInformation("Required col:   {Col}", csvOpts.RequiredNonEmptyColumn ?? "(none)");
         _logger.LogInformation("Max rows:       {Max}", csvOpts.MaxRows?.ToString() ?? "all");
         _logger.LogInformation("Resume:         {Resume}", options.Resume);
         _logger.LogInformation("Dry run:        {DryRun}", options.DryRun);

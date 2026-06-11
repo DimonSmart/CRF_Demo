@@ -7,4 +7,5 @@ public sealed record CsvSourceOptions(
     string Delimiter,
     string Encoding,
     int Skip,
-    int? MaxRows);
+    int? MaxRows,
+    string? RequiredNonEmptyColumn = null);

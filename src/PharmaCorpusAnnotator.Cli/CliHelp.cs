@@ -14,6 +14,8 @@ public static class CliHelp
               --input <path>            Path to input CSV file (required)
               --output <path>           Path to output corpus JSON (required)
               --text-column <name>      Column with text to annotate (default: "Nombre del producto farmacéutico")
+              --require-non-empty-column <name>
+                                        Skip CSV rows where this column is missing or empty
               --source-key <key>        Stable source key (default: slug from file name)
               --delimiter <char>        CSV delimiter (default: ";")
               --encoding <enc>          Input encoding (default: "utf-8-sig")

@@ -10,7 +10,9 @@ The output is a source-blocked JSON corpus:
 
 ## Purpose
 
-Prepares a test corpus for CRF / sequence labeling on pharmaceutical product name strings. Does **not** train a CRF model yet. The JSON corpus can later be converted to CoNLL/BIO format for use with sequence labeling frameworks.
+Prepares a test corpus for CRF / sequence labeling on pharmaceutical product name strings.
+
+The repository also contains `CrfDemo`, a console demo that loads `pharma-corpus.json`, trains a linear-chain CRF sequence labeler, tags new pharmaceutical lines, renders colored BIO labels, and assembles a structured parsed card.
 
 ## Input CSV expectations
 
@@ -147,6 +149,58 @@ $env:LLM_MODEL = "qwen3:14b"
 $env:LLM_API_KEY = "ollama"
 
 dotnet test --filter "FullyQualifiedName~LlmIntegrationTests" -- xUnit.Explicit=on
+```
+
+## CRF demo
+
+The current model extracts only fields represented in the BIO schema:
+
+- active ingredients
+- strengths
+- dose form
+- route
+- package volume
+- package quantity
+- package unit
+- regulatory markers
+
+It does not extract price, manufacturer, brand, or drug name as separate fields because those labels are not present in the current corpus.
+
+### Inspect corpus
+
+```powershell
+dotnet run --project src/CrfDemo -- inspect-corpus --corpus corpus/pharma-corpus.json
+```
+
+### Train CRF model
+
+```powershell
+dotnet run --project src/CrfDemo -- train --corpus corpus/pharma-corpus.json --model models/pharma-crf.model
+```
+
+or run:
+
+```bat
+TrainCrfModel.bat
+```
+
+### Parse a new line
+
+```powershell
+dotnet run --project src/CrfDemo -- parse --model models/pharma-crf.model --text "CITALOPRAM NORMON 20MG 28 COMPRIMIDOS EFG"
+```
+
+or run:
+
+```bat
+RunCrfClassifier.bat CITALOPRAM NORMON 20MG 28 COMPRIMIDOS EFG
+```
+
+### Demo and evaluation
+
+```powershell
+dotnet run --project src/CrfDemo -- demo --corpus corpus/pharma-corpus.json --model models/pharma-crf.model
+dotnet run --project src/CrfDemo -- evaluate --corpus corpus/pharma-corpus.json --model models/pharma-crf.model
 ```
 
 ## Future export

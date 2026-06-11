@@ -42,6 +42,7 @@ public static class AnnotateCommand
         }
 
         var textColumn = parsed.GetValueOrDefault("--text-column", DefaultTextColumn)!;
+        var requiredNonEmptyColumn = parsed.GetValueOrDefault("--require-non-empty-column");
 
         var sourceKey = parsed.GetValueOrDefault("--source-key")
             ?? SlugFromFileName(input);
@@ -78,7 +79,8 @@ public static class AnnotateCommand
             Delimiter: delimiter,
             Encoding: encoding,
             Skip: skip,
-            MaxRows: maxRows);
+            MaxRows: maxRows,
+            RequiredNonEmptyColumn: requiredNonEmptyColumn);
 
         var runnerOpts = new AnnotationRunnerOptions(
             CsvOptions: csvOpts,

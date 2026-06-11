@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/src/">
+    <Project Path="src/CrfDemo/CrfDemo.csproj" />
     <Project Path="src/PharmaCorpusAnnotator.Cli/PharmaCorpusAnnotator.Cli.csproj" />
     <Project Path="src/PharmaCorpusAnnotator.Core/PharmaCorpusAnnotator.Core.csproj" />
   </Folder>

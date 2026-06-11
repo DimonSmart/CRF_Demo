@@ -6,4 +6,5 @@ public sealed record PharmaCorpusSourceHeader(
     string Format,
     string Encoding,
     string Delimiter,
-    string TextColumn);
+    string TextColumn,
+    string? RequiredNonEmptyColumn = null);
