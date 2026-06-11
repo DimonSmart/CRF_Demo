@@ -49647,6 +49647,1270 @@
               "warnings": []
             }
           }
+        },
+        {
+          "rowNumber": 5414,
+          "text": "ACECLOFENACO KERN PHARMA 100MG 40 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ACECLOFENACO",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "KERN",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "PHARMA",
+                "label": "O"
+              },
+              {
+                "index": 3,
+                "text": "100",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 5,
+                "text": "40",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "ACECLOFENACO"
+              ],
+              "strength": "100 MG",
+              "packageQuantity": 40,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5415,
+          "text": "GLUCOSA TECSOLPAR 5% 1X50ML (FR 100ML) SOLUC PERF",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLUCOSA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "TECSOLPAR",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "5%",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "1X50",
+                "label": "O"
+              },
+              {
+                "index": 4,
+                "text": "ML",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "(",
+                "label": "O"
+              },
+              {
+                "index": 6,
+                "text": "FR",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 7,
+                "text": "100",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 8,
+                "text": "ML",
+                "label": "I-PACKAGE_VOLUME"
+              },
+              {
+                "index": 9,
+                "text": ")",
+                "label": "O"
+              },
+              {
+                "index": 10,
+                "text": "SOLUC",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 11,
+                "text": "PERF",
+                "label": "I-DOSE_FORM"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLUCOSA"
+              ],
+              "strength": "5%",
+              "doseForm": "SOLUC PERF",
+              "packageUnit": "FR",
+              "packageVolume": "100 ML"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5416,
+          "text": "GLUCOSA TECSOLPAR 5% 1 X 100ML SOLUCION PERFUSION",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLUCOSA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "TECSOLPAR",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "5%",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "X",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "100",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 6,
+                "text": "ML",
+                "label": "I-PACKAGE_VOLUME"
+              },
+              {
+                "index": 7,
+                "text": "SOLUCION",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "PERFUSION",
+                "label": "I-DOSE_FORM"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLUCOSA"
+              ],
+              "strength": "5%",
+              "doseForm": "SOLUCION PERFUSION",
+              "packageQuantity": 1,
+              "packageVolume": "100 ML"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5417,
+          "text": "GLUCOSA TECSOLPAR 5% 1 X 250ML SOLUCION PERFUSION",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLUCOSA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "TECSOLPAR",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "5%",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "X",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "250",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 6,
+                "text": "ML",
+                "label": "I-PACKAGE_VOLUME"
+              },
+              {
+                "index": 7,
+                "text": "SOLUCION",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "PERFUSION",
+                "label": "I-DOSE_FORM"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLUCOSA"
+              ],
+              "strength": "5%",
+              "doseForm": "SOLUCION PERFUSION",
+              "packageQuantity": 1,
+              "packageVolume": "250 ML"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5418,
+          "text": "GLUCOSA TECSOLPAR 5% 1 X 500ML SOLUCI0N PERFUSION",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLUCOSA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "TECSOLPAR",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "5%",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "X",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "500",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 6,
+                "text": "ML",
+                "label": "I-PACKAGE_VOLUME"
+              },
+              {
+                "index": 7,
+                "text": "SOLUCI0N",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "PERFUSION",
+                "label": "I-DOSE_FORM"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLUCOSA"
+              ],
+              "strength": "5%",
+              "doseForm": "SOLUCI0N PERFUSION",
+              "packageQuantity": 1,
+              "packageVolume": "500 ML"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5419,
+          "text": "GLUCOSA TECSOLPAR 5% 1 X 1000ML SOLUCION PERFUSION",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLUCOSA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "TECSOLPAR",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "5%",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 4,
+                "text": "X",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "1000",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 6,
+                "text": "ML",
+                "label": "I-PACKAGE_VOLUME"
+              },
+              {
+                "index": 7,
+                "text": "SOLUCION",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "PERFUSION",
+                "label": "I-DOSE_FORM"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLUCOSA"
+              ],
+              "strength": "5%",
+              "doseForm": "SOLUCION PERFUSION",
+              "packageQuantity": 1,
+              "packageVolume": "1000 ML"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5420,
+          "text": "GLUCOSA TECSOLPAR 10% 250ML SOLUCION PERFUSION",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLUCOSA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "TECSOLPAR",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "10%",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "250",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 4,
+                "text": "ML",
+                "label": "I-PACKAGE_VOLUME"
+              },
+              {
+                "index": 5,
+                "text": "SOLUCION",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "PERFUSION",
+                "label": "I-DOSE_FORM"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLUCOSA"
+              ],
+              "strength": "10%",
+              "doseForm": "SOLUCION PERFUSION",
+              "packageVolume": "250 ML"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5421,
+          "text": "GLUCOSA TECSOLPAR 10% 500ML  SOLUCION PERFUSION",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLUCOSA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "TECSOLPAR",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "10%",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "500",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 4,
+                "text": "ML",
+                "label": "I-PACKAGE_VOLUME"
+              },
+              {
+                "index": 5,
+                "text": "SOLUCION",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "PERFUSION",
+                "label": "I-DOSE_FORM"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLUCOSA"
+              ],
+              "strength": "10%",
+              "doseForm": "SOLUCION PERFUSION",
+              "packageVolume": "500 ML"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5422,
+          "text": "GLIMEPIRIDA CINFA 4MG 30 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLIMEPIRIDA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "CINFA",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "4",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLIMEPIRIDA"
+              ],
+              "strength": "4 MG",
+              "packageQuantity": 30,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5423,
+          "text": "GLIMEPIRIDA CINFA 4MG 120 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLIMEPIRIDA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "CINFA",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "4",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "120",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLIMEPIRIDA"
+              ],
+              "strength": "4 MG",
+              "packageQuantity": 120,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5424,
+          "text": "GLIMEPIRIDA CINFA 2MG 30 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLIMEPIRIDA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "CINFA",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "2",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "30",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLIMEPIRIDA"
+              ],
+              "strength": "2 MG",
+              "packageQuantity": 30,
+              "packageUnit": "COMPRIMIDOS"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5425,
+          "text": "GLIMEPIRIDA CINFA 2MG 120 COMPRIMIDOS EFG",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "GLIMEPIRIDA",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "CINFA",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "2",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "120",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "COMPRIMIDOS",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 6,
+                "text": "EFG",
+                "label": "O"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "GLIMEPIRIDA"
+              ],
+              "strength": "2 MG",
+              "doseForm": "120"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5426,
+          "text": "CITALOPRAM VIATRIS 30 MG COMPRIMIDOS RECUBIERTOS CON PELICULA EFG, 28 comprimidos",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "CITALOPRAM",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "VIATRIS",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "30",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "COMPRIMIDOS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "RECUBIERTOS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "CON",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "PELICULA",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 9,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 10,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 11,
+                "text": "comprimidos",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "CITALOPRAM"
+              ],
+              "strength": "30 MG",
+              "doseForm": "COMPRIMIDOS RECUBIERTOS CON PELICULA",
+              "packageQuantity": 28,
+              "packageUnit": "comprimidos"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5427,
+          "text": "TILKER 120 120MG 40 COMP RECUB LIBER SOST",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "TILKER",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "120",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "120",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "MG",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "40",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 5,
+                "text": "COMP",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "RECUB",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "LIBER",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 8,
+                "text": "SOST",
+                "label": "I-DOSE_FORM"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "120 120 MG",
+              "doseForm": "COMP RECUB LIBER SOST",
+              "packageQuantity": 40
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5428,
+          "text": "ACNEMIN 10 mg CAPSULAS, 50 capsulas",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ACNEMIN",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "10",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "CAPSULAS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "50",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "capsulas",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "10 mg",
+              "doseForm": "CAPSULAS",
+              "packageQuantity": 50,
+              "packageUnit": "capsulas"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5429,
+          "text": "ACNEMIN 20 mg CAPSULAS, 50 capsulas",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ACNEMIN",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "CAPSULAS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 5,
+                "text": "50",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 6,
+                "text": "capsulas",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "20 mg",
+              "doseForm": "CAPSULAS",
+              "packageQuantity": 50,
+              "packageUnit": "capsulas"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5430,
+          "text": "ALPHAGAN 2 mg/ml COLIRIO EN SOLUCION , 1 envase de 5 ml",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "ALPHAGAN",
+                "label": "O"
+              },
+              {
+                "index": 1,
+                "text": "2",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 2,
+                "text": "mg/ml",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "COLIRIO",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 4,
+                "text": "EN",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "SOLUCION",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 7,
+                "text": "1",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 8,
+                "text": "envase",
+                "label": "B-PACKAGE_UNIT"
+              },
+              {
+                "index": 9,
+                "text": "de",
+                "label": "O"
+              },
+              {
+                "index": 10,
+                "text": "5",
+                "label": "B-PACKAGE_VOLUME"
+              },
+              {
+                "index": 11,
+                "text": "ml",
+                "label": "I-PACKAGE_VOLUME"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [],
+              "strength": "2 mg/ml",
+              "doseForm": "COLIRIO EN SOLUCION",
+              "packageQuantity": 1,
+              "packageUnit": "envase",
+              "packageVolume": "5 ml"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5431,
+          "text": "OMEPRAZOL ALMUS 20 mg capsulas duras gastrorresistentes , 14 capsulas",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "OMEPRAZOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALMUS",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "capsulas",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "duras",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "gastrorresistentes",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "14",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "capsulas",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "OMEPRAZOL"
+              ],
+              "strength": "20 mg",
+              "doseForm": "capsulas duras gastrorresistentes",
+              "packageQuantity": 14,
+              "packageUnit": "capsulas"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5432,
+          "text": "OMEPRAZOL ALMUS 20 mg capsulas duras gastrorresistentes , 28 capsulas",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "OMEPRAZOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALMUS",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "capsulas",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "duras",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "gastrorresistentes",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 8,
+                "text": "28",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 9,
+                "text": "capsulas",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "OMEPRAZOL"
+              ],
+              "strength": "20 mg",
+              "doseForm": "capsulas duras gastrorresistentes",
+              "packageQuantity": 28,
+              "packageUnit": "capsulas"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
+        },
+        {
+          "rowNumber": 5433,
+          "text": "OMEPRAZOL ALMUS 20 mg CAPSULAS DURAS GASTRORRESISTENTES EFG , 56 capsulas",
+          "annotation": {
+            "tokens": [
+              {
+                "index": 0,
+                "text": "OMEPRAZOL",
+                "label": "B-ACTIVE_INGREDIENT"
+              },
+              {
+                "index": 1,
+                "text": "ALMUS",
+                "label": "O"
+              },
+              {
+                "index": 2,
+                "text": "20",
+                "label": "B-STRENGTH"
+              },
+              {
+                "index": 3,
+                "text": "mg",
+                "label": "I-STRENGTH"
+              },
+              {
+                "index": 4,
+                "text": "CAPSULAS",
+                "label": "B-DOSE_FORM"
+              },
+              {
+                "index": 5,
+                "text": "DURAS",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 6,
+                "text": "GASTRORRESISTENTES",
+                "label": "I-DOSE_FORM"
+              },
+              {
+                "index": 7,
+                "text": "EFG",
+                "label": "B-REGULATORY_MARKER"
+              },
+              {
+                "index": 8,
+                "text": ",",
+                "label": "O"
+              },
+              {
+                "index": 9,
+                "text": "56",
+                "label": "B-PACKAGE_QUANTITY"
+              },
+              {
+                "index": 10,
+                "text": "capsulas",
+                "label": "B-PACKAGE_UNIT"
+              }
+            ],
+            "normalized": {
+              "activeIngredients": [
+                "OMEPRAZOL"
+              ],
+              "strength": "20 mg",
+              "doseForm": "CAPSULAS DURAS GASTRORRESISTENTES",
+              "packageQuantity": 56,
+              "packageUnit": "capsulas"
+            },
+            "quality": {
+              "warnings": []
+            }
+          }
         }
       ]
     }
